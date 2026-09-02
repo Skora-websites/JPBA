@@ -1,0 +1,23 @@
+const fs=require("fs");
+var d=[];
+function w(s){d.push(s);}
+w('"use client";');
+w('import React, { useState, useEffect, useRef } from "react";');
+w('import Link from "next/link";');
+w('import Image from "next/image";');
+w("");
+w("interface NavItem {");
+w("  label: string;");
+w("  href?: string;");
+w("  children?: { label: string; href: string }[];");
+w("}");
+w("");
+w("const navigation: NavItem[] = [");
+w("  { label: "HOME", href: "/" },");
+w("  { label: "ABOUT JPBA", children: [");
+w("    { label: "About the Association", href: "/about" },");
+w("    { label: "Mission & Purpose", href: "/about/mission" },");
+w("    { label: "What JPBA Does", href: "/about/what-we-do" },");
+w("    { label: "Action Pathway", href: "/about/action-pathway" },");
+w("    { label: "90-Day Plan", href: "/about/90-day-plan" },");
+w("  ]},");
