@@ -1,0 +1,7 @@
+"use client";
+import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/Footer";
+import PageHeader from "@/app/components/PageHeader";
+import { motion } from "framer-motion";
+
+export default function Page(){return(<div className="flex flex-col min-h-screen bg-[#FDF8EF]"><Navbar /><PageHeader title="Selection Guidelines" breadcrumb={[{label:"Selection Guidelines"}]} /><main className="flex-1 py-16"><div className="mx-auto max-w-[1400px] px-6 lg:px-10"><motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.6,delay:0.2}} className="bg-white rounded-2xl shadow-xl border border-[#C9A84C]/20 p-8 md:p-12"><h2 className="text-3xl font-bold text-[#0A2F1D] mb-6">Selection Guidelines</h2><p className="text-[#5C5C5C] text-lg leading-relaxed mb-4">Criteria for JPBA athletes to represent Jharkhand at competitions.</p><ul className="list-disc pl-6 space-y-2 mb-6 text-[#5C5C5C]"><li>Valid JPBA registration and classification</li><li>Minimum state event participation</li><li>Performance ranking at qualifiers</li><li>Medical fitness certification</li><li>Anti-doping compliance</li><li>Good conduct record</li></ul><p className="text-[#5C5C5C] text-lg leading-relaxed">Selection conducted by JPBA technical committee. Appeals within 48 hours of notification.</p></motion.div></div></main><Footer /></div>);}

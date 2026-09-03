@@ -1,0 +1,7 @@
+"use client";
+import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/Footer";
+import PageHeader from "@/app/components/PageHeader";
+import { motion } from "framer-motion";
+
+export default function Page(){return(<div className="flex flex-col min-h-screen bg-[#FDF8EF]"><Navbar /><PageHeader title="Affiliations" breadcrumb={[{label:"About"},{label:"Affiliations"}]} /><main className="flex-1 py-16"><div className="mx-auto max-w-[1400px] px-6 lg:px-10"><motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.6,delay:0.2}} className="bg-white rounded-2xl shadow-xl border border-[#C9A84C]/20 p-8 md:p-12"><h2 className="text-3xl font-bold text-[#0A2F1D] mb-6">Official Affiliations</h2><p className="text-[#5C5C5C] text-lg leading-relaxed mb-4">JPBA operates under the governance framework of national and international Boccia bodies.</p><h3 className="text-xl font-bold text-[#0A2F1D] mt-6 mb-3">Governing Bodies</h3><ul className="list-disc pl-6 space-y-2 mb-6 text-[#5C5C5C]"><li><strong>World Boccia</strong> - International governing body recognized by IPC</li><li><strong>BSFI</strong> - National governing body for Boccia in India</li><li><strong>PCI</strong> - Paralympic Committee of India</li><li><strong>SAI</strong> - Sports Authority of India</li><li><strong>JSSC</strong> - Jharkhand State Sports Council</li></ul></motion.div></div></main><Footer /></div>);}

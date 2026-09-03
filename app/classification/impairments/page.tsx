@@ -15,9 +15,9 @@ export default function ImpairmentsPage() {
     {title: "Dyskinesia", desc: "Involuntary movements that may include slow writhing motions, rapid jerking, or combinations of both. Affects the ability to maintain stable posture and make controlled movements.", examples: "Cerebral palsy (dyskinetic type), traumatic brain injury"}
   ];
   return (
-    <div className="min-h-screen bg-[#F5F5DC]">
+    <div className="min-h-screen bg-[#FDF8EF]">
       <Navbar onRegisterClick={onRegisterClick} />
-      <section className="relative py-20 overflow-hidden" style={{background: "linear-gradient(135deg, #F5F5DC 0%, #FFFFFF 50%, #E8F5E9 100%)"}}>
+      <section className="relative py-20 overflow-hidden" style={{background: "linear-gradient(135deg, #FDF8EF 0%, #FFFFFF 50%, #E8F5E9 100%)"}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center gap-2 text-sm mb-6">
             <Link href="/" className="text-[#8B6914] hover:text-[#6B4F12] font-medium transition-colors">Home</Link>
@@ -26,26 +26,26 @@ export default function ImpairmentsPage() {
             <span className="text-[#8B6914]/40 mx-1">/</span>
             <span className="text-gray-500">Eligible Impairments</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1B5E20] mb-4">Eligible Impairments</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-[#0A2F1D] mb-4">Eligible Impairments</h1>
           <p className="text-xl text-gray-600 max-w-3xl">Understanding which physical impairments qualify athletes for competitive Boccia classification.</p>
         </div>
       </section>
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <section className="mb-12">
-          <div className="bg-[#1B5E20]/5 rounded-xl p-8 border border-[#1B5E20]/10 mb-8">
-            <h2 className="text-2xl font-bold text-[#1B5E20] mb-4">Key Principle: Diagnosis ≠ Classification</h2>
+          <div className="bg-[#0A2F1D]/5 rounded-xl p-8 border border-[#0A2F1D]/10 mb-8">
+            <h2 className="text-2xl font-bold text-[#0A2F1D] mb-4">Key Principle: Diagnosis ≠ Classification</h2>
             <p className="text-lg text-gray-700">Eligibility for competitive Boccia is determined through functional testing, not by medical diagnosis alone. Two athletes with the same diagnosis may be classified into different classes based on their functional ability during sport-specific tasks.</p>
           </div>
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#1B5E20] mb-6">Eligible Impairment Types</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0A2F1D] mb-6">Eligible Impairment Types</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {impairments.map((imp, i) => (
-              <div key={i} className="bg-white rounded-xl p-6 shadow-md border border-[#D4AF37]/10">
-                <h3 className="text-xl font-bold text-[#1B5E20] mb-3">{imp.title}</h3>
+              <div key={i} className="bg-white rounded-xl p-6 shadow-md border border-[#C9A84C]/10">
+                <h3 className="text-xl font-bold text-[#0A2F1D] mb-3">{imp.title}</h3>
                 <p className="text-gray-600 mb-3">{imp.desc}</p>
-                <div className="bg-[#F5F5DC] rounded-lg p-3">
+                <div className="bg-[#FDF8EF] rounded-lg p-3">
                   <p className="text-sm text-gray-500 font-medium">Associated conditions: <span className="text-gray-700">{imp.examples}</span></p>
                 </div>
               </div>
@@ -54,7 +54,7 @@ export default function ImpairmentsPage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#1B5E20] mb-6">Impairments Not Eligible by Themselves</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0A2F1D] mb-6">Impairments Not Eligible by Themselves</h2>
           <div className="bg-red-50 rounded-xl p-8 border border-red-200">
             <p className="text-gray-700 mb-4">The following impairments alone do not qualify an athlete for Para sport classification in Boccia:</p>
             <ul className="space-y-2">
@@ -69,8 +69,8 @@ export default function ImpairmentsPage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#1B5E20] mb-6">Who Can Play Recreationally?</h2>
-          <div className="bg-white rounded-xl p-8 shadow-md border border-[#D4AF37]/10">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0A2F1D] mb-6">Who Can Play Recreationally?</h2>
+          <div className="bg-white rounded-xl p-8 shadow-md border border-[#C9A84C]/10">
             <p className="text-gray-700 leading-relaxed">
               Inclusive and recreational Boccia is open to everyone — children, adults, older persons, people with or without disabilities, wheelchair users, students, rehabilitation participants, families and support workers. No classification is required for recreational play. This makes Boccia one of the most accessible sports in the world.
             </p>

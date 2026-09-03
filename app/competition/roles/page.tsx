@@ -7,9 +7,9 @@ import Footer from "@/app/components/Footer";
 export default function RolesPage() {
   const onRegisterClick = () => { window.location.href = "/register"; };
   return (
-    <div className="min-h-screen bg-[#F5F5DC]">
+    <div className="min-h-screen bg-[#FDF8EF]">
       <Navbar onRegisterClick={onRegisterClick} />
-      <section className="relative py-20 overflow-hidden" style={{background: "linear-gradient(135deg, #F5F5DC 0%, #FFFFFF 50%, #E8F5E9 100%)"}}>
+      <section className="relative py-20 overflow-hidden" style={{background: "linear-gradient(135deg, #FDF8EF 0%, #FFFFFF 50%, #E8F5E9 100%)"}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center gap-2 text-sm mb-6">
             <Link href="/" className="text-[#8B6914] hover:text-[#6B4F12] font-medium transition-colors">Home</Link>
@@ -18,7 +18,7 @@ export default function RolesPage() {
             <span className="text-[#8B6914]/40 mx-1">/</span>
             <span className="text-gray-500">Roles &amp; Responsibilities</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1B5E20] mb-4">Roles &amp; Responsibilities</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-[#0A2F1D] mb-4">Roles &amp; Responsibilities</h1>
           <p className="text-xl text-gray-600 max-w-3xl">The key roles during a Boccia match and what each person is responsible for.</p>
         </div>
       </section>
@@ -32,10 +32,10 @@ export default function RolesPage() {
             {title: "Referee", desc: "The on-court official responsible for match management. The referee conducts the coin toss, throws the jack, enforces rules, makes penalty decisions, measures distances, and announces scores.", icon: "⚖️"},
             {title: "Line Judges", desc: "Assist the referee in determining whether balls are in or out of the playing area. They position themselves at key points around the court boundary.", icon: "👁️"}
           ].map((role, i) => (
-            <div key={i} className="bg-white rounded-xl p-6 shadow-md border border-[#D4AF37]/10">
+            <div key={i} className="bg-white rounded-xl p-6 shadow-md border border-[#C9A84C]/10">
               <div className="flex items-center gap-3 mb-3">
                 <span className="text-2xl">{role.icon}</span>
-                <h3 className="text-xl font-bold text-[#1B5E20]">{role.title}</h3>
+                <h3 className="text-xl font-bold text-[#0A2F1D]">{role.title}</h3>
               </div>
               <p className="text-gray-600">{role.desc}</p>
             </div>

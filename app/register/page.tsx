@@ -1,185 +1,363 @@
 "use client";
-import { useState } from "react";
+import Link from "next/link";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
-import { useRegistrations } from "@/contexts/RegistrationContext";
-import { RegistrationFormData } from "@/types/registration";
+import ScrollReveal from "@/app/components/ScrollReveal";
+
+const GOOGLE_FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSejXpcQc40K9GqggtadDUyUaAKNWZNaFColxKDsT1yGPQeIqw/viewform";
 
 export default function RegisterPage() {
-  const [showReg, setShowReg] = useState(false);
-  const { addRegistration } = useRegistrations();
-  
-  const [formData, setFormData] = useState<RegistrationFormData>({
-    fullName: "",
-    dateOfBirth: "",
-    gender: "",
-    phone: "",
-    email: "",
-    address: "",
-    district: "",
-    underlyingCondition: "",
-    impairmentType: "",
-    micStatus: "",
-    photoUrl: "",
-    idProofUrl: "",
-    medicalCertUrl: "",
-  });
-
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, files } = e.target;
-    if (files && files.length > 0) {
-      // Simulate file upload by storing the file name
-      setFormData((prev) => ({ ...prev, [name]: files[0].name }));
-    }
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    addRegistration(formData);
-    setSubmitted(true);
-  };
-
   return (
-    <div className="flex flex-col min-h-screen bg-[#F5F5DC]">
-      <Navbar onRegisterClick={() => setShowReg(true)} />
+    <div className="flex flex-col min-h-screen bg-[#FDF8EF]">
+      <Navbar />
       <main className="flex-1">
-        <section className="relative pt-[120px] pb-16 min-h-[280px] border-b border-[#D4AF37]/20" style={{ background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #F0FFF0 100%)" }}>
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        {/* ═══ Hero Section ═══ */}
+        <section className="relative pt-[180px] pb-20 min-h-[400px] overflow-hidden" style={{background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)"}}>
+
+          <div className="absolute inset-0 bg-noise pointer-events-none opacity-30" /><img src="/boccia1.png" alt="Register" className="absolute right-0 top-0 h-full w-1/2 object-cover opacity-15" /><div className="mx-auto max-w-[1400px] px-6 lg:px-10 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="w-16 h-1 bg-[#D4AF37] rounded-full mb-6" />
-                <p className="text-[#D4AF37] text-[11px] font-bold tracking-[0.3em] uppercase mb-3">REGISTRATION</p>
-                <h1 className="text-[36px] sm:text-[44px] font-bold text-[#1B5E20] leading-tight mb-4">Register as an Athlete</h1>
-                <p className="text-[15px] text-gray-600 max-w-[600px] leading-relaxed">
-                  Complete the registration form below to join JPBA. Open to all eligible athletes across Jharkhand seeking to compete in Para Boccia.
+                <div className="w-16 h-1 bg-[#C9A84C] rounded-full mb-6" />
+                <p className="text-[#C9A84C] text-[11px] font-bold tracking-[0.3em] uppercase mb-3">
+                  REGISTRATION
                 </p>
+                <h1 className="text-[36px] sm:text-[44px] md:text-[52px] font-bold text-white leading-tight mb-4">
+                  Register as an{" "}
+                  <span className="gradient-text-gold">Athlete</span>
+                </h1>
+                <p className="text-[15px] text-white/80 max-w-[600px] leading-relaxed mb-8">
+                  Complete the official registration form to join the Jharkhand
+                  Para Boccia Association. Open to all eligible athletes
+                  seeking to compete in Para Boccia across India.
+                </p>
+                <a
+                  href={GOOGLE_FORM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-10 py-4 bg-[#C9A84C] text-[#0A2F1D] rounded font-bold uppercase tracking-wider hover:bg-white transition-all duration-300 text-[15px] shadow-xl shadow-[#C9A84C]/30 hover:shadow-white/20 active:scale-[0.97]"
+                >
+                  Register on Google Form
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                </a>
               </div>
               <div className="hidden lg:block">
-                <div className="rounded-2xl overflow-hidden shadow-xl border border-[#D4AF37]/20">
-                  <img src="https://images.unsplash.com/photo-1564769662533-4f00a87b4056?w=800&q=80" alt="Register" className="w-full h-[350px] object-cover" />
+                <div className="rounded-2xl overflow-hidden shadow-2xl border border-[#C9A84C]/20 relative">
+                  <img
+                    src="https://images.pexels.com/photos/38149196/pexels-photo-38149196.jpeg?w=800&q=80"
+                    alt="Register"
+                    className="w-full h-[350px] object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A2F1D]/40 via-transparent to-transparent" />
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-12 bg-white">
-          <div className="mx-auto max-w-[900px] px-6">
-            {submitted ? (
-              <div className="text-center py-16 bg-[#F0FFF0] rounded-xl border border-[#1B5E20]/20 shadow-lg">
-                <div className="w-16 h-16 bg-[#1B5E20] rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                </div>
-                <h2 className="text-3xl font-bold text-[#1B5E20] mb-4">Registration Submitted!</h2>
-                <p className="text-gray-600 mb-8">Thank you for registering. We will review your application and get back to you soon.</p>
-                <button onClick={() => { setSubmitted(false); setFormData({
-                    fullName: "", dateOfBirth: "", gender: "", phone: "", email: "", address: "", district: "", underlyingCondition: "", impairmentType: "", micStatus: "", photoUrl: "", idProofUrl: "", medicalCertUrl: "",
-                })}} className="px-6 py-3 bg-[#D4AF37] text-white rounded-lg font-semibold hover:bg-[#b8962c] transition-colors">
-                  Submit Another Application
-                </button>
+        {/* ═══ Registration Pathway Steps ═══ */}
+        <section className="py-20 bg-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-texture-wavy pointer-events-none opacity-30" />
+          <div className="gradient-orb gradient-orb-gold w-[400px] h-[400px] -top-40 right-1/4 pointer-events-none opacity-20" />
+
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-10 relative z-10">
+            <ScrollReveal variant="fade-up">
+              <div className="text-center mb-14">
+                <span className="text-[#C9A84C] font-bold tracking-[0.25em] text-[12px] uppercase">
+                  HOW IT WORKS
+                </span>
+                <h2 className="text-[36px] sm:text-[44px] font-bold text-[#0A2F1D] mt-2 mb-4">
+                  Registration Pathway
+                </h2>
+                <p className="text-[#5C5C5C] text-[16px] max-w-2xl mx-auto">
+                  Your journey from registration to becoming an official JPBA
+                  athlete in 5 simple steps.
+                </p>
               </div>
-            ) : (
-              <div className="rounded-xl border border-[#D4AF37]/20 overflow-hidden shadow-lg bg-white p-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <h3 className="text-2xl font-bold text-[#1B5E20] mb-6 pb-2 border-b border-gray-100">Personal Information</h3>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
-                      <input required type="text" name="fullName" value={formData.fullName} onChange={handleChange} className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[#D4AF37] focus:ring-[#D4AF37] outline-none" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Date of Birth *</label>
-                      <input required type="date" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[#D4AF37] focus:ring-[#D4AF37] outline-none" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Gender *</label>
-                      <select required name="gender" value={formData.gender} onChange={handleChange} className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[#D4AF37] focus:ring-[#D4AF37] outline-none">
-                        <option value="">Select Gender</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Other">Other</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
-                      <input required type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[#D4AF37] focus:ring-[#D4AF37] outline-none" />
-                    </div>
-                    <div className="md:col-span-2">
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
-                      <input required type="email" name="email" value={formData.email} onChange={handleChange} className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[#D4AF37] focus:ring-[#D4AF37] outline-none" />
-                    </div>
-                    <div className="md:col-span-2">
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Residential Address *</label>
-                      <textarea required name="address" value={formData.address} onChange={handleChange} rows={3} className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[#D4AF37] focus:ring-[#D4AF37] outline-none"></textarea>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">District *</label>
-                      <input required type="text" name="district" value={formData.district} onChange={handleChange} placeholder="e.g. Ranchi" className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[#D4AF37] focus:ring-[#D4AF37] outline-none" />
-                    </div>
-                  </div>
+            </ScrollReveal>
 
-                  <h3 className="text-2xl font-bold text-[#1B5E20] mt-10 mb-6 pb-2 border-b border-gray-100">Disability Information</h3>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Underlying Condition *</label>
-                      <select required name="underlyingCondition" value={formData.underlyingCondition} onChange={handleChange} className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[#D4AF37] focus:ring-[#D4AF37] outline-none">
-                        <option value="">Select Condition</option>
-                        <option value="Cerebral-Palsy">Cerebral Palsy</option>
-                        <option value="Muscular-Dystrophy">Muscular Dystrophy</option>
-                        <option value="Spinal-Cord-Injury">Spinal Cord Injury</option>
-                        <option value="Other">Other</option>
-                      </select>
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+              {[
+                {
+                  step: "01",
+                  title: "Register Online",
+                  desc: "Fill out the official Google Form with your personal and medical details.",
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  ),
+                },
+                {
+                  step: "02",
+                  title: "Submit Documents",
+                  desc: "Upload identity proof and medical certification with your application.",
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                    </svg>
+                  ),
+                },
+                {
+                  step: "03",
+                  title: "Classification",
+                  desc: "Complete the certified impairment assessment by qualified classifiers.",
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                    </svg>
+                  ),
+                },
+                {
+                  step: "04",
+                  title: "District Review",
+                  desc: "Verification and endorsement by your local district association.",
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  ),
+                },
+                {
+                  step: "05",
+                  title: "Official Registration",
+                  desc: "Receive your JPBA registration number and compete!",
+                  icon: (
+                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                    </svg>
+                  ),
+                },
+              ].map((item, i) => (
+                <ScrollReveal key={i} variant="scale-in" delay={i * 80}>
+                  <div className="relative group text-center">
+                    <div className="bg-[#FDF8EF] border border-[#E2D9C8] rounded-xl p-6 hover:border-[#C9A84C]/40 hover:shadow-lg transition-all duration-300 h-full">
+                      <div className="w-14 h-14 rounded-full bg-[#0A2F1D]/10 flex items-center justify-center text-[#0A2F1D] mx-auto mb-4 group-hover:bg-[#C9A84C]/20 group-hover:text-[#C9A84C] transition-colors">
+                        {item.icon}
+                      </div>
+                      <span className="text-[28px] font-bold gradient-text-gold block mb-2">
+                        {item.step}
+                      </span>
+                      <h4 className="text-[15px] font-bold text-[#0A2F1D] mb-2">
+                        {item.title}
+                      </h4>
+                      <p className="text-[12px] text-[#5C5C5C] leading-relaxed">
+                        {item.desc}
+                      </p>
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Impairment Type *</label>
-                      <input required type="text" name="impairmentType" value={formData.impairmentType} onChange={handleChange} placeholder="e.g. BC1, BC2, BC3, BC4" className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[#D4AF37] focus:ring-[#D4AF37] outline-none" />
-                    </div>
-                    <div className="md:col-span-2">
-                      <label className="block text-sm font-medium text-gray-700 mb-1">MIC Status (Master International Classification)</label>
-                      <select name="micStatus" value={formData.micStatus} onChange={handleChange} className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[#D4AF37] focus:ring-[#D4AF37] outline-none">
-                        <option value="">Select Status</option>
-                        <option value="New">New / Not Classified</option>
-                        <option value="Review">Review</option>
-                        <option value="Confirmed">Confirmed</option>
-                      </select>
-                    </div>
+                    {i < 4 && (
+                      <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-[2px] bg-[#C9A84C]/30 animate-connector" />
+                    )}
                   </div>
-
-                  <h3 className="text-2xl font-bold text-[#1B5E20] mt-10 mb-6 pb-2 border-b border-gray-100">Documents</h3>
-                  
-                  <div className="grid grid-cols-1 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Recent Photograph *</label>
-                      <input required type="file" name="photoUrl" onChange={handleFileChange} className="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#F0FFF0] file:text-[#1B5E20] hover:file:bg-[#e0f0e0]" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">ID Proof (Aadhar/Voter ID) *</label>
-                      <input required type="file" name="idProofUrl" onChange={handleFileChange} className="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#F0FFF0] file:text-[#1B5E20] hover:file:bg-[#e0f0e0]" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Medical Certificate *</label>
-                      <input required type="file" name="medicalCertUrl" onChange={handleFileChange} className="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#F0FFF0] file:text-[#1B5E20] hover:file:bg-[#e0f0e0]" />
-                    </div>
-                  </div>
-
-                  <div className="pt-6 mt-6 border-t border-gray-100">
-                    <button type="submit" className="w-full py-4 px-6 bg-[#1B5E20] text-white rounded-xl font-bold text-lg hover:bg-[#154a19] shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
-                      Submit Registration
-                    </button>
-                  </div>
-                </form>
-              </div>
-            )}
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
+            <div className="mt-8 rounded-xl overflow-hidden shadow-lg border border-[#C9A84C]/15 boccia-img-container">
+              <img src="/boccia1.png" alt="" className="w-full h-[200px] object-cover" />
+            </div>
+        </section>
+
+        {/* ═══ Why Register Benefits ═══ */}
+        <section className="py-20 bg-mesh-gradient-dark relative overflow-hidden">
+          <div className="absolute inset-0 bg-texture-dots-dark opacity-10 pointer-events-none" />
+          <div className="gradient-orb gradient-orb-gold w-[500px] h-[500px] -top-40 -left-40 pointer-events-none opacity-20 animate-float-slow" />
+          <div className="gradient-orb gradient-orb-white w-[350px] h-[350px] -bottom-32 -right-32 pointer-events-none opacity-10 animate-float" />
+
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-10 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <ScrollReveal variant="slide-left">
+                <div>
+                  <span className="text-[#C9A84C] font-bold tracking-[0.25em] text-[12px] uppercase">
+                    WHY REGISTER?
+                  </span>
+                  <h2 className="text-[36px] sm:text-[44px] font-bold text-white mt-2 mb-8 leading-tight">
+                    Start Your Boccia Journey
+                  </h2>
+                  <div className="space-y-5">
+                    {[
+                      {
+                        title: "Official Recognition",
+                        desc: "Get registered with JPBA and BSFI for participation in state and national events.",
+                      },
+                      {
+                        title: "Competitive Pathway",
+                        desc: "Access to district, state, and national championships across India.",
+                      },
+                      {
+                        title: "Training & Coaching",
+                        desc: "Connect with certified coaches and training programs in your district.",
+                      },
+                      {
+                        title: "International Opportunities",
+                        desc: "Potential selection for national team representation at international events.",
+                      },
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-start gap-4">
+                        <div className="w-10 h-10 rounded-full bg-[#C9A84C]/20 flex items-center justify-center shrink-0 mt-0.5">
+                          <span className="text-[#C9A84C] font-bold text-[14px]">
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
+                        </div>
+                        <div>
+                          <h4 className="text-[16px] font-bold text-white mb-1">
+                            {item.title}
+                          </h4>
+                          <p className="text-[14px] text-white/60 leading-relaxed">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal variant="slide-right">
+                <div className="relative">
+                  <div className="bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm">
+                    <h3 className="text-[20px] font-bold text-white mb-2">
+                      Ready to Register?
+                    </h3>
+                    <p className="text-white/60 text-[14px] mb-8">
+                      Click the button below to open the official Google Form
+                      registration page.
+                    </p>
+                    <a
+                      href={GOOGLE_FORM_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-3 px-10 py-4 bg-[#C9A84C] text-[#0A2F1D] rounded font-bold uppercase tracking-wider hover:bg-white transition-all duration-300 text-[15px] shadow-xl shadow-[#C9A84C]/30 w-full justify-center"
+                    >
+                      Open Registration Form
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2.5}
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"
+                        />
+                      </svg>
+                    </a>
+                    <p className="text-white/40 text-[12px] mt-4 text-center">
+                      Opens in a new tab &bull; Google Forms
+                    </p>
+                  </div>
+                  {/* Decorative gradient border */}
+                  <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-[#C9A84C]/30 via-transparent to-[#C9A84C]/10 pointer-events-none -z-10" />
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
+            <div className="mt-8 rounded-xl overflow-hidden shadow-lg border border-[#C9A84C]/15 boccia-img-container">
+              <img src="/boccia1.png" alt="" className="w-full h-[200px] object-cover" />
+            </div>
+        </section>
+
+        {/* ═══ Eligibility Quick Check ═══ */}
+        <section className="py-20 bg-[#FDF8EF] relative overflow-hidden">
+          <div className="absolute inset-0 bg-texture-diagonal pointer-events-none" />
+
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-10 relative z-10">
+            <ScrollReveal variant="fade-up">
+              <div className="text-center mb-12">
+                <span className="text-[#C9A84C] font-bold tracking-[0.25em] text-[12px] uppercase">
+                  BEFORE YOU REGISTER
+                </span>
+                <h2 className="text-[36px] sm:text-[44px] font-bold text-[#0A2F1D] mt-2 mb-4">
+                  Eligibility Checklist
+                </h2>
+                <p className="text-[#5C5C5C] text-[16px] max-w-2xl mx-auto">
+                  Ensure you meet the following criteria before completing the
+                  registration form.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1100px] mx-auto">
+              {[
+                {
+                  title: "Eligible Condition",
+                  items: [
+                    "Cerebral Palsy",
+                    "Spinal Cord Injury",
+                    "Muscular Dystrophy",
+                    "Other eligible conditions",
+                  ],
+                },
+                {
+                  title: "Required Documents",
+                  items: [
+                    "Passport-size photograph",
+                    "Identity proof (Aadhaar/Voter ID)",
+                    "Medical certificate",
+                    "Doctor-stamped MDF form",
+                  ],
+                },
+                {
+                  title: "Assessment",
+                  items: [
+                    "Minimum Impairment Criteria (MIC)",
+                    "In-person classification evaluation",
+                    "Functional ability assessment",
+                    "Sport-specific testing",
+                  ],
+                },
+              ].map((card, i) => (
+                <ScrollReveal key={i} variant="fade-up" delay={i * 100}>
+                  <div className="bg-white rounded-2xl p-8 border border-[#E2D9C8] hover:border-[#C9A84C]/30 hover:shadow-lg transition-all duration-300 h-full">
+                    <h4 className="text-[18px] font-bold text-[#0A2F1D] mb-5">
+                      {card.title}
+                    </h4>
+                    <ul className="space-y-3">
+                      {card.items.map((item, j) => (
+                        <li
+                          key={j}
+                          className="flex items-start gap-3 text-[14px] text-[#5C5C5C]"
+                        >
+                          <span className="text-[#C9A84C] mt-0.5 shrink-0">
+                            &#10003;
+                          </span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+
+            <ScrollReveal variant="fade-up" delay={300}>
+              <div className="text-center mt-12">
+                <Link
+                  href="/sport/classification"
+                  className="text-[14px] font-bold text-[#C9A84C] hover:text-[#0A2F1D] transition-colors border-b-2 border-[#C9A84C] pb-1"
+                >
+                  Learn About Classification (BC1-BC4) &rarr;
+                </Link>
+              </div>
+            </ScrollReveal>
+          </div>
+            <div className="mt-8 rounded-xl overflow-hidden shadow-lg border border-[#C9A84C]/15 boccia-img-container">
+              <img src="/boccia1.png" alt="" className="w-full h-[200px] object-cover" />
+            </div>
         </section>
       </main>
       <Footer />

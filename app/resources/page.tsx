@@ -13,21 +13,21 @@ export default function ResourcesPage() {
     {icon:"📄",title:"Official References",desc:"World Boccia rules, classification protocols, referee manuals, and governing body documents.",href:"/resources/references",label:"View References"}
   ];
   return (
-    <div className="flex flex-col min-h-screen bg-[#F5F5DC]">
+    <div className="flex flex-col min-h-screen bg-[#FDF8EF]">
       <Navbar onRegisterClick={() => setShowReg(true)} />
       <main className="flex-1">
-        <section className="relative pt-[120px] pb-16 min-h-[320px] border-b border-[#D4AF37]/20" style={{background:"linear-gradient(135deg, #F5F5DC 0%, #FFFFFF 50%, #E8F5E9 100%)"}}>
+        <section className="relative pt-[180px] pb-16 min-h-[320px] border-b border-[#C9A84C]/20" style={{background:"linear-gradient(135deg, #FDF8EF 0%, #FFFFFF 50%, #E8F5E9 100%)"}}>
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="w-16 h-1 bg-[#D4AF37] rounded-full mb-6" />
-                <p className="text-[#D4AF37] text-[11px] font-bold tracking-[0.3em] uppercase mb-3">RESOURCES</p>
-                <h1 className="text-[36px] sm:text-[44px] font-bold text-[#1B5E20] leading-tight mb-4">Resources</h1>
+                <div className="w-16 h-1 bg-[#C9A84C] rounded-full mb-6" />
+                <p className="text-[#C9A84C] text-[11px] font-bold tracking-[0.3em] uppercase mb-3">RESOURCES</p>
+                <h1 className="text-[36px] sm:text-[44px] font-bold text-[#0A2F1D] leading-tight mb-4">Resources</h1>
                 <p className="text-[15px] text-gray-600 max-w-[600px] leading-relaxed">Official documentation, glossary, quick rules, and governing body references.</p>
               </div>
               <div className="hidden lg:block">
-                <div className="rounded-2xl overflow-hidden shadow-xl border border-[#D4AF37]/20">
-                  <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80" alt="Resources" className="w-full h-[350px] object-cover" />
+                <div className="rounded-2xl overflow-hidden shadow-xl border border-[#C9A84C]/20">
+                  <img src="https://images.pexels.com/photos/38149196/pexels-photo-38149196.jpeg?w=800&q=80" alt="Resources" className="w-full h-[350px] object-cover" />
                 </div>
               </div>
             </div>
@@ -37,11 +37,11 @@ export default function ResourcesPage() {
           <div className="mx-auto max-w-[1000px] px-6 lg:px-10">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {resources.map((r,i)=>(
-                <Link key={i} href={r.href} className="bg-white rounded-2xl p-8 shadow-lg border border-[#D4AF37]/10 hover:shadow-xl hover:border-[#D4AF37]/30 transition-all text-center group">
-                  <div className="w-16 h-16 rounded-xl bg-[#1B5E20]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#1B5E20]/20 transition-colors"><span className="text-3xl">{r.icon}</span></div>
-                  <h3 className="text-xl font-bold text-[#1B5E20] mb-2">{r.title}</h3>
+                <Link key={i} href={r.href} className="bg-white rounded-2xl p-8 shadow-lg border border-[#C9A84C]/10 hover:shadow-xl hover:border-[#C9A84C]/30 transition-all text-center group">
+                  <div className="w-16 h-16 rounded-xl bg-[#0A2F1D]/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-[#0A2F1D]/20 transition-colors"><span className="text-3xl">{r.icon}</span></div>
+                  <h3 className="text-xl font-bold text-[#0A2F1D] mb-2">{r.title}</h3>
                   <p className="text-gray-600 mb-4 text-sm">{r.desc}</p>
-                  <span className="text-[#D4AF37] font-semibold text-sm group-hover:underline">{r.label} →</span>
+                  <span className="text-[#C9A84C] font-semibold text-sm group-hover:underline">{r.label} →</span>
                 </Link>
               ))}
             </div>

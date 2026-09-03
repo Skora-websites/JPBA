@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  /* JPBA Brand Palette */
+  /* JPBA Brand Palette - Dark Green Theme */
   --background: #FDF8EF;
   --foreground: #1A1A1A;
-  --forest-green: #1B4332;
-  --dark-green: #2D6A4F;
-  --mid-green: #40916C;
-  --light-green: #52B788;
+  --forest-green: #0A2F1D; /* Much darker green */
+  --dark-green: #133824; /* Dark rich green */
+  --mid-green: #1B4E33; /* New mid green */
+  --light-green: #29774D;
   --gold: #C9A84C;
   --gold-light: #E8D5A3;
   --bronze: #8B6914;
   --ivory: #FDF8EF;
   --soft-white: #FEFCF8;
   --white: #FFFFFF;
-  --off-white: #F5F0E6;
+  --off-white: #F4F1E9;
   --card: #FEFCF8;
   --card-hover: #FDF8EF;
   --border: #E2D9C8;
@@ -23,8 +23,8 @@
   --text-secondary: #5C5C5C;
   --text-muted: #8A8A8A;
   --text-on-dark: #FEFCF8;
-  --accent: #1B4332;
-  --success: #2D6A4F;
+  --accent: #C9A84C; /* Gold as accent */
+  --success: #133824;
   --danger: #B91C1C;
   --warning: #D97706;
 }
@@ -60,6 +60,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -145,6 +146,12 @@ option {
 }
 .page-enter { animation: page-enter 0.3s ease-out; }
 
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fade-in 0.35s ease-out; }
+
 /* Mega menu */
 .mega-menu {
   opacity: 0;
@@ -159,6 +166,237 @@ option {
   transform: translateY(0);
 }
 
+/* ═══════════════════════════════════════════
+   ScrollReveal Animations
+═══════════════════════════════════════════ */
+.sr-hidden {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+.sr-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Variant: fade-up (default) */
+.sr-fade-up {
+  transform: translateY(32px);
+}
+
+/* Variant: fade-in */
+.sr-fade-in {
+  transform: none;
+}
+
+/* Variant: slide-left */
+.sr-slide-left {
+  transform: translateX(-40px);
+}
+
+/* Variant: slide-right */
+.sr-slide-right {
+  transform: translateX(40px);
+}
+
+/* Variant: scale-in */
+.sr-scale-in {
+  transform: scale(0.92);
+}
+
+
+
+/* Background Texture Utilities - using faded boccia/para sport images */
+.bg-texture-dots {
+  background-image: url("https://images.pexels.com/photos/5547772/pexels-photo-5547772.jpeg?w=100&q=20");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.03;
+}
+
+.bg-texture-diagonal {
+  background-image: url("https://images.pexels.com/photos/38149196/pexels-photo-38149196.jpeg?w=200&q=10");
+  background-size: 400px;
+  background-repeat: repeat;
+  opacity: 0.025;
+}
+
+.bg-dark-texture {
+  background-color: var(--forest-green);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Wavy line texture - faded boccia */
+.bg-texture-wavy {
+  background-image: url("https://images.pexels.com/photos/5547772/pexels-photo-5547772.jpeg?w=200&q=10");
+  background-size: 500px;
+  background-repeat: repeat;
+  opacity: 0.02;
+}
+
+/* Cross-hatch - faded adaptive sport */
+.bg-texture-crosshatch {
+  background-image: url("https://images.pexels.com/photos/6763758/pexels-photo-6763758.jpeg?w=200&q=10");
+  background-size: 400px;
+  background-repeat: repeat;
+  opacity: 0.02;
+}
+
+.text-stroke-gold {
+  -webkit-text-stroke: 1px var(--gold);
+  color: transparent;
+}
+
+/* ═══════════════════════════════════════════
+   Gradient Texture Utilities (bocciaindia.com style)
+═══════════════════════════════════════════ */
+
+/* Floating gradient orb — blurred decorative blob */
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+.gradient-orb-gold {
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.15) 0%, transparent 70%);
+}
+.gradient-orb-green {
+  background: radial-gradient(circle, rgba(10, 47, 29, 0.2) 0%, transparent 70%);
+}
+.gradient-orb-white {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+}
+.gradient-orb-green-light {
+  background: radial-gradient(circle, rgba(27, 78, 51, 0.12) 0%, transparent 70%);
+}
+
+/* Mesh gradient background — multi-point overlapping radials */
+.bg-mesh-gradient-dark {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(27, 78, 51, 0.6) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(201, 168, 76, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(19, 56, 36, 0.5) 0%, transparent 50%),
+    var(--forest-green);
+}
+.bg-mesh-gradient-light {
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(201, 168, 76, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(10, 47, 29, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.5) 0%, transparent 70%),
+    var(--ivory);
+}
+
+/* Noise overlay texture via SVG */
+.bg-noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* Faded boccia image on dark backgrounds */
+.bg-texture-dots-dark {
+  background-image: url("https://images.pexels.com/photos/5547772/pexels-photo-5547772.jpeg?w=300&q=15");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.04;
+}
+
+/* Gold gradient text */
+.gradient-text-gold {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow border animation */
+@keyframes glow-border {
+  0%, 100% { box-shadow: 0 0 15px rgba(201, 168, 76, 0.15), 0 0 30px rgba(201, 168, 76, 0.05); }
+  50% { box-shadow: 0 0 25px rgba(201, 168, 76, 0.25), 0 0 50px rgba(201, 168, 76, 0.1); }
+}
+.animate-glow-border {
+  animation: glow-border 3s ease-in-out infinite;
+}
+
+/* Floating animation for decorative orbs */
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  33% { transform: translateY(-15px) translateX(8px); }
+  66% { transform: translateY(8px) translateX(-5px); }
+}
+.animate-float {
+  animation: float-gentle 8s ease-in-out infinite;
+}
+.animate-float-slow {
+  animation: float-gentle 12s ease-in-out infinite;
+}
+.animate-float-delayed {
+  animation: float-gentle 10s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+/* Pulse glow for accent elements */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+/* Subtle shimmer line */
+@keyframes shimmer-line {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+.animate-shimmer {
+  animation: shimmer-line 3s ease-in-out infinite;
+}
+
+/* Gradient border wrapper */
+.gradient-border-gold {
+  position: relative;
+}
+.gradient-border-gold::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--gold), rgba(201, 168, 76, 0.3), var(--gold));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Animated hero gradient overlay */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Step connector line pulse */
+@keyframes connector-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+.animate-connector {
+  animation: connector-pulse 2s ease-in-out infinite;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -167,4 +405,69 @@ option {
     transition-duration: 0.01ms !important;
   }
   .reveal { opacity: 1; transform: none; }
+  .sr-hidden {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+
+/* ═══════════════════════════════════════════
+   BOCCIA IMAGE EFFECTS — Hover Zoom & Parallax
+═════════════════════════════════════════════ */
+.boccia-img-container {
+  overflow: hidden;
+  position: relative;
+  border-radius: 12px;
+}
+
+.boccia-img-container img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.boccia-img-container:hover img {
+  transform: scale(1.08);
+}
+
+.boccia-img-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(10, 47, 29, 0.15));
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  opacity: 0;
+}
+
+.boccia-img-container:hover::after {
+  opacity: 1;
+}
+
+/* Parallax container for boccia images */
+.boccia-parallax {
+  overflow: hidden;
+  position: relative;
+}
+
+.boccia-parallax img {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* Slow ken-burns drift on idle */
+@keyframes boccia-drift {
+  0% { transform: scale(1.05) translate(0, 0); }
+  50% { transform: scale(1.08) translate(-1%, -0.5%); }
+  100% { transform: scale(1.05) translate(0, 0); }
+}
+
+.boccia-drift {
+  animation: boccia-drift 12s ease-in-out infinite;
+}
+
+.boccia-drift-reverse {
+  animation: boccia-drift 14s ease-in-out infinite reverse;
+}
+
 }

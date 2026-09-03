@@ -7,22 +7,22 @@ import Footer from "@/app/components/Footer";
 export default function AccessibilityPage() {
   const onRegisterClick = () => { window.location.href = "/register"; };
   return (
-    <div className="min-h-screen bg-[#F5F5DC]">
+    <div className="min-h-screen bg-[#FDF8EF]">
       <Navbar onRegisterClick={onRegisterClick} />
-      <section className="relative py-20 overflow-hidden" style={{background: "linear-gradient(135deg, #F5F5DC 0%, #FFFFFF 50%, #E8F5E9 100%)"}}>
+      <section className="relative py-20 overflow-hidden" style={{background: "linear-gradient(135deg, #FDF8EF 0%, #FFFFFF 50%, #E8F5E9 100%)"}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center gap-2 text-sm mb-6">
             <Link href="/" className="text-[#8B6914] hover:text-[#6B4F12] font-medium transition-colors">Home</Link>
             <span className="text-[#8B6914]/40 mx-1">/</span>
             <span className="text-gray-500">Accessibility &amp; Safety</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1B5E20] mb-4">Accessibility &amp; Safety</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-[#0A2F1D] mb-4">Accessibility &amp; Safety</h1>
           <p className="text-xl text-gray-600 max-w-3xl">Creating safe, accessible environments for all Boccia participants.</p>
         </div>
       </section>
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <section className="mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#1B5E20] mb-6">Venue Accessibility</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0A2F1D] mb-6">Venue Accessibility</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {title: "Step-Free Access", desc: "All venues must provide step-free access from entrance to court. Ramps, level entries, and wide doorways are essential."},
@@ -32,8 +32,8 @@ export default function AccessibilityPage() {
               {title: "Accessible Registration", desc: "Registration desks at wheelchair-accessible height. Clear signage with large print and high contrast. Staff trained in disability awareness."},
               {title: "Water & Refreshments", desc: "Accessible water stations at court-side. Hydration is critical for athlete performance and safety."}
             ].map((item, i) => (
-              <div key={i} className="bg-white rounded-xl p-6 shadow-md border border-[#D4AF37]/10">
-                <h3 className="text-lg font-bold text-[#1B5E20] mb-2">{item.title}</h3>
+              <div key={i} className="bg-white rounded-xl p-6 shadow-md border border-[#C9A84C]/10">
+                <h3 className="text-lg font-bold text-[#0A2F1D] mb-2">{item.title}</h3>
                 <p className="text-gray-600">{item.desc}</p>
               </div>
             ))}
@@ -41,8 +41,8 @@ export default function AccessibilityPage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#1B5E20] mb-6">Athlete Safety</h2>
-          <div className="bg-white rounded-xl p-8 shadow-md border border-[#D4AF37]/10">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0A2F1D] mb-6">Athlete Safety</h2>
+          <div className="bg-white rounded-xl p-8 shadow-md border border-[#C9A84C]/10">
             <ul className="space-y-3">
               {[
                 "<strong>First Aid:</strong> Trained first aid personnel must be present at all competitions and training sessions.",
@@ -61,14 +61,14 @@ export default function AccessibilityPage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#1B5E20] mb-6">Support Considerations</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0A2F1D] mb-6">Support Considerations</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white rounded-xl p-6 shadow-md border border-[#D4AF37]/10">
-              <h3 className="text-lg font-bold text-[#1B5E20] mb-2">Assistant &amp; Equipment Space</h3>
+            <div className="bg-white rounded-xl p-6 shadow-md border border-[#C9A84C]/10">
+              <h3 className="text-lg font-bold text-[#0A2F1D] mb-2">Assistant &amp; Equipment Space</h3>
               <p className="text-gray-600">Sufficient space must be allocated for Sport Assistants, Ramp Operators, and equipment storage near the court. This area should not interfere with other athletes or play.</p>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-md border border-[#D4AF37]/10">
-              <h3 className="text-lg font-bold text-[#1B5E20] mb-2">Charging Arrangements</h3>
+            <div className="bg-white rounded-xl p-6 shadow-md border border-[#C9A84C]/10">
+              <h3 className="text-lg font-bold text-[#0A2F1D] mb-2">Charging Arrangements</h3>
               <p className="text-gray-600">Power wheelchair charging facilities must be available at venues for multi-day events. Athletes should not be without their mobility device.</p>
             </div>
           </div>

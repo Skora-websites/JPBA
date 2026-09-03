@@ -1,0 +1,7 @@
+"use client";
+import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/Footer";
+import PageHeader from "@/app/components/PageHeader";
+import { motion } from "framer-motion";
+
+export default function Page(){return(<div className="flex flex-col min-h-screen bg-[#FDF8EF]"><Navbar /><PageHeader title="Anti-Doping" breadcrumb={[{label:"Our Sport"},{label:"Anti-Doping"}]} /><main className="flex-1 py-16"><div className="mx-auto max-w-[1400px] px-6 lg:px-10"><motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.6,delay:0.2}} className="bg-white rounded-2xl shadow-xl border border-[#C9A84C]/20 p-8 md:p-12"><h2 className="text-3xl font-bold text-[#0A2F1D] mb-6">Anti-Doping</h2><p className="text-[#5C5C5C] text-lg leading-relaxed mb-4">JPBA follows WADA and IPC anti-doping regulations.</p><h3 className="text-xl font-bold text-[#0A2F1D] mt-6 mb-3">Key Principles</h3><ul className="list-disc pl-6 space-y-2 mb-6 text-[#5C5C5C]"><li>All athletes subject to in-competition and out-of-competition testing</li><li>Prohibited substances and methods are banned at all times</li><li>Athletes individually responsible for what enters their bodies</li><li>Samples may be collected at any time</li></ul><p className="text-[#5C5C5C] text-lg leading-relaxed">Athletes requiring prohibited substances for medical reasons must apply for a Therapeutic Use Exemption (TUE).</p></motion.div></div></main><Footer /></div>);}

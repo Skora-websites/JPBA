@@ -7,9 +7,9 @@ import Footer from "@/app/components/Footer";
 export default function TestingPage() {
   const onRegisterClick = () => { window.location.href = "/register"; };
   return (
-    <div className="min-h-screen bg-[#F5F5DC]">
+    <div className="min-h-screen bg-[#FDF8EF]">
       <Navbar onRegisterClick={onRegisterClick} />
-      <section className="relative py-20 overflow-hidden" style={{background: "linear-gradient(135deg, #F5F5DC 0%, #FFFFFF 50%, #E8F5E9 100%)"}}>
+      <section className="relative py-20 overflow-hidden" style={{background: "linear-gradient(135deg, #FDF8EF 0%, #FFFFFF 50%, #E8F5E9 100%)"}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center gap-2 text-sm mb-6">
             <Link href="/" className="text-[#8B6914] hover:text-[#6B4F12] font-medium transition-colors">Home</Link>
@@ -18,13 +18,13 @@ export default function TestingPage() {
             <span className="text-[#8B6914]/40 mx-1">/</span>
             <span className="text-gray-500">Equipment Testing</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1B5E20] mb-4">Equipment Testing &amp; Control</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-[#0A2F1D] mb-4">Equipment Testing &amp; Control</h1>
           <p className="text-xl text-gray-600 max-w-3xl">How Boccia balls and equipment are checked and approved for competition.</p>
         </div>
       </section>
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <section className="mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#1B5E20] mb-6">Pre-Match Equipment Control</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0A2F1D] mb-6">Pre-Match Equipment Control</h2>
           <div className="space-y-4">
             {[
               {step: "1", title: "Equipment Check", desc: "All equipment (balls, ramps, release devices) must be presented for inspection before competition begins. Equipment must meet World Boccia specifications."},
@@ -33,10 +33,10 @@ export default function TestingPage() {
               {step: "4", title: "Approval Marking", desc: "Approved balls receive a mark (typically a sticker or stamp) indicating they have passed inspection. Only approved balls may be used in competition."},
               {step: "5", title: "Post-Match Control", desc: "After the match, balls are checked again for damage or tampering. Any irregularities may result in penalties or disqualification."}
             ].map((item) => (
-              <div key={item.step} className="flex gap-4 items-start bg-white rounded-xl p-6 shadow-md border border-[#D4AF37]/10">
-                <div className="w-10 h-10 rounded-full bg-[#D4AF37] text-white flex items-center justify-center font-bold flex-shrink-0">{item.step}</div>
+              <div key={item.step} className="flex gap-4 items-start bg-white rounded-xl p-6 shadow-md border border-[#C9A84C]/10">
+                <div className="w-10 h-10 rounded-full bg-[#C9A84C] text-white flex items-center justify-center font-bold flex-shrink-0">{item.step}</div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#1B5E20]">{item.title}</h3>
+                  <h3 className="text-lg font-bold text-[#0A2F1D]">{item.title}</h3>
                   <p className="text-gray-600 mt-1">{item.desc}</p>
                 </div>
               </div>
@@ -45,10 +45,10 @@ export default function TestingPage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#1B5E20] mb-6">Ball Specifications</h2>
-          <div className="overflow-x-auto bg-white rounded-xl shadow-md border border-[#D4AF37]/10">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0A2F1D] mb-6">Ball Specifications</h2>
+          <div className="overflow-x-auto bg-white rounded-xl shadow-md border border-[#C9A84C]/10">
             <table className="w-full">
-              <thead><tr className="bg-[#1B5E20] text-white">
+              <thead><tr className="bg-[#0A2F1D] text-white">
                 <th className="px-6 py-3 text-left font-semibold">Specification</th>
                 <th className="px-6 py-3 text-left font-semibold">Detail</th>
               </tr></thead>
@@ -62,8 +62,8 @@ export default function TestingPage() {
                   ["Filling", "Plastic granules or similar material"],
                   ["Ball hardness", "Soft, medium, or hard variants"]
                 ].map((row, i) => (
-                  <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-[#F5F5DC]"}>
-                    <td className="px-6 py-4 font-medium text-[#1B5E20]">{row[0]}</td>
+                  <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-[#FDF8EF]"}>
+                    <td className="px-6 py-4 font-medium text-[#0A2F1D]">{row[0]}</td>
                     <td className="px-6 py-4 text-gray-700">{row[1]}</td>
                   </tr>
                 ))}

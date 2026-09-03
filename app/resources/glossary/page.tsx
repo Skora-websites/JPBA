@@ -29,9 +29,9 @@ export default function GlossaryPage() {
     {term: "Cluster", def: "A group of balls near the jack. Clusters form during play and are central to tactical decision-making."}
   ];
   return (
-    <div className="min-h-screen bg-[#F5F5DC]">
+    <div className="min-h-screen bg-[#FDF8EF]">
       <Navbar onRegisterClick={onRegisterClick} />
-      <section className="relative py-20 overflow-hidden" style={{background: "linear-gradient(135deg, #F5F5DC 0%, #FFFFFF 50%, #E8F5E9 100%)"}}>
+      <section className="relative py-20 overflow-hidden" style={{background: "linear-gradient(135deg, #FDF8EF 0%, #FFFFFF 50%, #E8F5E9 100%)"}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center gap-2 text-sm mb-6">
             <Link href="/" className="text-[#8B6914] hover:text-[#6B4F12] font-medium transition-colors">Home</Link>
@@ -40,16 +40,16 @@ export default function GlossaryPage() {
             <span className="text-[#8B6914]/40 mx-1">/</span>
             <span className="text-gray-500">Glossary</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1B5E20] mb-4">Boccia Glossary</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-[#0A2F1D] mb-4">Boccia Glossary</h1>
           <p className="text-xl text-gray-600 max-w-3xl">Official Boccia terminology and definitions.</p>
         </div>
       </section>
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="space-y-3">
           {terms.map((t, i) => (
-            <div key={i} className="bg-white rounded-xl p-5 shadow-md border border-[#D4AF37]/10">
+            <div key={i} className="bg-white rounded-xl p-5 shadow-md border border-[#C9A84C]/10">
               <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
-                <h3 className="text-lg font-bold text-[#1B5E20] min-w-[140px]">{t.term}</h3>
+                <h3 className="text-lg font-bold text-[#0A2F1D] min-w-[140px]">{t.term}</h3>
                 <p className="text-gray-600">{t.def}</p>
               </div>
             </div>

@@ -1,8 +1,7 @@
 "use client";
-import { useState } from "react";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
-import RegistrationForm from "@/app/components/RegistrationForm";
+import ScrollReveal from "@/app/components/ScrollReveal";
 
 const events = [
   { num: "01", title: "Para Boccia Awareness Camp", type: "Awareness Camp", date: "7th June, 2026", venue: "Ranchi, Jharkhand", desc: "Introduction to Boccia for athletes, families, and support organisations across Ranchi." },
@@ -12,53 +11,87 @@ const events = [
 ];
 
 export default function EventsPage() {
-  const [showReg, setShowReg] = useState(false);
   return (
-    <div className="flex flex-col min-h-screen bg-[#F5F5DC]">
-      <Navbar onRegisterClick={() => setShowReg(true)} />
+    <div className="flex flex-col min-h-screen bg-[#FDF8EF]">
+      <Navbar />
       <main className="flex-1">
-        <section className="relative pt-[120px] pb-16 min-h-[320px] border-b border-[#D4AF37]/20" style={{background:"linear-gradient(135deg, #F5F5DC 0%, #FFFFFF 50%, #E8F5E9 100%)"}}>
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        {/* Hero */}
+        <section className="relative pt-[180px] pb-16 min-h-[320px] overflow-hidden" style={{background: "linear-gradient(135deg, #FDF8EF 0%, #FFFFFF 50%, #F4F1E9 100%)"}}>
+
+          <div className="absolute inset-0 bg-noise pointer-events-none opacity-30" /><img src="/boccia.png" alt="Events" className="absolute right-0 top-0 h-full w-1/2 object-cover opacity-15" /><div className="mx-auto max-w-[1400px] px-6 lg:px-10 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="w-16 h-1 bg-[#D4AF37] rounded-full mb-6" />
-                <p className="text-[#D4AF37] text-[11px] font-bold tracking-[0.3em] uppercase mb-3">BOCCIA JHARKHAND 2026</p>
-                <h1 className="text-[36px] sm:text-[44px] font-bold text-[#1B5E20] leading-tight mb-4">Events &amp; Schedule</h1>
-                <p className="text-[15px] text-gray-600 max-w-[600px] leading-relaxed">Competition calendar, training camps, and development events across Jharkhand.</p>
+                <div className="w-16 h-1 bg-[#C9A84C] rounded-full mb-6" />
+                <p className="text-[#C9A84C] text-[11px] font-bold tracking-[0.3em] uppercase mb-3">
+                  BOCCIA JHARKHAND 2026
+                </p>
+                <h1 className="text-[36px] sm:text-[44px] font-bold text-white leading-tight mb-4">
+                  Events &amp; Schedule
+                </h1>
+                <p className="text-[15px] text-white/80 max-w-[600px] leading-relaxed">
+                  Competition calendar, training camps, and development events
+                  across Jharkhand.
+                </p>
               </div>
               <div className="hidden lg:block">
-                <div className="rounded-2xl overflow-hidden shadow-xl border border-[#D4AF37]/20">
-                  <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=800&q=80" alt="Events" className="w-full h-[350px] object-cover" />
+                <div className="rounded-2xl overflow-hidden shadow-2xl border border-[#C9A84C]/20 relative">
+                  <img
+                    src="https://images.pexels.com/photos/10517000/pexels-photo-10517000.jpeg?w=800&q=80"
+                    alt="Events"
+                    className="w-full h-[350px] object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A2F1D]/40 via-transparent to-transparent" />
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-16">
-          <div className="mx-auto max-w-[900px] px-6">
-            <div className="space-y-6">
-              {events.map((e) => (
-                <div key={e.num} className="flex gap-5 items-start bg-white rounded-2xl border border-[#D4AF37]/10 p-6 hover:shadow-lg hover:border-[#D4AF37]/30 transition-all">
-                  <div className="h-14 w-14 rounded-xl bg-[#1B5E20] flex items-center justify-center text-[15px] font-bold text-white shrink-0">{e.num}</div>
-                  <div className="flex-1 min-w-0">
-                    <span className="inline-block rounded-md bg-[#1B5E20]/10 px-2.5 py-0.5 text-[10px] font-bold text-[#1B5E20] uppercase tracking-wide mb-2">{e.type}</span>
-                    <h3 className="text-[16px] font-bold text-[#1B5E20] mb-1">{e.title}</h3>
-                    <p className="text-[13px] text-gray-500 mb-2">{e.desc}</p>
-                    <div className="flex items-center gap-3">
-                      <span className="text-[12px] text-[#D4AF37] font-semibold">{e.date}</span>
-                      <span className="text-[12px] text-gray-300">&middot;</span>
-                      <span className="text-[12px] text-gray-500">{e.venue}</span>
+        {/* Events List */}
+        <ScrollReveal variant="fade-in">
+          <section className="py-16 relative overflow-hidden">
+            <div className="absolute inset-0 bg-texture-wavy pointer-events-none opacity-30" />
+            <div className="gradient-orb gradient-orb-gold w-[400px] h-[400px] -top-40 right-1/4 pointer-events-none opacity-20" />
+
+            <div className="mx-auto max-w-[900px] px-6 relative z-10">
+              <div className="space-y-6">
+                {events.map((e, i) => (
+                  <ScrollReveal key={e.num} variant="fade-up" delay={i * 80}>
+                    <div className="flex gap-5 items-start bg-white rounded-2xl border border-[#C9A84C]/10 p-6 hover:shadow-lg hover:border-[#C9A84C]/30 transition-all duration-300">
+                      <div className="h-14 w-14 rounded-xl bg-[#0A2F1D] flex items-center justify-center text-[15px] font-bold text-white shrink-0 shadow-lg shadow-[#0A2F1D]/20">
+                        {e.num}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <span className="inline-block rounded-md bg-[#C9A84C]/10 px-2.5 py-0.5 text-[10px] font-bold text-[#C9A84C] uppercase tracking-wide mb-2">
+                          {e.type}
+                        </span>
+                        <h3 className="text-[16px] font-bold text-[#0A2F1D] mb-1">
+                          {e.title}
+                        </h3>
+                        <p className="text-[13px] text-gray-500 mb-2">
+                          {e.desc}
+                        </p>
+                        <div className="flex items-center gap-3">
+                          <span className="text-[12px] text-[#C9A84C] font-semibold">
+                            {e.date}
+                          </span>
+                          <span className="text-[12px] text-gray-300">
+                            &middot;
+                          </span>
+                          <span className="text-[12px] text-gray-500">
+                            {e.venue}
+                          </span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              ))}
+                  </ScrollReveal>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </ScrollReveal>
       </main>
       <Footer />
-      <RegistrationForm isOpen={showReg} onClose={() => setShowReg(false)} />
     </div>
   );
 }

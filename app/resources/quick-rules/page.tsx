@@ -7,9 +7,9 @@ import Footer from "@/app/components/Footer";
 export default function QuickRulesPage() {
   const onRegisterClick = () => { window.location.href = "/register"; };
   return (
-    <div className="min-h-screen bg-[#F5F5DC]">
+    <div className="min-h-screen bg-[#FDF8EF]">
       <Navbar onRegisterClick={onRegisterClick} />
-      <section className="relative py-20 overflow-hidden" style={{background: "linear-gradient(135deg, #F5F5DC 0%, #FFFFFF 50%, #E8F5E9 100%)"}}>
+      <section className="relative py-20 overflow-hidden" style={{background: "linear-gradient(135deg, #FDF8EF 0%, #FFFFFF 50%, #E8F5E9 100%)"}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center gap-2 text-sm mb-6">
             <Link href="/" className="text-[#8B6914] hover:text-[#6B4F12] font-medium transition-colors">Home</Link>
@@ -18,7 +18,7 @@ export default function QuickRulesPage() {
             <span className="text-[#8B6914]/40 mx-1">/</span>
             <span className="text-gray-500">Quick Rules Reference</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1B5E20] mb-4">Quick Rules Reference</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-[#0A2F1D] mb-4">Quick Rules Reference</h1>
           <p className="text-xl text-gray-600 max-w-3xl">A compact rulebook reference for coaches, athletes, and officials.</p>
         </div>
       </section>
@@ -37,8 +37,8 @@ export default function QuickRulesPage() {
           {title: "Penalty Ball", content: "One point to opponent. Offending ball removed. Used for serious infringements."},
           {title: "Tie-Break", content: "3 balls per side. Nearest ball to jack wins the match. Jack re-thrown if it goes out."}
         ].map((section, i) => (
-          <div key={i} className="bg-white rounded-xl p-6 shadow-md border border-[#D4AF37]/10 mb-4">
-            <h3 className="text-lg font-bold text-[#1B5E20] mb-2">{section.title}</h3>
+          <div key={i} className="bg-white rounded-xl p-6 shadow-md border border-[#C9A84C]/10 mb-4">
+            <h3 className="text-lg font-bold text-[#0A2F1D] mb-2">{section.title}</h3>
             <p className="text-gray-700">{section.content}</p>
           </div>
         ))}

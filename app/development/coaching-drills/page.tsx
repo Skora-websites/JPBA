@@ -17,9 +17,9 @@ export default function CoachingDrillsPage() {
     {title: "Pressure Drill", desc: "Simulated match conditions with time pressure and tactical scenarios. Athletes must make decisions quickly while maintaining precision.", focus: "Mental resilience, decision-making"}
   ];
   return (
-    <div className="min-h-screen bg-[#F5F5DC]">
+    <div className="min-h-screen bg-[#FDF8EF]">
       <Navbar onRegisterClick={onRegisterClick} />
-      <section className="relative py-20 overflow-hidden" style={{background: "linear-gradient(135deg, #F5F5DC 0%, #FFFFFF 50%, #E8F5E9 100%)"}}>
+      <section className="relative py-20 overflow-hidden" style={{background: "linear-gradient(135deg, #FDF8EF 0%, #FFFFFF 50%, #E8F5E9 100%)"}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center gap-2 text-sm mb-6">
             <Link href="/" className="text-[#8B6914] hover:text-[#6B4F12] font-medium transition-colors">Home</Link>
@@ -28,7 +28,7 @@ export default function CoachingDrillsPage() {
             <span className="text-[#8B6914]/40 mx-1">/</span>
             <span className="text-gray-500">Coaching Drills</span>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1B5E20] mb-4">Coaching Drills</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-[#0A2F1D] mb-4">Coaching Drills</h1>
           <p className="text-xl text-gray-600 max-w-3xl">Essential training drills for developing Boccia athletes at all levels.</p>
         </div>
       </section>
@@ -36,14 +36,14 @@ export default function CoachingDrillsPage() {
         <section className="mb-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {drills.map((drill, i) => (
-              <div key={i} className="bg-white rounded-xl p-6 shadow-md border border-[#D4AF37]/10 hover:shadow-lg transition-shadow">
+              <div key={i} className="bg-white rounded-xl p-6 shadow-md border border-[#C9A84C]/10 hover:shadow-lg transition-shadow">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-8 h-8 rounded-full bg-[#D4AF37] text-white flex items-center justify-center font-bold text-sm">{i + 1}</div>
-                  <h3 className="text-xl font-bold text-[#1B5E20]">{drill.title}</h3>
+                  <div className="w-8 h-8 rounded-full bg-[#C9A84C] text-white flex items-center justify-center font-bold text-sm">{i + 1}</div>
+                  <h3 className="text-xl font-bold text-[#0A2F1D]">{drill.title}</h3>
                 </div>
                 <p className="text-gray-600 mb-3">{drill.desc}</p>
-                <div className="bg-[#1B5E20]/5 rounded-lg p-3">
-                  <p className="text-sm text-[#1B5E20] font-medium">Focus: {drill.focus}</p>
+                <div className="bg-[#0A2F1D]/5 rounded-lg p-3">
+                  <p className="text-sm text-[#0A2F1D] font-medium">Focus: {drill.focus}</p>
                 </div>
               </div>
             ))}
@@ -51,8 +51,8 @@ export default function CoachingDrillsPage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#1B5E20] mb-6">Performance Metrics</h2>
-          <div className="bg-white rounded-xl p-8 shadow-md border border-[#D4AF37]/10">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0A2F1D] mb-6">Performance Metrics</h2>
+          <div className="bg-white rounded-xl p-8 shadow-md border border-[#C9A84C]/10">
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
               Coaches can track athlete progress using the following key performance indicators:
             </p>
@@ -68,8 +68,8 @@ export default function CoachingDrillsPage() {
                 "Time management",
                 "Match win rate"
               ].map((metric, i) => (
-                <div key={i} className="bg-[#F5F5DC] rounded-lg p-4 text-center">
-                  <p className="text-[#1B5E20] font-semibold">{metric}</p>
+                <div key={i} className="bg-[#FDF8EF] rounded-lg p-4 text-center">
+                  <p className="text-[#0A2F1D] font-semibold">{metric}</p>
                 </div>
               ))}
             </div>
