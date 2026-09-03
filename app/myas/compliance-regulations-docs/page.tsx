@@ -9,9 +9,7 @@ export default function ComplianceRegulationsPage() {
     <div className="flex flex-col min-h-screen bg-[#FDF8EF]">
       <Navbar />
       
-      <PageHeader 
-        title="Compliance & Regulations" 
-        breadcrumb={[{"label":"MYAS Disclosures"},{"label":"Compliance"}]} 
+      <PageHeader title="Compliance & Regulations" image="/boccia.png" breadcrumb={[{"label":"MYAS Disclosures"},{"label":"Compliance"}]} 
       />
 
       <main className="flex-1 py-16">

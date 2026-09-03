@@ -18,9 +18,7 @@ export default function LatestNewsPage() {
   return (
     <div className="flex flex-col min-h-screen bg-[#FDF8EF]">
       <Navbar />
-      <PageHeader
-        title="Latest News"
-        breadcrumb={[{ label: "News & Media" }, { label: "News" }]}
+      <PageHeader title="Latest News" image="/boccia1.png" breadcrumb={[{ label: "News & Media" }, { label: "News" }]}
       />
       <main className="flex-1 py-16">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10 relative">

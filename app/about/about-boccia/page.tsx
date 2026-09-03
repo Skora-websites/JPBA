@@ -10,9 +10,7 @@ export default function Page() {
   return (
     <div className="flex flex-col min-h-screen bg-[#FDF8EF]">
       <Navbar />
-      <PageHeader
-        title="About Boccia"
-        breadcrumb={[{ label: "About" }, { label: "About Boccia" }]}
+      <PageHeader title="About Boccia" image="/boccia.png" breadcrumb={[{ label: "About" }, { label: "About Boccia" }]}
       />
       <main className="flex-1 py-16">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">

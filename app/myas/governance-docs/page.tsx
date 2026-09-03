@@ -9,9 +9,7 @@ export default function GovernanceDocsPage() {
     <div className="flex flex-col min-h-screen bg-[#FDF8EF]">
       <Navbar />
       
-      <PageHeader 
-        title="Governance Docs" 
-        breadcrumb={[{"label":"MYAS Disclosures"},{"label":"Governance"}]} 
+      <PageHeader title="Governance Docs" image="/boccia1.png" breadcrumb={[{"label":"MYAS Disclosures"},{"label":"Governance"}]} 
       />
 
       <main className="flex-1 py-16">

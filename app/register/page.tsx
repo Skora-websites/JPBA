@@ -14,19 +14,21 @@ export default function RegisterPage() {
       <main className="flex-1">
         {/* ═══ Hero Section ═══ */}
         <section className="relative pt-[180px] pb-20 min-h-[400px] overflow-hidden" style={{background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)"}}>
-
-          <div className="absolute inset-0 bg-noise pointer-events-none opacity-30" /><img src="/boccia1.png" alt="Register" className="absolute right-0 top-0 h-full w-1/2 object-cover opacity-15" /><div className="mx-auto max-w-[1400px] px-6 lg:px-10 relative z-10">
+          <img src="/boccia1.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(10,47,29,0.92) 0%, rgba(10,47,29,0.85) 35%, rgba(10,47,29,0.5) 60%, rgba(10,47,29,0.15) 80%, transparent 100%)"}} />
+          <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(10,47,29,0.6) 0%, transparent 40%)"}} />
+<div className="absolute inset-0 bg-noise pointer-events-none opacity-30" /><img src="/boccia1.png" alt="Register" className="absolute right-0 top-0 h-full w-1/2 object-cover opacity-15" /><div className="mx-auto max-w-[1400px] px-6 lg:px-10 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <div className="w-16 h-1 bg-[#C9A84C] rounded-full mb-6" />
                 <p className="text-[#C9A84C] text-[11px] font-bold tracking-[0.3em] uppercase mb-3">
                   REGISTRATION
                 </p>
-                <h1 className="text-[36px] sm:text-[44px] md:text-[52px] font-bold text-white leading-tight mb-4">
+                <h1 className="text-[36px] sm:text-[44px] md:text-[52px] font-bold text-[#0A2F1D] leading-tight mb-4">
                   Register as an{" "}
                   <span className="gradient-text-gold">Athlete</span>
                 </h1>
-                <p className="text-[15px] text-white/80 max-w-[600px] leading-relaxed mb-8">
+                <p className="text-[15px] text-gray-600 max-w-[600px] leading-relaxed mb-8">
                   Complete the official registration form to join the Jharkhand
                   Para Boccia Association. Open to all eligible athletes
                   seeking to compete in Para Boccia across India.
@@ -165,9 +167,6 @@ export default function RegisterPage() {
               ))}
             </div>
           </div>
-            <div className="mt-8 rounded-xl overflow-hidden shadow-lg border border-[#C9A84C]/15 boccia-img-container">
-              <img src="/boccia1.png" alt="" className="w-full h-[200px] object-cover" />
-            </div>
         </section>
 
         {/* ═══ Why Register Benefits ═══ */}
@@ -183,7 +182,7 @@ export default function RegisterPage() {
                   <span className="text-[#C9A84C] font-bold tracking-[0.25em] text-[12px] uppercase">
                     WHY REGISTER?
                   </span>
-                  <h2 className="text-[36px] sm:text-[44px] font-bold text-white mt-2 mb-8 leading-tight">
+                  <h2 className="text-[36px] sm:text-[44px] font-bold text-[#0A2F1D] mt-2 mb-8 leading-tight">
                     Start Your Boccia Journey
                   </h2>
                   <div className="space-y-5">
@@ -215,7 +214,7 @@ export default function RegisterPage() {
                           <h4 className="text-[16px] font-bold text-white mb-1">
                             {item.title}
                           </h4>
-                          <p className="text-[14px] text-white/60 leading-relaxed">
+                          <p className="text-[14px] text-gray-500 leading-relaxed">
                             {item.desc}
                           </p>
                         </div>
@@ -231,7 +230,7 @@ export default function RegisterPage() {
                     <h3 className="text-[20px] font-bold text-white mb-2">
                       Ready to Register?
                     </h3>
-                    <p className="text-white/60 text-[14px] mb-8">
+                    <p className="text-gray-500 text-[14px] mb-8">
                       Click the button below to open the official Google Form
                       registration page.
                     </p>
@@ -256,7 +255,7 @@ export default function RegisterPage() {
                         />
                       </svg>
                     </a>
-                    <p className="text-white/40 text-[12px] mt-4 text-center">
+                    <p className="text-gray-400 text-[12px] mt-4 text-center">
                       Opens in a new tab &bull; Google Forms
                     </p>
                   </div>
@@ -266,9 +265,6 @@ export default function RegisterPage() {
               </ScrollReveal>
             </div>
           </div>
-            <div className="mt-8 rounded-xl overflow-hidden shadow-lg border border-[#C9A84C]/15 boccia-img-container">
-              <img src="/boccia1.png" alt="" className="w-full h-[200px] object-cover" />
-            </div>
         </section>
 
         {/* ═══ Eligibility Quick Check ═══ */}
@@ -355,9 +351,6 @@ export default function RegisterPage() {
               </div>
             </ScrollReveal>
           </div>
-            <div className="mt-8 rounded-xl overflow-hidden shadow-lg border border-[#C9A84C]/15 boccia-img-container">
-              <img src="/boccia1.png" alt="" className="w-full h-[200px] object-cover" />
-            </div>
         </section>
       </main>
       <Footer />

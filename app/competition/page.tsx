@@ -14,7 +14,10 @@ export default function CompetitionPage() {
 
         {/* Hero Section */}
         <section className="relative pt-[180px] pb-16 min-h-[280px] border-b border-[#C9A84C]/20" style={{ background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)" }}>
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          <img src="/boccia.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(10,47,29,0.92) 0%, rgba(10,47,29,0.85) 35%, rgba(10,47,29,0.5) 60%, rgba(10,47,29,0.15) 80%, transparent 100%)"}} />
+          <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(10,47,29,0.6) 0%, transparent 40%)"}} />
+<div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <div className="w-16 h-1 bg-[#C9A84C] rounded-full mb-6" />
@@ -57,9 +60,6 @@ export default function CompetitionPage() {
             </div>
             <p className="text-[13px] text-gray-400 mt-4">In pair and team events, a reserve player is allowed. One substitution per game is permitted between ends.</p>
           </div>
-            <div className="mt-8 rounded-xl overflow-hidden shadow-lg border border-[#C9A84C]/15 boccia-img-container">
-              <img src="/boccia.png" alt="" className="w-full h-[200px] object-cover" />
-            </div>
         </section>
       </main>
       <Footer />

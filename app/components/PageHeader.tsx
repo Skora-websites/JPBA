@@ -5,24 +5,33 @@ import { motion } from "framer-motion";
 interface PageHeaderProps {
   title: string;
   breadcrumb: { label: string; href?: string }[];
+  image?: string;
 }
 
-export default function PageHeader({ title, breadcrumb }: PageHeaderProps) {
+export default function PageHeader({ title, breadcrumb, image = "/boccia.png" }: PageHeaderProps) {
   return (
-    <div className="relative pt-[180px] pb-16 min-h-[300px] overflow-hidden flex items-center"
-      style={{
-        background: "linear-gradient(135deg, #FDF8EF 0%, #FFFFFF 50%, #F4F1E9 100%)",
-      }}
-    >
-      {/* Background textures */}
-      {/* Floating gradient orbs */}
-      {/* Diagonal texture overlay */}
-      <div className="absolute inset-0 pointer-events-none opacity-30"
+    <div className="relative pt-[180px] pb-16 min-h-[300px] overflow-hidden flex items-center bg-[#0A2F1D]">
+      {/* Full background image */}
+      <img
+        src={image}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      {/* Gradient fade: dark on left (for text) to transparent on right (showing image) */}
+      <div
+        className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 10px)",
+          background: "linear-gradient(to right, rgba(10,47,29,0.92) 0%, rgba(10,47,29,0.85) 35%, rgba(10,47,29,0.5) 60%, rgba(10,47,29,0.15) 80%, transparent 100%)",
         }}
       />
-      
+      {/* Bottom gradient fade */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "linear-gradient(to top, rgba(10,47,29,0.6) 0%, transparent 40%)",
+        }}
+      />
+
       <div className="mx-auto max-w-[1400px] w-full px-6 lg:px-10 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

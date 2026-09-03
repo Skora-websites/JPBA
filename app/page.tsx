@@ -667,9 +667,6 @@ export default function Home() {
               </ScrollReveal>
             </div>
           </div>
-            <div className="mt-8 rounded-xl overflow-hidden shadow-lg border border-[#C9A84C]/15 boccia-img-container">
-              <img src="/boccia.png" alt="" className="w-full h-[200px] object-cover" />
-            </div>
         </section>
 
         {/* SECTION 4: National Footprint */}
@@ -696,9 +693,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-            <div className="mt-8 rounded-xl overflow-hidden shadow-lg border border-[#C9A84C]/15 boccia-img-container">
-              <img src="/boccia.png" alt="" className="w-full h-[200px] object-cover" />
-            </div>
         </section>
 
         {/* SECTION 5: Registration Pathway */}
@@ -784,9 +778,6 @@ export default function Home() {
               </div>
             </ScrollReveal>
           </div>
-            <div className="mt-8 rounded-xl overflow-hidden shadow-lg border border-[#C9A84C]/15 boccia-img-container">
-              <img src="/boccia.png" alt="" className="w-full h-[200px] object-cover" />
-            </div>
         </section>
 
         {/* ═══════════════════════════════════════════
@@ -1277,9 +1268,6 @@ export default function Home() {
               </ScrollReveal>
             </div>
           </div>
-            <div className="mt-8 rounded-xl overflow-hidden shadow-lg border border-[#C9A84C]/15 boccia-img-container">
-              <img src="/boccia.png" alt="" className="w-full h-[200px] object-cover" />
-            </div>
         </section>
 
         <Footer />

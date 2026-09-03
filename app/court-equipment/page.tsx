@@ -19,8 +19,11 @@ export default function CourtEquipmentPage() {
     <div className="flex flex-col min-h-screen bg-[#FDF8EF]">
       <Navbar onRegisterClick={() => setShowReg(true)} />
       <main className="flex-1">
-        <section className="relative pt-[180px] pb-16 min-h-[320px] border-b border-[#C9A84C]/20" style={{background:"linear-gradient(135deg, #FDF8EF 0%, #FFFFFF 50%, #E8F5E9 100%)"}}>
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <section className="relative pt-[180px] pb-16 min-h-[320px] border-b border-[#C9A84C]/20" style={{background: "linear-gradient(135deg, #0A2F1D 0%, #133824 40%, #1B4E33 100%)"}}>
+          <img src="/boccia.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(10,47,29,0.92) 0%, rgba(10,47,29,0.85) 35%, rgba(10,47,29,0.5) 60%, rgba(10,47,29,0.15) 80%, transparent 100%)"}} />
+          <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(10,47,29,0.6) 0%, transparent 40%)"}} />
+<div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <div className="w-16 h-1 bg-[#C9A84C] rounded-full mb-6" />

@@ -15,9 +15,7 @@ export default function GalleryPage() {
   return (
     <div className="flex flex-col min-h-screen bg-[#FDF8EF]">
       <Navbar />
-      <PageHeader
-        title="Gallery"
-        breadcrumb={[{ label: "News & Media" }, { label: "Gallery" }]}
+      <PageHeader title="Gallery" image="/boccia.png" breadcrumb={[{ label: "News & Media" }, { label: "Gallery" }]}
       />
       <main className="flex-1 py-16">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10 relative">
