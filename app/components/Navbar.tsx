@@ -29,7 +29,7 @@ const navigation: NavItem[] = [
   ]},
   { label: "Get Involved", children: [
     { label: "Membership", href: "/get-involved/membership" },
-    { label: "Player Database 2026", href: "/get-involved/players-database" },
+    { label: "Player Database 2026", href: "/get-involved/player-database" },
     { label: "Officials Database 2026", href: "/get-involved/officials" }
   ]},
   { label: "Competitions", children: [

@@ -4,6 +4,7 @@ import "./globals.css";
 import { RegistrationProvider } from "@/contexts/RegistrationContext";
 import Preloader from "./components/Preloader";
 import PageTransition from "./components/PageTransition";
+import StickyRegister from "./components/StickyRegister";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,6 +46,7 @@ export default function RootLayout({
           <PageTransition>
             {children}
           </PageTransition>
+          <StickyRegister />
         </RegistrationProvider>
       </body>
     </html>
