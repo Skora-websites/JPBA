@@ -210,6 +210,7 @@ export default function AdminVideos() {
           <h2 className="text-[16px] font-bold text-[#0A2F1D]">
             All Videos <span className="text-[#8A8A8A] font-semibold">({videos.length})</span>
           </h2>
+          <span className="hidden md:block text-[11px] uppercase tracking-wider text-[#8A8A8A] font-bold">Site views</span>
         </div>
         {loading ? (
           <p className="px-6 py-8 text-[#8A8A8A] text-sm">Loading…</p>
@@ -245,6 +246,11 @@ export default function AdminVideos() {
                   <p className="text-[12px] text-[#8A8A8A] mt-1 truncate">
                     {v.youtube_id ? `youtube.com/watch?v=${v.youtube_id}` : v.file_path}
                   </p>
+                </div>
+                {/* Views */}
+                <div className="hidden md:flex flex-col items-end shrink-0 w-20" title="Site views — plays started on this website">
+                  <span className="text-[15px] font-bold text-[#0A2F1D] leading-none">{v.views.toLocaleString()}</span>
+                  <span className="text-[10px] uppercase tracking-wider text-[#8A8A8A] font-semibold mt-1">views</span>
                 </div>
                 {/* Actions */}
                 <div className="flex items-center gap-2 shrink-0">

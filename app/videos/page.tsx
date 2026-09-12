@@ -32,6 +32,33 @@ export default function VideosPage() {
 
       <main className="flex-1 py-16">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          {/* Channel header — Boccia Jharkhand on YouTube */}
+          <ScrollReveal variant="fade-up">
+            <div className="mb-10 rounded-2xl bg-mesh-gradient-dark relative overflow-hidden p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-6">
+              <div className="absolute inset-0 bg-texture-dots-dark opacity-10 pointer-events-none" />
+              <div className="relative z-10 flex items-center gap-4 flex-1 min-w-0">
+                <span className="h-14 w-14 sm:h-16 sm:w-16 shrink-0 rounded-full bg-[#FF0000] flex items-center justify-center shadow-lg shadow-black/30">
+                  <svg viewBox="0 0 24 24" className="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81z" /><path d="M9.55 15.57V8.43L15.82 12l-6.27 3.57z" fill="#0A2F1D" /></svg>
+                </span>
+                <div className="min-w-0">
+                  <h2 className="text-[20px] sm:text-[24px] font-bold text-white leading-tight truncate">Boccia Jharkhand</h2>
+                  <p className="text-white/70 text-[13px] mt-0.5">
+                    Match footage · highlights · athlete stories — straight from our official channel
+                  </p>
+                </div>
+              </div>
+              <a
+                href="https://www.youtube.com/@BocciaJharkhand?sub_confirmation=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative z-10 shrink-0 inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#FF0000] text-white text-[13px] font-bold uppercase tracking-wider hover:bg-white hover:text-[#FF0000] transition-all duration-300 shadow-lg hover:scale-[1.03] active:scale-95"
+              >
+                <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81z" /><path d="M9.55 15.57V8.43L15.82 12l-6.27 3.57z" fill="#FF0000" /></svg>
+                Subscribe on YouTube
+              </a>
+            </div>
+          </ScrollReveal>
+
           {videos.length === 0 ? (
             <ScrollReveal variant="fade-up">
               <div className="text-center py-20 rounded-2xl bg-white border border-[#E2D9C8]">
@@ -42,10 +69,10 @@ export default function VideosPage() {
                   YouTube channel. Check back shortly!
                 </p>
                 <a
-                  href="https://www.youtube.com/results?search_query=boccia+jharkhand"
+                  href="https://www.youtube.com/@BocciaJharkhand"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 mt-6 px-6 py-3 bg-[#C9A84C] text-[#0A2F1D] rounded font-bold uppercase tracking-wider text-[13px] hover:bg-[#0A2F1D] hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 mt-6 px-6 py-3 bg-[#FF0000] text-white rounded font-bold uppercase tracking-wider text-[13px] hover:bg-white hover:text-[#FF0000] transition-colors"
                 >
                   Visit our YouTube channel →
                 </a>
@@ -75,6 +102,7 @@ export default function VideosPage() {
                       <YouTubeFacade
                         youtubeId={featured.youtube_id ?? ""}
                         title={featured.title}
+                        eager
                       />
                     </div>
                     {featured.description && (
