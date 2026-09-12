@@ -12,90 +12,79 @@ import type { Registration, RegistrationFormData } from "@/types/registration";
 
 interface RegistrationContextType {
   registrations: Registration[];
-  addRegistration: (data: RegistrationFormData) => Registration;
+  /** Submit a new registration from the public form (POST /api/registrations) */
+  addRegistration: (data: RegistrationFormData) => Promise<Registration>;
+  /** Admin: update status/notes (PATCH /api/registrations/:id) */
   updateRegistration: (
     id: string,
     updates: Partial<Pick<Registration, "status" | "adminNotes">>
-  ) => void;
+  ) => Promise<void>;
+  refresh: () => Promise<void>;
   getRegistration: (id: string) => Registration | undefined;
+  /** True once the initial fetch attempt has finished */
+  isLoaded: boolean;
 }
 
 const RegistrationContext = createContext<RegistrationContextType | null>(null);
-
-const STORAGE_KEY = "jpba_registrations";
-
-function generateId(): string {
-  return `JPBA-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).substring(2, 6).toUpperCase()}`;
-}
 
 export function RegistrationProvider({ children }: { children: ReactNode }) {
   const [registrations, setRegistrations] = useState<Registration[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Load from localStorage on mount
-  useEffect(() => {
+  const refresh = useCallback(async () => {
     try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        setRegistrations(JSON.parse(stored));
+      const res = await fetch("/api/registrations");
+      if (res.ok) {
+        const data = await res.json();
+        setRegistrations(data.registrations ?? []);
       }
-    } catch (e) {
-      console.error("Failed to load registrations from localStorage", e);
+    } catch {
+      // Not signed in (public visitor) or network issue — leave list empty
     } finally {
       setIsLoaded(true);
     }
   }, []);
 
-  // Listen to storage events for cross-tab synchronization
+  // Initial load — only succeeds for signed-in admins
   useEffect(() => {
-    const handleStorage = (e: StorageEvent) => {
-      if (e.key === STORAGE_KEY && e.newValue) {
-        try {
-          setRegistrations(JSON.parse(e.newValue));
-        } catch (err) {
-          console.error("Failed to parse registrations from storage event");
-        }
-      }
-    };
-    window.addEventListener("storage", handleStorage);
-    return () => window.removeEventListener("storage", handleStorage);
-  }, []);
-
-  // Save to localStorage on change
-  useEffect(() => {
-    if (!isLoaded) return;
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(registrations));
-    } catch (e) {
-      console.error("Failed to save registrations to localStorage", e);
-    }
-  }, [registrations, isLoaded]);
+    refresh();
+  }, [refresh]);
 
   const addRegistration = useCallback(
-    (data: RegistrationFormData): Registration => {
-      const newReg: Registration = {
+    async (data: RegistrationFormData): Promise<Registration> => {
+      const res = await fetch("/api/registrations", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || "Failed to submit registration");
+      }
+      const { id } = await res.json();
+      return {
         ...data,
-        id: generateId(),
+        id,
         status: "pending",
         submittedAt: new Date().toISOString(),
         adminNotes: "",
       };
-      setRegistrations((prev) => [newReg, ...prev]);
-      return newReg;
     },
     []
   );
 
   const updateRegistration = useCallback(
-    (
-      id: string,
-      updates: Partial<Pick<Registration, "status" | "adminNotes">>
-    ) => {
-      setRegistrations((prev) =>
-        prev.map((reg) => (reg.id === id ? { ...reg, ...updates } : reg))
-      );
+    async (id: string, updates: Partial<Pick<Registration, "status" | "adminNotes">>) => {
+      const res = await fetch(`/api/registrations/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updates),
+      });
+      if (!res.ok) throw new Error("Failed to update registration");
+      // Re-fetch to stay in sync with the server
+      await refresh();
     },
-    []
+    [refresh]
   );
 
   const getRegistration = useCallback(
@@ -109,7 +98,9 @@ export function RegistrationProvider({ children }: { children: ReactNode }) {
         registrations,
         addRegistration,
         updateRegistration,
+        refresh,
         getRegistration,
+        isLoaded,
       }}
     >
       {children}

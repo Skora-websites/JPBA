@@ -20,7 +20,7 @@ export default function RegistrationForm({ isOpen, onClose }: Props) {
     if (step === 1) return data.underlyingCondition && data.impairmentType && data.micStatus;
     return true;
   };
-  const handleSubmit = () => { addRegistration(data); setSubmitted(true); };
+  const handleSubmit = () => { addRegistration(data).then(() => setSubmitted(true)).catch(() => alert("Submission failed — please try again.")); };
   const inputClass = "w-full rounded-lg border border-[#E5E7EB] bg-white px-4 py-3 text-sm text-[#1a1a2e] placeholder:text-[#9CA3AF] focus:border-[#FF9933] focus:outline-none focus:ring-2 focus:ring-[#FF9933]/10 transition-colors";
 
   return (

@@ -1,149 +1,153 @@
 "use client";
-
-import { useEffect, useState } from "react";
-import { useRouter, usePathname } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
-const sidebarLinks = [
-  { label: "Overview", href: "/admin", icon: "📊" },
-  { label: "Registrations", href: "/admin/registrations", icon: "📋" },
+const NAV = [
+  { href: "/admin", label: "Dashboard", icon: "▦" },
+  { href: "/admin/videos", label: "Videos", icon: "▶" },
+  { href: "/admin/news", label: "News", icon: "✎" },
+  { href: "/admin/events", label: "Events", icon: "◷" },
+  { href: "/admin/gallery", label: "Gallery", icon: "❖" },
+  { href: "/admin/registrations", label: "Registrations", icon: "☰" },
+  { href: "/admin/settings", label: "Settings", icon: "⚙" },
 ];
 
+interface AdminInfo {
+  name: string;
+  username: string;
+}
+
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
-  const router = useRouter();
   const pathname = usePathname();
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [authed, setAuthed] = useState(false);
+  const router = useRouter();
+  const [admin, setAdmin] = useState<AdminInfo | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  // Auth guard
+  const isLoginPage = pathname.startsWith("/admin/login");
+
+  // Only enforce the session check while actually inside /admin/** —
+  // public pages must never be bounced by this layout.
+  const inAdminArea = pathname.startsWith("/admin");
+
   useEffect(() => {
-    if (pathname === "/admin/login") {
-      setAuthed(true);
-      return;
-    }
-    const isAuth = localStorage.getItem("jpba_admin_auth");
-    if (!isAuth) {
-      router.push("/admin/login");
-    } else {
-      setAuthed(true);
-    }
-  }, [pathname, router]);
+    if (!inAdminArea || isLoginPage) return;
+    let cancelled = false;
+    fetch("/api/auth/me")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        if (cancelled) return;
+        if (d?.admin) setAdmin({ name: d.admin.name, username: d.admin.username });
+        else router.replace("/admin/login");
+      })
+      .catch(() => {
+        if (!cancelled) router.replace("/admin/login");
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [inAdminArea, isLoginPage, router]);
 
-  const handleLogout = () => {
-    localStorage.removeItem("jpba_admin_auth");
-    router.push("/admin/login");
+  // Login page renders standalone (no sidebar)
+  if (isLoginPage) return <>{children}</>;
+
+  const logout = async () => {
+    await fetch("/api/auth/logout", { method: "POST" });
+    router.replace("/admin/login");
   };
 
-  // Login page — no shell
-  if (pathname === "/admin/login") {
-    return <>{children}</>;
-  }
-
-  if (!authed) return null;
-
   return (
-    <div className="min-h-screen flex bg-background">
-      {/* Sidebar */}
+    <div className="flex min-h-screen bg-[#FDF8EF]">
+      {/* ── Sidebar ─────────────────────────────────────────── */}
       <aside
-        className={`fixed inset-y-0 left-0 z-40 w-[260px] bg-surface border-r border-border transition-transform lg:translate-x-0 ${
-          sidebarOpen ? "translate-x-0" : "-translate-x-full"
+        className={`fixed inset-y-0 left-0 z-40 w-64 bg-[#0A2F1D] text-white flex flex-col transition-transform duration-300 lg:translate-x-0 ${
+          menuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        {/* Logo */}
-        <div className="flex items-center gap-3 px-6 h-[72px] border-b border-border">
-          <Image
-            src="/jharkhand.PNG"
-            alt="JPBA"
-            width={36}
-            height={36}
-            className="object-contain"
-          />
+        {/* Logo + brand */}
+        <div className="flex items-center gap-3 px-5 py-5 border-b border-white/10">
+          <div className="relative h-11 w-11 shrink-0">
+            <Image src="/jharkhand.PNG" alt="JPBA Logo" fill className="object-contain" />
+          </div>
           <div>
-            <p className="text-sm font-bold text-white">JPBA Admin</p>
-            <p className="text-[10px] text-text-secondary">Dashboard</p>
+            <span className="block text-lg font-bold leading-none">JPBA</span>
+            <span className="text-[9px] font-semibold text-white/60 uppercase tracking-[0.18em]">
+              Admin Panel
+            </span>
           </div>
         </div>
 
-        {/* Nav Links */}
-        <nav className="p-4 space-y-1">
-          {sidebarLinks.map((link) => {
-            const isActive =
-              link.href === "/admin"
-                ? pathname === "/admin"
-                : pathname.startsWith(link.href);
+        {/* Nav */}
+        <nav className="flex-1 px-3 py-5 space-y-1 overflow-y-auto">
+          {NAV.map((item) => {
+            const active =
+              item.href === "/admin" ? pathname === "/admin" : pathname.startsWith(item.href);
             return (
               <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setSidebarOpen(false)}
-                className={`flex items-center gap-3 rounded-lg px-4 py-3 text-sm transition-all ${
-                  isActive
-                    ? "bg-primary/15 text-primary font-semibold"
-                    : "text-text-secondary hover:text-white hover:bg-white/5"
+                key={item.href}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-[14px] font-semibold transition-all ${
+                  active
+                    ? "bg-[#C9A84C] text-[#0A2F1D] shadow-lg shadow-[#C9A84C]/20"
+                    : "text-white/75 hover:bg-white/10 hover:text-white"
                 }`}
               >
-                <span>{link.icon}</span>
-                {link.label}
+                <span className="text-[13px] w-4 text-center">{item.icon}</span>
+                {item.label}
               </Link>
             );
           })}
         </nav>
 
-        {/* Bottom */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-border">
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-xs text-text-secondary hover:text-white transition-colors mb-2"
-          >
-            ← Back to Website
-          </Link>
-        </div>
-      </aside>
-
-      {/* Mobile Overlay */}
-      {sidebarOpen && (
-        <div
-          className="fixed inset-0 z-30 bg-black/50 lg:hidden"
-          onClick={() => setSidebarOpen(false)}
-        />
-      )}
-
-      {/* Main Content */}
-      <div className="flex-1 lg:ml-[260px]">
-        {/* Topbar */}
-        <header className="sticky top-0 z-20 h-[72px] bg-surface/80 backdrop-blur-md border-b border-border flex items-center justify-between px-6">
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="lg:hidden text-text-secondary hover:text-white"
+        {/* Footer of sidebar */}
+        <div className="px-5 py-4 border-t border-white/10">
+          <p className="text-[13px] font-semibold text-white">{admin?.name ?? "…"}</p>
+          <p className="text-[11px] text-white/50 mb-3">@{admin?.username ?? "…"}</p>
+          <div className="flex gap-2">
+            <Link
+              href="/"
+              className="flex-1 text-center px-3 py-2 rounded-lg bg-white/10 text-white text-[12px] font-semibold hover:bg-white/20 transition-colors"
             >
-              ☰
-            </button>
-            <h1 className="text-sm font-semibold text-white hidden sm:block">
-              {pathname === "/admin"
-                ? "Dashboard Overview"
-                : pathname.includes("/registrations/")
-                  ? "Registration Details"
-                  : "Registrations"}
-            </h1>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-xs font-bold text-primary">
-              A
-            </div>
+              View Site
+            </Link>
             <button
-              onClick={handleLogout}
-              className="text-xs text-text-secondary hover:text-danger transition-colors"
+              onClick={logout}
+              className="flex-1 px-3 py-2 rounded-lg bg-[#C9A84C] text-[#0A2F1D] text-[12px] font-bold hover:bg-white transition-colors"
             >
               Logout
             </button>
           </div>
-        </header>
+        </div>
+      </aside>
 
-        {/* Page Content */}
-        <main className="p-6">{children}</main>
+      {/* Mobile overlay */}
+      {menuOpen && (
+        <div
+          className="fixed inset-0 z-30 bg-black/40 lg:hidden"
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
+
+      {/* ── Main content ────────────────────────────────────── */}
+      <div className="flex-1 lg:pl-64 min-w-0">
+        {/* Mobile topbar */}
+        <div className="lg:hidden sticky top-0 z-20 flex items-center gap-3 bg-[#0A2F1D] text-white px-4 py-3">
+          <button
+            onClick={() => setMenuOpen(true)}
+            className="h-9 w-9 rounded-lg bg-white/10 flex items-center justify-center text-lg"
+            aria-label="Open menu"
+          >
+            ☰
+          </button>
+          <div className="relative h-8 w-8">
+            <Image src="/jharkhand.PNG" alt="JPBA" fill className="object-contain" />
+          </div>
+          <span className="font-bold">JPBA Admin</span>
+        </div>
+
+        <main className="p-5 lg:p-8 max-w-[1400px]">{children}</main>
       </div>
     </div>
   );

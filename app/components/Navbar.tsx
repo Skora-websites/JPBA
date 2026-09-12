@@ -41,7 +41,8 @@ const navigation: NavItem[] = [
   { label: "News & Media", children: [
     { label: "News", href: "/#official-federation-updates" },
     { label: "Circulars & Notices", href: "/news/circulars" },
-    { label: "Gallery", href: "/#photo-gallery" },
+    { label: "Gallery", href: "/gallery" },
+    { label: "Videos", href: "/videos" },
     { label: "JPBA Tender", href: "/news/tenders" }
   ]},
   { label: "Selection Guidelines", href: "/selection-guidelines" },

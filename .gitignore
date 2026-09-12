@@ -45,3 +45,10 @@ repomix-output.xml
 
 # large videos (too big for git/github, keep local)
 *.mov
+
+# video masters served from YouTube
+*.mov
+
+# sqlite database
+/data/*.db-wal
+/data/*.db-shm

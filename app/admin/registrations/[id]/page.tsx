@@ -80,19 +80,19 @@ export default function RegistrationDetail({
       {/* Action Buttons */}
       <div className="flex flex-wrap gap-3 mb-8">
         <button
-          onClick={() => updateRegistration(reg.id, { status: "approved" })}
+          onClick={() => { updateRegistration(reg.id, { status: "approved" }).then(() => router.refresh()); }}
           className="rounded-lg bg-accent/15 px-4 py-2 text-sm font-semibold text-accent hover:bg-accent/25 transition-colors"
         >
           ✓ Approve
         </button>
         <button
-          onClick={() => updateRegistration(reg.id, { status: "rejected" })}
+          onClick={() => { updateRegistration(reg.id, { status: "rejected" }).then(() => router.refresh()); }}
           className="rounded-lg bg-danger/15 px-4 py-2 text-sm font-semibold text-danger hover:bg-danger/25 transition-colors"
         >
           ✕ Reject
         </button>
         <button
-          onClick={() => updateRegistration(reg.id, { status: "pending" })}
+          onClick={() => { updateRegistration(reg.id, { status: "pending" }).then(() => router.refresh()); }}
           className="rounded-lg bg-warning/15 px-4 py-2 text-sm font-semibold text-warning hover:bg-warning/25 transition-colors"
         >
           ⏳ Mark Pending
@@ -177,7 +177,7 @@ export default function RegistrationDetail({
           <textarea
             value={reg.adminNotes}
             onChange={(e) =>
-              updateRegistration(reg.id, { adminNotes: e.target.value })
+              updateRegistration(reg.id, { adminNotes: e.target.value }).catch(() => null)
             }
             placeholder="Add notes about this registration..."
             rows={6}
