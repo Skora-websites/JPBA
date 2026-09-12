@@ -1380,12 +1380,23 @@ export default function Home() {
                       Watch Boccia
                     </h2>
                   </div>
-                  <Link
-                    href="/videos"
-                    className="text-[14px] font-bold text-[#C9A84C] hover:text-white transition-colors mt-4 md:mt-0 border-b-2 border-[#C9A84C] pb-1 inline-block"
-                  >
-                    All Videos →
-                  </Link>
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mt-4 md:mt-0">
+                    <a
+                      href="https://www.youtube.com/@BocciaJharkhand?sub_confirmation=1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#FF0000] text-white text-[12px] font-bold uppercase tracking-wider hover:bg-white hover:text-[#FF0000] transition-all duration-300 shadow-lg hover:scale-[1.03] active:scale-95"
+                    >
+                      <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81z" /><path d="M9.55 15.57V8.43L15.82 12l-6.27 3.57z" fill="#FF0000" /></svg>
+                      Subscribe on YouTube
+                    </a>
+                    <Link
+                      href="/videos"
+                      className="text-[14px] font-bold text-[#C9A84C] hover:text-white transition-colors border-b-2 border-[#C9A84C] pb-1 inline-block"
+                    >
+                      All Videos →
+                    </Link>
+                  </div>
                 </div>
               </ScrollReveal>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
