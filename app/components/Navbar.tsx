@@ -94,13 +94,10 @@ export default function Navbar({ onRegisterClick }: { onRegisterClick?: () => vo
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-[100]">
-      {/* TOP LOGO BAR */}
-      <motion.div 
-        className="w-full relative z-20 flex items-center justify-center overflow-hidden" style={{background: "linear-gradient(135deg, #0A2F1D 0%, #1B4E33 30%, #C9A84C 50%, #E8D5A3 65%, #FFFFFF 80%, #C9A84C 90%, #0A2F1D 100%)"}}
-        initial={{ height: 160 }}
-        animate={{ height: isScrolled ? 160 : 160, opacity: 1 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
+    <header className="fixed top-0 left-0 w-full z-[100] shadow-2xl">
+      {/* TOP LOGO BAR - Fixed, always visible */}
+      <div 
+        className="w-full relative z-20 flex items-center justify-center overflow-hidden h-[160px]" style={{background: "linear-gradient(135deg, #0A2F1D 0%, #1B4E33 30%, #C9A84C 50%, #E8D5A3 65%, #FFFFFF 80%, #C9A84C 90%, #0A2F1D 100%)"}}
       >
         <div className="max-w-[1400px] w-full px-4 flex items-center justify-center h-full">
           {/* Logo Group */}
@@ -120,36 +117,16 @@ export default function Navbar({ onRegisterClick }: { onRegisterClick?: () => vo
             </div>
           </Link>
         </div>
-      </motion.div>
+      </div>
 
-      {/* NAVBAR ROW */}
+      {/* NAVBAR ROW - Fixed, always visible */}
       <div 
         ref={ref}
-        className={`w-full transition-all duration-300 relative z-10 ${isScrolled ? 'bg-[#0A2F1D] shadow-lg' : 'bg-[#0A2F1D]'}`}
+        className="w-full transition-all duration-300 relative z-10 bg-[#0A2F1D] shadow-lg border-b border-[#C9A84C]/30"
       >
         <div className="max-w-[1400px] mx-auto px-4 lg:px-8">
           <nav className="flex items-center justify-between h-14">
             
-            {/* Mobile Logo (Visible only when scrolled) */}
-            <div className="lg:hidden flex items-center">
-              <AnimatePresence>
-                {isScrolled && (
-                  <motion.div 
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                  >
-                    <Link href="/" className="flex items-center gap-2">
-                      <div className="relative h-8 w-8 rounded-full">
-                        <Image src="/jharkhand.PNG" alt="JPBA Logo" fill className="object-contain" priority />
-                      </div>
-                      <span className="text-white font-bold tracking-widest text-sm">JPBA</span>
-                    </Link>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center h-full">
               {navigation.map((item) => (

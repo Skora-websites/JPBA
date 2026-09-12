@@ -35,12 +35,12 @@ for (const f of files) {
 
 // Person photos provided via WhatsApp (mapped by user's descriptions)
 const PEOPLE = [
-  { file: "WhatsApp Image 2026-09-09 at 10.00.45 AM.jpeg", out: "suman-kumar-prajapati.webp" }, // Jharkhand banner — BC4 International
-  { file: "WhatsApp Image 2026-09-09 at 9.35.56 PM.jpeg", out: "anam-hyder.webp" },             // glasses — BC2 National
-  { file: "paste-1789233635869-19948.png", out: "president-portrait.webp" },                     // Capt J K Sharma uniform portrait
-  { file: "paste-1789234107499-19948.png", out: "sonu-kumar-sharma.webp" },                      // beige suit — Treasurer
+  { file: "paste-1789233635869-19948.png", out: "suman-kumar-prajapati.webp" },                 // Jharkhand banner — BC4 International
+  { file: "WhatsApp Image 2026-09-09 at 10.00.45 AM.jpeg", out: "anam-hyder.webp" },             // glasses — BC2 National
+  { file: "paste-1789234107499-19948.png", out: "president-portrait.webp" },                     // Capt J K Sharma uniform portrait
+  { file: "WhatsApp Image 2026-09-09 at 9.36.57 PM.jpeg", out: "sonu-kumar-sharma.webp" },      // beige suit — Treasurer
   { file: "WhatsApp Image 2026-09-10 at 3.33.47 AM.jpeg", out: "dr-suman-kumar-sharma.webp" },   // maroon cap — Secretary General
-  { file: "WhatsApp Image 2026-09-09 at 9.36.57 PM.jpeg", out: "raj-kumar-singh.webp" },         // tie — Coach
+  { file: "WhatsApp Image 2026-09-09 at 9.35.56 PM.jpeg", out: "raj-kumar-singh.webp" },         // tie — Coach
 ];
 for (const p of PEOPLE) {
   const candidates = [

@@ -22,6 +22,7 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [activeTab, setActiveTab] = useState("overview");
   const [showStickyCTA, setShowStickyCTA] = useState(false);
+  const [playIntroVideo, setPlayIntroVideo] = useState(false);
   const [dbVideos, setDbVideos] = useState<DbVideo[]>([]);
   const [dbNews, setDbNews] = useState<DbNews[]>([]);
   const [dbEvents, setDbEvents] = useState<DbEvent[]>([]);
@@ -206,7 +207,7 @@ export default function Home() {
         <Navbar />
 
         {/* Retro marquee ticker under the navbar */}
-        <div className="bg-[#0A2F1D] border-y border-[#C9A84C]/30 py-2.5 text-[#C9A84C] text-[12px] font-bold uppercase tracking-[0.2em] relative z-40">
+        <div className="mt-[216px] bg-[#0A2F1D] border-y border-[#C9A84C]/30 py-2.5 text-[#C9A84C] text-[12px] font-bold uppercase tracking-[0.2em] relative z-40">
           <RetroMarquee
             items={[
               "Precision",
@@ -225,7 +226,7 @@ export default function Home() {
         {/* ═══════════════════════════════════════════
              HERO SLIDESHOW — Enhanced with gradient mesh & orbs
         ════════════════════════════════════════════ */}
-        <section ref={heroRef} className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-[#0A2F1D]" style={{paddingTop: "240px", paddingBottom: "40px"}}>
+        <section ref={heroRef} className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-[#0A2F1D]" style={{paddingTop: "50px", paddingBottom: "50px"}}>
           {/* Background Slides */}
           {slides.map((src, index) => (
             <div
@@ -509,29 +510,48 @@ export default function Home() {
 
               {/* Video Player */}
               <ScrollReveal variant="slide-right">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black aspect-video group cursor-pointer border-4 border-white retro-scanlines">
-                  <img
-                    src={IMG.hero4}
-                    alt="Athlete competing in a BC3 ramp match"
-                    className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                  />
-                  {/* Gradient overlay on video */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <div className="w-16 h-16 bg-[#C9A84C] rounded-full flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform shadow-lg shadow-[#C9A84C]/30">
-                      <svg
-                        className="w-8 h-8 text-[#0A2F1D] ml-1"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                    <span className="mt-4 bg-black/60 text-white px-4 py-1.5 rounded-full text-[12px] font-semibold tracking-wide backdrop-blur-sm animate-arcade-blink">
-                      🎥 Official Introduction to Para Boccia
-                    </span>
+                {playIntroVideo ? (
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black aspect-video border-4 border-white">
+                    <iframe
+                      src="https://www.youtube-nocookie.com/embed/dnQzKyLpLt8?autoplay=1&rel=0"
+                      title="Official Introduction to Para Boccia"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
                   </div>
-                </div>
+                ) : (
+                  <div 
+                    onClick={() => setPlayIntroVideo(true)}
+                    className="relative rounded-2xl overflow-hidden shadow-2xl bg-black aspect-video group cursor-pointer border-4 border-white retro-scanlines"
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setPlayIntroVideo(true); }}
+                    aria-label="Play official introduction to Para Boccia video"
+                  >
+                    <img
+                      src={IMG.hero4}
+                      alt="Athlete competing in a BC3 ramp match"
+                      className="w-full h-full object-cover opacity-75 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                    />
+                    {/* Gradient overlay on video */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 flex flex-col items-center justify-center">
+                      <div className="w-16 h-16 bg-[#C9A84C] rounded-full flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform shadow-lg shadow-[#C9A84C]/40">
+                        <svg
+                          className="w-8 h-8 text-[#0A2F1D] ml-1"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                      <span className="mt-4 bg-black/70 text-white px-4 py-1.5 rounded-full text-[12px] font-semibold tracking-wide backdrop-blur-sm group-hover:bg-[#C9A84C] group-hover:text-[#0A2F1D] transition-colors">
+                        🎥 Official Introduction to Para Boccia · Click to Watch
+                      </span>
+                    </div>
+                  </div>
+                )}
               </ScrollReveal>
             </div>
           </div>
