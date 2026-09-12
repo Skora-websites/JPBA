@@ -14,7 +14,7 @@ export default function BocciaPage() {
       <main className="flex-1">
 
         {/* Hero Section */}
-        <section className="relative pt-[180px] pb-16 min-h-[280px] border-b border-[#C9A84C]/20" style={{ background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)" }}>
+        <section className="relative pt-[230px] pb-16 min-h-[280px] border-b border-[#C9A84C]/20" style={{ background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)" }}>
           <img src="/boccia.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.96) 0%, rgba(253,248,239,0.92) 38%, rgba(253,248,239,0.55) 62%, rgba(253,248,239,0.18) 82%, rgba(253,248,239,0.05) 100%)"}} />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 30%)"}} />
@@ -41,7 +41,7 @@ export default function BocciaPage() {
             <div className="prose prose-lg max-w-none">
               <h2 className="text-[28px] font-bold text-[#0A2F1D] mb-6">What is Boccia?</h2>
               <p className="text-[15px] text-gray-600 leading-relaxed mb-4">
-                Boccia (<strong>/ˈbɒtʃə/</strong>, BOTCH-uh) is a precision ball sport, similar to bocce, and related to bowls and petanque. The name "boccia" is derived from the Latin word for "boss" — bottia. The sport is contested at local, national and international levels by athletes with severe physical disabilities.
+                Boccia (<strong>/ËˆbÉ’tÊƒÉ™/</strong>, BOTCH-uh) is a precision ball sport, similar to bocce, and related to bowls and petanque. The name "boccia" is derived from the Latin word for "boss" â€” bottia. The sport is contested at local, national and international levels by athletes with severe physical disabilities.
               </p>
               <p className="text-[15px] text-gray-600 leading-relaxed mb-4">
                 Originally designed to be played by people with cerebral palsy, Boccia now includes athletes with other severe disabilities affecting motor skills. In 1984, it became a Paralympic sport and as of 2020, 75 boccia national organizations have joined one or more of the international organizations.
@@ -59,7 +59,7 @@ export default function BocciaPage() {
           <div className="mx-auto max-w-[1000px] px-6 lg:px-10">
             <h2 className="text-[28px] font-bold text-[#0A2F1D] mb-6">How the Game Works</h2>
             <p className="text-[15px] text-gray-600 leading-relaxed mb-6">
-              The aim of the game is to throw leather balls — coloured red or blue — as close as they can to a white target ball, or jack. The jack is thrown first, then the first two regular balls are played, after which the side furthest away from the jack goes next.
+              The aim of the game is to throw leather balls â€” coloured red or blue â€” as close as they can to a white target ball, or jack. The jack is thrown first, then the first two regular balls are played, after which the side furthest away from the jack goes next.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <div className="rounded-xl bg-white border border-[#C9A84C]/20 p-6">
@@ -89,7 +89,7 @@ export default function BocciaPage() {
             <h2 className="text-[28px] font-bold text-[#0A2F1D] mb-6">Pronunciation & Origin</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="rounded-xl bg-[#FDF8EF] border border-[#C9A84C]/20 p-6 text-center">
-                <p className="text-[24px] font-bold text-[#0A2F1D] mb-2">/ˈbɒtʃə/</p>
+                <p className="text-[24px] font-bold text-[#0A2F1D] mb-2">/ËˆbÉ’tÊƒÉ™/</p>
                 <p className="text-[14px] text-gray-400">BOTCH-uh</p>
               </div>
               <div className="rounded-xl bg-[#FDF8EF] border border-[#C9A84C]/20 p-6 text-center">

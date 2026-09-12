@@ -97,23 +97,23 @@ export default function Navbar({ onRegisterClick }: { onRegisterClick?: () => vo
       {/* TOP LOGO BAR */}
       <motion.div 
         className="w-full relative z-20 flex items-center justify-center overflow-hidden" style={{background: "linear-gradient(135deg, #0A2F1D 0%, #1B4E33 30%, #C9A84C 50%, #E8D5A3 65%, #FFFFFF 80%, #C9A84C 90%, #0A2F1D 100%)"}}
-        initial={{ height: 105 }}
-        animate={{ height: isScrolled ? 0 : 105, opacity: isScrolled ? 0 : 1 }}
+        initial={{ height: 160 }}
+        animate={{ height: isScrolled ? 160 : 160, opacity: 1 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
-        <div className="max-w-[1400px] w-full px-4 flex items-center justify-between h-full">
+        <div className="max-w-[1400px] w-full px-4 flex items-center justify-center h-full">
           {/* Logo Group */}
-          <Link href="/" className="flex items-center gap-4 group h-full py-2">
-            <div className="relative h-20 w-20 sm:h-24 sm:w-24 rounded-full p-1">
+          <Link href="/" className="flex items-center justify-center gap-5 group h-full py-2">
+            <div className="relative h-28 w-28 sm:h-36 sm:w-36 lg:h-40 lg:w-40 rounded-full p-1">
               <Image src="/jharkhand.PNG" alt="JPBA Logo" fill className="object-contain" priority />
             </div>
             {/* Vertical Separator */}
-            <div className="hidden sm:block w-[1px] h-[60%] bg-white/20 mx-2" />
-            <div className="flex flex-col justify-center">
-              <h1 className="text-[14px] sm:text-[20px] font-bold text-white leading-tight tracking-wide font-sans">
+            <div className="hidden sm:block w-[1px] h-[70%] bg-white/30 mx-2" />
+            <div className="flex flex-col justify-center text-center">
+              <h1 className="text-[17px] sm:text-[24px] lg:text-[27px] font-bold text-white leading-tight tracking-wide font-sans">
                 JHARKHAND PARA BOCCIA ASSOCIATION
               </h1>
-              <h2 className="text-[11px] sm:text-[14px] font-semibold text-white/70 mt-1">
+              <h2 className="text-[13px] sm:text-[16px] lg:text-[18px] font-semibold text-white/80 mt-1">
                 झारखंड पैरा बोच्चिया एसोसिएशन
               </h2>
             </div>
@@ -138,7 +138,12 @@ export default function Navbar({ onRegisterClick }: { onRegisterClick?: () => vo
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                   >
-                    <Link href="/" className="text-white font-bold tracking-widest text-sm">JPBA</Link>
+                    <Link href="/" className="flex items-center gap-2">
+                      <div className="relative h-8 w-8 rounded-full">
+                        <Image src="/jharkhand.PNG" alt="JPBA Logo" fill className="object-contain" priority />
+                      </div>
+                      <span className="text-white font-bold tracking-widest text-sm">JPBA</span>
+                    </Link>
                   </motion.div>
                 )}
               </AnimatePresence>

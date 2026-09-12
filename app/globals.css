@@ -208,14 +208,14 @@ option {
 
 /* Background Texture Utilities - using faded boccia/para sport images */
 .bg-texture-dots {
-  background-image: url("https://images.pexels.com/photos/5547772/pexels-photo-5547772.jpeg?w=100&q=20");
+  background-image: url("/jpba images/IMG_6975.jpeg");
   background-size: cover;
   background-position: center;
   opacity: 0.03;
 }
 
 .bg-texture-diagonal {
-  background-image: url("https://images.pexels.com/photos/38149196/pexels-photo-38149196.jpeg?w=200&q=10");
+  background-image: url("/jpba images/795A0345.JPG");
   background-size: 400px;
   background-repeat: repeat;
   opacity: 0.025;
@@ -229,7 +229,7 @@ option {
 
 /* Wavy line texture - faded boccia */
 .bg-texture-wavy {
-  background-image: url("https://images.pexels.com/photos/5547772/pexels-photo-5547772.jpeg?w=200&q=10");
+  background-image: url("/jpba images/IMG_7046.jpeg");
   background-size: 500px;
   background-repeat: repeat;
   opacity: 0.02;
@@ -237,7 +237,7 @@ option {
 
 /* Cross-hatch - faded adaptive sport */
 .bg-texture-crosshatch {
-  background-image: url("https://images.pexels.com/photos/6763758/pexels-photo-6763758.jpeg?w=200&q=10");
+  background-image: url("/jpba images/795A0362(1).JPG");
   background-size: 400px;
   background-repeat: repeat;
   opacity: 0.02;
@@ -303,7 +303,7 @@ option {
 
 /* Faded boccia image on dark backgrounds */
 .bg-texture-dots-dark {
-  background-image: url("https://images.pexels.com/photos/5547772/pexels-photo-5547772.jpeg?w=300&q=15");
+  background-image: url("/jpba images/IMG_7064.jpeg");
   background-size: cover;
   background-position: center;
   opacity: 0.04;

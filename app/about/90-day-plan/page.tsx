@@ -13,7 +13,7 @@ export default function NinetyDayPlanPage() {
       <main className="flex-1">
 
         {/* Hero Section */}
-        <section className="relative pt-[180px] pb-16 min-h-[280px] border-b border-[#C9A84C]/20" style={{ background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)" }}>
+        <section className="relative pt-[230px] pb-16 min-h-[280px] border-b border-[#C9A84C]/20" style={{ background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)" }}>
           <img src="/boccia.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.96) 0%, rgba(253,248,239,0.92) 38%, rgba(253,248,239,0.55) 62%, rgba(253,248,239,0.18) 82%, rgba(253,248,239,0.05) 100%)"}} />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 30%)"}} />
@@ -27,7 +27,7 @@ export default function NinetyDayPlanPage() {
               </div>
               <div className="hidden lg:block">
                 <div className="rounded-2xl overflow-hidden shadow-xl border border-[#C9A84C]/20">
-                  <img src="https://images.pexels.com/photos/38149196/pexels-photo-38149196.jpeg?w=800&q=80" alt="90-Day Development Plan" className="w-full h-[350px] object-cover" />
+                  <img src="/jpba images/795A1656.JPG" alt="90-Day Development Plan" className="w-full h-[350px] object-cover" />
                 </div>
               </div>
             </div>

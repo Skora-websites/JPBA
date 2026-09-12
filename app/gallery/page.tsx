@@ -5,10 +5,10 @@ import PageHeader from "@/app/components/PageHeader";
 import ScrollReveal from "@/app/components/ScrollReveal";
 
 const albums = [
-  { title: "District Awareness Camps", location: "Jharkhand", date: "Aug 2026", count: 12, img: "https://images.pexels.com/photos/10517000/pexels-photo-10517000.jpeg?w=600&q=80", featured: true },
-  { title: "State Championship 2026", location: "Ranchi", date: "Jul 2026", count: 8, img: "https://images.pexels.com/photos/38149196/pexels-photo-38149196.jpeg?w=600&q=80" },
-  { title: "Training Camp Solan", location: "IAMD, Solan", date: "Aug 2026", count: 4, img: "https://images.pexels.com/photos/38149196/pexels-photo-38149196.jpeg?w=600&q=80" },
-  { title: "Award Ceremony 2026", location: "Ranchi", date: "Jun 2026", count: 6, img: "https://images.pexels.com/photos/10517000/pexels-photo-10517000.jpeg?w=600&q=80" },
+  { title: "District Awareness Camps", location: "Jharkhand", date: "Aug 2026", count: 12, img: "/jpba images/795A8240.JPG", featured: true },
+  { title: "State Championship 2026", location: "Ranchi", date: "Jul 2026", count: 8, img: "/jpba images/795A8453.JPG" },
+  { title: "Training Camp Solan", location: "IAMD, Solan", date: "Aug 2026", count: 4, img: "/jpba images/795A8597.JPG" },
+  { title: "Award Ceremony 2026", location: "Ranchi", date: "Jun 2026", count: 6, img: "/jpba images/795A8607.JPG" },
 ];
 
 export default function GalleryPage() {

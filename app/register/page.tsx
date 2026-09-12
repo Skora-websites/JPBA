@@ -12,8 +12,8 @@ export default function RegisterPage() {
     <div className="flex flex-col min-h-screen bg-[#FDF8EF]">
       <Navbar />
       <main className="flex-1">
-        {/* ═══ Hero Section ═══ */}
-        <section className="relative pt-[180px] pb-20 min-h-[400px] overflow-hidden" style={{background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)"}}>
+        {/* â•â•â• Hero Section â•â•â• */}
+        <section className="relative pt-[230px] pb-20 min-h-[400px] overflow-hidden" style={{background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)"}}>
           <img src="/boccia1.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.96) 0%, rgba(253,248,239,0.92) 38%, rgba(253,248,239,0.55) 62%, rgba(253,248,239,0.18) 82%, rgba(253,248,239,0.05) 100%)"}} />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 30%)"}} />
@@ -58,7 +58,7 @@ export default function RegisterPage() {
               <div className="hidden lg:block">
                 <div className="rounded-2xl overflow-hidden shadow-2xl border border-[#C9A84C]/20 relative">
                   <img
-                    src="https://images.pexels.com/photos/38149196/pexels-photo-38149196.jpeg?w=800&q=80"
+                    src="/jpba images/DSC06432.JPG"
                     alt="Register"
                     className="w-full h-[350px] object-cover"
                   />
@@ -69,7 +69,7 @@ export default function RegisterPage() {
           </div>
         </section>
 
-        {/* ═══ Registration Pathway Steps ═══ */}
+        {/* â•â•â• Registration Pathway Steps â•â•â• */}
         <section className="py-20 bg-white relative overflow-hidden">
           <div className="absolute inset-0 bg-texture-wavy pointer-events-none opacity-30" />
           <div className="gradient-orb gradient-orb-gold w-[400px] h-[400px] -top-40 right-1/4 pointer-events-none opacity-20" />
@@ -169,7 +169,7 @@ export default function RegisterPage() {
           </div>
         </section>
 
-        {/* ═══ Why Register Benefits ═══ */}
+        {/* â•â•â• Why Register Benefits â•â•â• */}
         <section className="py-20 bg-mesh-gradient-dark relative overflow-hidden">
           <div className="absolute inset-0 bg-texture-dots-dark opacity-10 pointer-events-none" />
           <div className="gradient-orb gradient-orb-gold w-[500px] h-[500px] -top-40 -left-40 pointer-events-none opacity-20 animate-float-slow" />
@@ -267,7 +267,7 @@ export default function RegisterPage() {
           </div>
         </section>
 
-        {/* ═══ Eligibility Quick Check ═══ */}
+        {/* â•â•â• Eligibility Quick Check â•â•â• */}
         <section className="py-20 bg-[#FDF8EF] relative overflow-hidden">
           <div className="absolute inset-0 bg-texture-diagonal pointer-events-none" />
 

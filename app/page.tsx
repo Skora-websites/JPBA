@@ -15,9 +15,9 @@ export default function Home() {
   const [showStickyCTA, setShowStickyCTA] = useState(false);
 
   const slides = [
-    "https://images.pexels.com/photos/6763758/pexels-photo-6763758.jpeg?w=1920&q=80",
-    "https://images.pexels.com/photos/10517000/pexels-photo-10517000.jpeg?w=1920&q=80",
-    "https://images.pexels.com/photos/38149196/pexels-photo-38149196.jpeg?w=1920&q=80",
+    "/jpba images/4012fbe0-310d-470e-86e9-3ffb95a29420.jpeg",
+    "/jpba images/795A1291.JPG",
+    "/jpba images/795A1309.JPG",
   ]
 
   const words =
@@ -192,7 +192,7 @@ export default function Home() {
         {/* ═══════════════════════════════════════════
              HERO SLIDESHOW — Enhanced with gradient mesh & orbs
         ════════════════════════════════════════════ */}
-        <section ref={heroRef} className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-[#0A2F1D]" style={{paddingTop: "190px", paddingBottom: "40px"}}>
+        <section ref={heroRef} className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-[#0A2F1D]" style={{paddingTop: "240px", paddingBottom: "40px"}}>
           {/* Background Slides */}
           {slides.map((src, index) => (
             <div
@@ -695,6 +695,103 @@ export default function Home() {
           </div>
         </section>
 
+        {/* SECTION 4.5: History in Jharkhand */}
+        <section className="py-24 bg-[#FDF8EF] relative overflow-hidden">
+          <div className="absolute inset-0 bg-texture-diagonal pointer-events-none" />
+          <div className="gradient-orb gradient-orb-gold w-[500px] h-[500px] -top-40 right-1/4 pointer-events-none opacity-30 animate-float-slow gsap-parallax-orb" />
+          <div className="gradient-orb gradient-orb-green-light w-[350px] h-[350px] bottom-0 -left-20 pointer-events-none opacity-25 animate-float gsap-parallax-orb" />
+
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-10 relative z-10">
+            <ScrollReveal variant="fade-up">
+              <div className="text-center mb-16">
+                <span className="text-[#C9A84C] font-bold tracking-[0.25em] text-[12px] uppercase">
+                  Our Story
+                </span>
+                <h2 className="text-[36px] sm:text-[44px] font-bold text-[#0A2F1D] mt-2 mb-4 gsap-parallax-heading">
+                  History in Jharkhand
+                </h2>
+                <p className="text-[#5C5C5C] text-[16px] max-w-2xl mx-auto">
+                  From a sport few had heard of, to a growing Para movement across the state.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+              <ScrollReveal variant="slide-left">
+                <div className="space-y-5">
+                  <p className="text-gray-700 text-[16px] leading-relaxed">
+                    Boccia reached India in 2016, when Mr. Jaspreet Singh Dhaliwal
+                    introduced and established the sport in the country. As the
+                    sport took root nationally, Jharkhand emerged as one of its
+                    most active centres.
+                  </p>
+                  <p className="text-gray-700 text-[16px] leading-relaxed">
+                    The Jharkhand Para Boccia Association (JPBA) was formed to
+                    build the state&apos;s pathway — from district awareness
+                    camps in schools, hospitals and rehabilitation centres, to
+                    coaching, classification and state-level competition.
+                  </p>
+                  <p className="text-gray-700 text-[16px] leading-relaxed">
+                    Jharkhand athletes have since competed at the National
+                    Championship — including the 10th National Boccia
+                    Championship hosted in the state with international
+                    delegates in attendance — and Jharkhand now leads Boccia
+                    development among recognised state associations.
+                  </p>
+                </div>
+              </ScrollReveal>
+              <ScrollReveal variant="slide-right">
+                <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                  <img
+                    src="/jpba images/795A1515.JPG"
+                    alt="JPBA athletes and officials at a Jharkhand Boccia event"
+                    className="w-full h-[350px] object-cover"
+                  />
+                </div>
+              </ScrollReveal>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+              {[
+                {
+                  year: "2016",
+                  title: "Boccia Comes to India",
+                  desc: "Mr. Jaspreet Singh Dhaliwal introduces and establishes Boccia in India.",
+                },
+                {
+                  year: "2018",
+                  title: "International Debut",
+                  desc: "India competes at the Asian Para Games in Jakarta, beginning its world journey.",
+                },
+                {
+                  year: "2026",
+                  title: "National Host",
+                  desc: "Jharkhand hosts the 10th National Boccia Championship with international delegates.",
+                },
+                {
+                  year: "Today",
+                  title: "Statewide Movement",
+                  desc: "JPBA runs camps, coaching, classification and competitions across Jharkhand.",
+                },
+              ].map((item, i) => (
+                <ScrollReveal key={i} variant="fade-up" delay={i * 100}>
+                  <div className="bg-white rounded-xl p-6 text-center border border-[#C9A84C]/15 hover:border-[#C9A84C]/40 hover:shadow-lg transition-all duration-300 h-full">
+                    <span className="text-[26px] font-bold gradient-text-gold block mb-2">
+                      {item.year}
+                    </span>
+                    <h4 className="text-[16px] font-bold text-[#0A2F1D] mb-2">
+                      {item.title}
+                    </h4>
+                    <p className="text-[13px] text-[#5C5C5C] leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* SECTION 5: Registration Pathway */}
         <section className="py-24 bg-[#0A2F1D] relative overflow-hidden">
           <div className="absolute inset-0 bg-texture-dots-dark opacity-10 pointer-events-none" />
@@ -812,25 +909,25 @@ export default function Home() {
                   name: "Arjun Kumar",
                   cls: "BC2",
                   desc: "State champion with exceptional precision and tactical awareness.",
-                  img: "https://images.pexels.com/photos/6763758/pexels-photo-6763758.jpeg?w=400&q=80",
+                  img: "/jpba images/795A1426.JPG",
                 },
                 {
                   name: "Priya Devi",
                   cls: "BC1",
                   desc: "Pioneer athlete who inspired inclusion across three districts.",
-                  img: "https://images.pexels.com/photos/38149196/pexels-photo-38149196.jpeg?w=400&q=80",
+                  img: "/jpba images/795A1430.JPG",
                 },
                 {
                   name: "Ravi Singh",
                   cls: "BC3",
                   desc: "Ramp specialist with outstanding competitive record.",
-                  img: "https://images.pexels.com/photos/38149196/pexels-photo-38149196.jpeg?w=400&q=80",
+                  img: "/jpba images/795A1436.JPG",
                 },
                 {
                   name: "Meera Lakra",
                   cls: "BC4",
                   desc: "Rising star in BC4 category with national ranking.",
-                  img: "https://images.pexels.com/photos/10517000/pexels-photo-10517000.jpeg?w=400&q=80",
+                  img: "/jpba images/795A1450.JPG",
                 },
               ].map((athlete, i) => (
                 <ScrollReveal key={i} variant="fade-up" delay={i * 100}>
@@ -1006,7 +1103,7 @@ export default function Home() {
                   location: "Jharkhand",
                   date: "Aug 2026",
                   count: 12,
-                  img: "https://images.pexels.com/photos/10517000/pexels-photo-10517000.jpeg?w=600&q=80",
+                  img: "/jpba images/795A1490.JPG",
                   featured: true,
                 },
                 {
@@ -1014,21 +1111,21 @@ export default function Home() {
                   location: "Ranchi",
                   date: "Jul 2026",
                   count: 8,
-                  img: "https://images.pexels.com/photos/38149196/pexels-photo-38149196.jpeg?w=600&q=80",
+                  img: "/jpba images/795A1495.JPG",
                 },
                 {
                   title: "Training Camp Solan",
                   location: "IAMD, Solan",
                   date: "Aug 2026",
                   count: 4,
-                  img: "https://images.pexels.com/photos/38149196/pexels-photo-38149196.jpeg?w=600&q=80",
+                  img: "/jpba images/795A1509.JPG",
                 },
                 {
                   title: "Award Ceremony 2026",
                   location: "Ranchi",
                   date: "Jun 2026",
                   count: 6,
-                  img: "https://images.pexels.com/photos/10517000/pexels-photo-10517000.jpeg?w=600&q=80",
+                  img: "/jpba images/795A1513.JPG",
                 },
               ].map((album, i) => (
                 <ScrollReveal key={i} variant="fade-up" delay={i * 80}>

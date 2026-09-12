@@ -16,7 +16,7 @@ export default function EventsPage() {
       <Navbar />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative pt-[180px] pb-16 min-h-[320px] overflow-hidden" style={{background: "linear-gradient(135deg, #FDF8EF 0%, #FFFFFF 50%, #F4F1E9 100%)"}}>
+        <section className="relative pt-[230px] pb-16 min-h-[320px] overflow-hidden" style={{background: "linear-gradient(135deg, #FDF8EF 0%, #FFFFFF 50%, #F4F1E9 100%)"}}>
           <img src="/boccia.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.96) 0%, rgba(253,248,239,0.92) 38%, rgba(253,248,239,0.55) 62%, rgba(253,248,239,0.18) 82%, rgba(253,248,239,0.05) 100%)"}} />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 30%)"}} />
@@ -38,7 +38,7 @@ export default function EventsPage() {
               <div className="hidden lg:block">
                 <div className="rounded-2xl overflow-hidden shadow-2xl border border-[#C9A84C]/20 relative">
                   <img
-                    src="https://images.pexels.com/photos/10517000/pexels-photo-10517000.jpeg?w=800&q=80"
+                    src="/jpba images/8c8158cb-ccf3-4de6-b4e1-ceeff86d5bd0.jpeg"
                     alt="Events"
                     className="w-full h-[350px] object-cover"
                   />

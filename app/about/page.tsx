@@ -12,7 +12,7 @@ export default function AboutPage() {
     <div className="flex flex-col min-h-screen bg-[#FDF8EF]">
       <Navbar onRegisterClick={() => setShowReg(true)} />
       <main className="flex-1">
-        <section className="relative pt-[180px] pb-16 min-h-[320px] border-b border-[#C9A84C]/20" style={{background: "linear-gradient(135deg, #0A2F1D 0%, #133824 40%, #1B4E33 100%)"}}>
+        <section className="relative pt-[230px] pb-16 min-h-[320px] border-b border-[#C9A84C]/20" style={{background: "linear-gradient(135deg, #0A2F1D 0%, #133824 40%, #1B4E33 100%)"}}>
           <img src="/boccia.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.96) 0%, rgba(253,248,239,0.92) 38%, rgba(253,248,239,0.55) 62%, rgba(253,248,239,0.18) 82%, rgba(253,248,239,0.05) 100%)"}} />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 30%)"}} />
@@ -22,11 +22,11 @@ export default function AboutPage() {
                 <div className="w-16 h-1 bg-[#C9A84C] rounded-full mb-6" />
                 <p className="text-[#B8923A] text-[11px] font-bold tracking-[0.3em] uppercase mb-3">ABOUT JPBA</p>
                 <h1 className="text-[36px] sm:text-[44px] font-bold text-[#0A2F1D] leading-tight mb-4">About the Association</h1>
-                <p className="text-[15px] text-gray-600 max-w-[600px] leading-relaxed">JPBA builds the ecosystem around the athlete — from first contact through sustainable competition.</p>
+                <p className="text-[15px] text-gray-600 max-w-[600px] leading-relaxed">JPBA builds the ecosystem around the athlete â€” from first contact through sustainable competition.</p>
               </div>
               <div className="hidden lg:block">
                 <div className="rounded-2xl overflow-hidden shadow-xl border border-[#C9A84C]/20">
-                  <img src="https://images.pexels.com/photos/6763758/pexels-photo-6763758.jpeg?w=800&q=80" alt="About JPBA" className="w-full h-[350px] object-cover" />
+                  <img src="/jpba images/795A1515.JPG" alt="About JPBA" className="w-full h-[350px] object-cover" />
                 </div>
               </div>
             </div>
@@ -38,14 +38,14 @@ export default function AboutPage() {
           <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-[#0A2F1D] mb-4">Who We Are</h2>
-              <p className="text-gray-600 max-w-3xl mx-auto text-lg">The Jharkhand Para Boccia Association (JPBA) is dedicated to developing Boccia in Jharkhand — building pathways from grassroots awareness through international competition.</p>
+              <p className="text-gray-600 max-w-3xl mx-auto text-lg">The Jharkhand Para Boccia Association (JPBA) is dedicated to developing Boccia in Jharkhand â€” building pathways from grassroots awareness through international competition.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
               {[
-                {icon:"🎯",title:"Our Mission",desc:"To create a thriving Boccia ecosystem in Jharkhand that identifies, develops, and supports para-athletes from first contact through Paralympic competition."},
-                {icon:"👁️",title:"Our Vision",desc:"A Jharkhand where every person with a physical disability has access to competitive sport, community, and a pathway to excellence."},
-                {icon:"🤝",title:"Our Values",desc:"Inclusion, precision, athlete-centred development, transparency, and commitment to the highest standards of Para sport."}
+                {icon:"ðŸŽ¯",title:"Our Mission",desc:"To create a thriving Boccia ecosystem in Jharkhand that identifies, develops, and supports para-athletes from first contact through Paralympic competition."},
+                {icon:"ðŸ‘ï¸",title:"Our Vision",desc:"A Jharkhand where every person with a physical disability has access to competitive sport, community, and a pathway to excellence."},
+                {icon:"ðŸ¤",title:"Our Values",desc:"Inclusion, precision, athlete-centred development, transparency, and commitment to the highest standards of Para sport."}
               ].map((item,i)=>(
                 <div key={i} className="bg-white rounded-2xl p-8 shadow-lg border border-[#C9A84C]/10 text-center hover:shadow-xl transition-shadow">
                   <div className="w-16 h-16 rounded-xl bg-[#0A2F1D]/10 flex items-center justify-center mx-auto mb-4"><span className="text-3xl">{item.icon}</span></div>

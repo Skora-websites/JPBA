@@ -11,7 +11,7 @@ export default function WhatWeDoPage() {
     <div className="flex flex-col min-h-screen bg-[#FDF8EF]">
       <Navbar onRegisterClick={() => setShowReg(true)} />
       <main className="flex-1">
-        <section className="relative pt-[180px] pb-16 min-h-[320px] border-b border-[#C9A84C]/20" style={{background: "linear-gradient(135deg, #0A2F1D 0%, #133824 40%, #1B4E33 100%)"}}>
+        <section className="relative pt-[230px] pb-16 min-h-[320px] border-b border-[#C9A84C]/20" style={{background: "linear-gradient(135deg, #0A2F1D 0%, #133824 40%, #1B4E33 100%)"}}>
           <img src="/boccia.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.96) 0%, rgba(253,248,239,0.92) 38%, rgba(253,248,239,0.55) 62%, rgba(253,248,239,0.18) 82%, rgba(253,248,239,0.05) 100%)"}} />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 30%)"}} />
@@ -25,7 +25,7 @@ export default function WhatWeDoPage() {
               </div>
               <div className="hidden lg:block">
                 <div className="rounded-2xl overflow-hidden shadow-xl border border-[#C9A84C]/20">
-                  <img src="https://images.pexels.com/photos/38149196/pexels-photo-38149196.jpeg?w=800&q=80" alt="What We Do" className="w-full h-[350px] object-cover" />
+                  <img src="/jpba images/795A1517.JPG" alt="What We Do" className="w-full h-[350px] object-cover" />
                 </div>
               </div>
             </div>
@@ -36,11 +36,11 @@ export default function WhatWeDoPage() {
           <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
             <div className="space-y-8">
               {[
-                {icon:"🔍",title:"Discover",color:"#0A2F1D",items:["District demonstrations in schools, hospitals, and rehabilitation centres","Awareness campaigns through disability networks","Community outreach programmes","Identification of athletes with potential"]},
-                {icon:"⚙️",title:"Equip",color:"#133824",items:["Providing Boccia ball sets for training","Sourcing and distributing ramps and assistive devices","Establishing accessible venue partnerships","Creating mobile equipment kits for district use"]},
-                {icon:"📈",title:"Develop",color:"#1B4E33",items:["Athlete-centred coaching programmes","Coach certification and development","Referee education and accreditation","Classification literacy and support"]},
-                {icon:"🏆",title:"Compete",color:"#29774D",items:["State competition calendar","Transparent selection processes","Data-driven performance tracking","Safeguarding and welfare standards"]},
-                {icon:"🤝",title:"Connect",color:"#C9A84C",items:["Partnerships with Boccia Sports Federation of India (BSFI)","Government and policy engagement","CSR and corporate sponsorship","Media and public awareness"]}
+                {icon:"ðŸ”",title:"Discover",color:"#0A2F1D",items:["District demonstrations in schools, hospitals, and rehabilitation centres","Awareness campaigns through disability networks","Community outreach programmes","Identification of athletes with potential"]},
+                {icon:"âš™ï¸",title:"Equip",color:"#133824",items:["Providing Boccia ball sets for training","Sourcing and distributing ramps and assistive devices","Establishing accessible venue partnerships","Creating mobile equipment kits for district use"]},
+                {icon:"ðŸ“ˆ",title:"Develop",color:"#1B4E33",items:["Athlete-centred coaching programmes","Coach certification and development","Referee education and accreditation","Classification literacy and support"]},
+                {icon:"ðŸ†",title:"Compete",color:"#29774D",items:["State competition calendar","Transparent selection processes","Data-driven performance tracking","Safeguarding and welfare standards"]},
+                {icon:"ðŸ¤",title:"Connect",color:"#C9A84C",items:["Partnerships with Boccia Sports Federation of India (BSFI)","Government and policy engagement","CSR and corporate sponsorship","Media and public awareness"]}
               ].map((pillar,i)=>(
                 <div key={i} className="bg-white rounded-2xl p-8 shadow-lg border border-[#C9A84C]/10 flex flex-col md:flex-row gap-6">
                   <div className="flex-shrink-0">

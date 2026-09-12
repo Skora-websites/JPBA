@@ -13,7 +13,7 @@ export default function CourtPage() {
       <main className="flex-1">
 
         {/* Hero Section */}
-        <section className="relative pt-[180px] pb-16 min-h-[280px] border-b border-[#C9A84C]/20" style={{ background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)" }}>
+        <section className="relative pt-[230px] pb-16 min-h-[280px] border-b border-[#C9A84C]/20" style={{ background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)" }}>
           <img src="/boccia.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.96) 0%, rgba(253,248,239,0.92) 38%, rgba(253,248,239,0.55) 62%, rgba(253,248,239,0.18) 82%, rgba(253,248,239,0.05) 100%)"}} />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 30%)"}} />
@@ -27,7 +27,7 @@ export default function CourtPage() {
               </div>
               <div className="hidden lg:block">
                 <div className="rounded-2xl overflow-hidden shadow-xl border border-[#C9A84C]/20">
-                  <img src="https://images.pexels.com/photos/38149196/pexels-photo-38149196.jpeg?w=800&q=80" alt="Official Court" className="w-full h-[350px] object-cover" />
+                  <img src="/jpba images/DSC08788.JPG" alt="Official Court" className="w-full h-[350px] object-cover" />
                 </div>
               </div>
             </div>
@@ -38,7 +38,7 @@ export default function CourtPage() {
           <div className="mx-auto max-w-[1000px] px-6 lg:px-10">
             <h2 className="text-[28px] font-bold text-[#0A2F1D] mb-6">Official Court</h2>
             <p className="text-[15px] text-gray-600 leading-relaxed mb-8">
-              Boccia is played on a court measuring <strong>12.5m x 6m</strong> (41 ft x 20 ft) with 2m of empty, in-bounds, playable space around it. The surface is flat and smooth — typically a converted wooden basketball or volleyball court, but sometimes a hard turf surface.
+              Boccia is played on a court measuring <strong>12.5m x 6m</strong> (41 ft x 20 ft) with 2m of empty, in-bounds, playable space around it. The surface is flat and smooth â€” typically a converted wooden basketball or volleyball court, but sometimes a hard turf surface.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               <div className="rounded-xl bg-[#FDF8EF] border border-[#C9A84C]/20 p-6 text-center">

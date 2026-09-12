@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# repomix output
+repomix-output.xml
+
+# large videos (too big for git/github, keep local)
+*.mov

@@ -18,7 +18,7 @@ export default function HistoryPage() {
   return (
     <div className="min-h-screen bg-[#FDF8EF]">
       <Navbar onRegisterClick={onRegisterClick} />
-      <section className="relative py-20 overflow-hidden" style={{background: "linear-gradient(135deg, #FDF8EF 0%, #FFFFFF 50%, #E8F5E9 100%)"}}>
+      <section className="relative pt-[230px] pb-20 overflow-hidden" style={{background: "linear-gradient(135deg, #FDF8EF 0%, #FFFFFF 50%, #E8F5E9 100%)"}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center gap-2 text-sm mb-6">
             <Link href="/" className="text-[#8B6914] hover:text-[#6B4F12] font-medium transition-colors">Home</Link>

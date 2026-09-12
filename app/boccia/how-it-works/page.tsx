@@ -13,7 +13,7 @@ export default function HowItWorksPage() {
       <main className="flex-1">
 
         {/* Hero Section */}
-        <section className="relative pt-[180px] pb-16 min-h-[280px] border-b border-[#C9A84C]/20" style={{ background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)" }}>
+        <section className="relative pt-[230px] pb-16 min-h-[280px] border-b border-[#C9A84C]/20" style={{ background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)" }}>
           <img src="/boccia1.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.96) 0%, rgba(253,248,239,0.92) 38%, rgba(253,248,239,0.55) 62%, rgba(253,248,239,0.18) 82%, rgba(253,248,239,0.05) 100%)"}} />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 30%)"}} />
@@ -47,7 +47,7 @@ export default function HowItWorksPage() {
                 { step: "3", title: "Play First Coloured Ball", desc: "The player who delivered the jack throws the first coloured ball (red or blue)." },
                 { step: "4", title: "Opponent Responds", desc: "The opponent plays their first ball, trying to get closer to the jack." },
                 { step: "5", title: "Farther Side Continues", desc: "The side with balls farther from the jack continues until they are closest or run out of balls." },
-                { step: "6", title: "Measure and Score", desc: "The referee measures distances and awards points — one point per ball closer to the jack than the opponent's nearest." },
+                { step: "6", title: "Measure and Score", desc: "The referee measures distances and awards points â€” one point per ball closer to the jack than the opponent's nearest." },
               ].map((s) => (
                 <div key={s.step} className="flex items-start gap-4 rounded-xl bg-[#FDF8EF] border border-[#C9A84C]/20 p-5">
                   <div className="h-10 w-10 rounded-full bg-[#0A2F1D] flex items-center justify-center text-white font-bold shrink-0">{s.step}</div>

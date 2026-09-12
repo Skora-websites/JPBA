@@ -24,15 +24,15 @@ export default function ContactPage() {
     <div className="flex flex-col min-h-screen bg-[#FDF8EF]">
       <Navbar />
       <main className="flex-1">
-        {/* Hero — full background image, cream fade on text side */}
-        <section className="relative pt-[180px] pb-16 min-h-[300px] overflow-hidden bg-[#FDF8EF]">
+        {/* Hero â€” full background image, cream fade on text side */}
+        <section className="relative pt-[230px] pb-16 min-h-[300px] overflow-hidden bg-[#FDF8EF]">
           {/* Full background image */}
           <img
             src="/boccia1.png"
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
-          {/* Cream fade: strong on left (text side) → clear image on right */}
+          {/* Cream fade: strong on left (text side) â†’ clear image on right */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{

@@ -5,12 +5,12 @@ import Footer from "@/app/components/Footer";
 import ScrollReveal from "@/app/components/ScrollReveal";
 
 const athletes = [
-  { name: "Pooja Gupta", cls: "BC4", town: "Ranchi", highlight: "First Indian to win individual international Boccia medal", status: "National Team", medals: {g:0,s:1,b:2}, img: "https://images.pexels.com/photos/6763758/pexels-photo-6763758.jpeg?w=400&q=80" },
-  { name: "Sachin Chamaria", cls: "BC3", town: "Hazaribagh", highlight: "Gold medalist at World Boccia Challenger", status: "National Team", medals: {g:1,s:0,b:1}, img: "https://images.pexels.com/photos/38149196/pexels-photo-38149196.jpeg?w=400&q=80" },
-  { name: "Jatin Kumar Kushwaha", cls: "BC4", town: "Dhanbad", highlight: "Silver in BC4 Pairs + Bronze Individual", status: "National Team", medals: {g:0,s:1,b:1}, img: "https://images.pexels.com/photos/10517000/pexels-photo-10517000.jpeg?w=400&q=80" },
-  { name: "Ajeya Raj", cls: "BC3", town: "Bokaro", highlight: "Bronze medal at World Boccia Challenger", status: "National Team", medals: {g:0,s:0,b:1}, img: "https://images.pexels.com/photos/10517000/pexels-photo-10517000.jpeg?w=400&q=80" },
-  { name: "Anjali Thakur", cls: "BC2", town: "Jamshedpur", highlight: "Multiple national championship participant", status: "State Team", medals: {g:0,s:0,b:0}, img: "https://images.pexels.com/photos/9643439/pexels-photo-9643439.jpeg?w=400&q=80" },
-  { name: "Vijay Kumar", cls: "BC1", town: "Dumka", highlight: "Rising star in para boccia", status: "State Team", medals: {g:0,s:0,b:0}, img: "https://images.pexels.com/photos/38149196/pexels-photo-38149196.jpeg?w=400&q=80" },
+  { name: "Pooja Gupta", cls: "BC4", town: "Ranchi", highlight: "First Indian to win individual international Boccia medal", status: "National Team", medals: {g:0,s:1,b:2}, img: "/jpba images/795A1797.JPG" },
+  { name: "Sachin Chamaria", cls: "BC3", town: "Hazaribagh", highlight: "Gold medalist at World Boccia Challenger", status: "National Team", medals: {g:1,s:0,b:1}, img: "/jpba images/795A1838.JPG" },
+  { name: "Jatin Kumar Kushwaha", cls: "BC4", town: "Dhanbad", highlight: "Silver in BC4 Pairs + Bronze Individual", status: "National Team", medals: {g:0,s:1,b:1}, img: "/jpba images/795A1962.JPG" },
+  { name: "Ajeya Raj", cls: "BC3", town: "Bokaro", highlight: "Bronze medal at World Boccia Challenger", status: "National Team", medals: {g:0,s:0,b:1}, img: "/jpba images/795A2314.JPG" },
+  { name: "Anjali Thakur", cls: "BC2", town: "Jamshedpur", highlight: "Multiple national championship participant", status: "State Team", medals: {g:0,s:0,b:0}, img: "/jpba images/795A2335.JPG" },
+  { name: "Vijay Kumar", cls: "BC1", town: "Dumka", highlight: "Rising star in para boccia", status: "State Team", medals: {g:0,s:0,b:0}, img: "/jpba images/795A2337.JPG" },
 ];
 
 export default function AthletesPage() {
@@ -21,7 +21,7 @@ export default function AthletesPage() {
       <Navbar />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative pt-[180px] pb-16 min-h-[320px] overflow-hidden" style={{background: "linear-gradient(135deg, #FDF8EF 0%, #FFFFFF 50%, #F4F1E9 100%)"}}>
+        <section className="relative pt-[230px] pb-16 min-h-[320px] overflow-hidden" style={{background: "linear-gradient(135deg, #FDF8EF 0%, #FFFFFF 50%, #F4F1E9 100%)"}}>
           <img src="/boccia.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.96) 0%, rgba(253,248,239,0.92) 38%, rgba(253,248,239,0.55) 62%, rgba(253,248,239,0.18) 82%, rgba(253,248,239,0.05) 100%)"}} />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 30%)"}} />
@@ -43,7 +43,7 @@ export default function AthletesPage() {
               <div className="hidden lg:block">
                 <div className="rounded-2xl overflow-hidden shadow-2xl border border-[#C9A84C]/20 relative">
                   <img
-                    src="https://images.pexels.com/photos/38149196/pexels-photo-38149196.jpeg?w=800&q=80"
+                    src="/jpba images/795A0833.JPG"
                     alt="Athletes"
                     className="w-full h-[350px] object-cover"
                   />

@@ -10,14 +10,14 @@ interface PageHeaderProps {
 
 export default function PageHeader({ title, breadcrumb, image = "/boccia.png" }: PageHeaderProps) {
   return (
-    <div className="relative pt-[180px] pb-16 min-h-[300px] overflow-hidden flex items-center bg-[#FDF8EF]">
+    <div className="relative pt-[230px] pb-16 min-h-[300px] overflow-hidden flex items-center bg-[#FDF8EF]">
       {/* Full background image */}
       <img
         src={image}
         alt=""
         className="absolute inset-0 w-full h-full object-cover"
       />
-      {/* Cream fade: strong on left (text side) → clear image on right */}
+      {/* Cream fade: strong on left (text side) â†’ clear image on right */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{

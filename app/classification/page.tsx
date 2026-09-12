@@ -14,7 +14,7 @@ export default function ClassificationPage() {
       <main className="flex-1">
 
         {/* Hero Section */}
-        <section className="relative pt-[180px] pb-16 min-h-[280px] border-b border-[#C9A84C]/20" style={{ background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)" }}>
+        <section className="relative pt-[230px] pb-16 min-h-[280px] border-b border-[#C9A84C]/20" style={{ background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)" }}>
           <img src="/boccia.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.96) 0%, rgba(253,248,239,0.92) 38%, rgba(253,248,239,0.55) 62%, rgba(253,248,239,0.18) 82%, rgba(253,248,239,0.05) 100%)"}} />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 30%)"}} />
@@ -28,7 +28,7 @@ export default function ClassificationPage() {
               </div>
               <div className="hidden lg:block">
                 <div className="rounded-2xl overflow-hidden shadow-xl border border-[#C9A84C]/20">
-                  <img src="https://images.pexels.com/photos/38149196/pexels-photo-38149196.jpeg?w=800&q=80" alt="Who Can Play?" className="w-full h-[350px] object-cover" />
+                  <img src="/jpba images/DSC06706.JPG" alt="Who Can Play?" className="w-full h-[350px] object-cover" />
                 </div>
               </div>
             </div>
@@ -40,7 +40,7 @@ export default function ClassificationPage() {
           <div className="mx-auto max-w-[1000px] px-6 lg:px-10">
             <h2 className="text-[28px] font-bold text-[#0A2F1D] mb-6">Who Can Play Boccia?</h2>
             <p className="text-[15px] text-gray-600 leading-relaxed mb-6">
-              <strong>Anyone can play boccia!</strong> For recreational play, Boccia is inclusive by design — children, adults, older persons, people with or without disabilities, wheelchair users, students, rehabilitation participants, families and support workers can all enjoy the sport.
+              <strong>Anyone can play boccia!</strong> For recreational play, Boccia is inclusive by design â€” children, adults, older persons, people with or without disabilities, wheelchair users, students, rehabilitation participants, families and support workers can all enjoy the sport.
             </p>
             <p className="text-[15px] text-gray-600 leading-relaxed mb-6">
               For competitive Para Boccia at national and international level, athletes must have a disability and be in a wheelchair as a result of cerebral palsy or another neurological condition that has similar effects, such as muscular dystrophy or traumatic brain injury.

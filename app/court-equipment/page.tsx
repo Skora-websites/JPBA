@@ -9,17 +9,17 @@ import ScrollReveal from "@/app/components/ScrollReveal";
 export default function CourtEquipmentPage() {
   const [showReg, setShowReg] = useState(false);
   const sections = [
-    {icon: "📐", title: "Official Court", desc: "12.5m × 6m playing area with throwing boxes, V-lines, cross, and boundary markings.", href: "/court", color: "#0A2F1D"},
-    {icon: "🔴", title: "Boccia Balls", desc: "13-ball set (6 red, 6 blue, 1 white jack) with detailed specifications for weight, size, and behaviour.", href: "/court-equipment/balls", color: "#133824"},
-    {icon: "♿", title: "Wheelchair & Seating", desc: "Wheelchair configuration, postural support systems, and athlete positioning for competition.", href: "/court-equipment/wheelchair-seating", color: "#1B4E33"},
-    {icon: "🛝", title: "BC3 Ramp & Pointer", desc: "Assistive ramp system, release devices (mouth stick, chin stick, head pointer), and Ramp Operator rules.", href: "/court-equipment/ramp-pointer", color: "#29774D"},
-    {icon: "✅", title: "Equipment Testing", desc: "Pre-match equipment control, ball inspection, roll tests, and post-match procedures.", href: "/court-equipment/testing", color: "#C9A84C"}
+    {icon: "ðŸ“", title: "Official Court", desc: "12.5m Ã— 6m playing area with throwing boxes, V-lines, cross, and boundary markings.", href: "/court", color: "#0A2F1D"},
+    {icon: "ðŸ”´", title: "Boccia Balls", desc: "13-ball set (6 red, 6 blue, 1 white jack) with detailed specifications for weight, size, and behaviour.", href: "/court-equipment/balls", color: "#133824"},
+    {icon: "â™¿", title: "Wheelchair & Seating", desc: "Wheelchair configuration, postural support systems, and athlete positioning for competition.", href: "/court-equipment/wheelchair-seating", color: "#1B4E33"},
+    {icon: "ðŸ›", title: "BC3 Ramp & Pointer", desc: "Assistive ramp system, release devices (mouth stick, chin stick, head pointer), and Ramp Operator rules.", href: "/court-equipment/ramp-pointer", color: "#29774D"},
+    {icon: "âœ…", title: "Equipment Testing", desc: "Pre-match equipment control, ball inspection, roll tests, and post-match procedures.", href: "/court-equipment/testing", color: "#C9A84C"}
   ];
   return (
     <div className="flex flex-col min-h-screen bg-[#FDF8EF]">
       <Navbar onRegisterClick={() => setShowReg(true)} />
       <main className="flex-1">
-        <section className="relative pt-[180px] pb-16 min-h-[320px] border-b border-[#C9A84C]/20" style={{background: "linear-gradient(135deg, #0A2F1D 0%, #133824 40%, #1B4E33 100%)"}}>
+        <section className="relative pt-[230px] pb-16 min-h-[320px] border-b border-[#C9A84C]/20" style={{background: "linear-gradient(135deg, #0A2F1D 0%, #133824 40%, #1B4E33 100%)"}}>
           <img src="/boccia.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.96) 0%, rgba(253,248,239,0.92) 38%, rgba(253,248,239,0.55) 62%, rgba(253,248,239,0.18) 82%, rgba(253,248,239,0.05) 100%)"}} />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 30%)"}} />
@@ -33,7 +33,7 @@ export default function CourtEquipmentPage() {
               </div>
               <div className="hidden lg:block">
                 <div className="rounded-2xl overflow-hidden shadow-xl border border-[#C9A84C]/20">
-                  <img src="https://images.pexels.com/photos/38149196/pexels-photo-38149196.jpeg?w=800&q=80" alt="Court and Equipment" className="w-full h-[350px] object-cover" />
+                  <img src="/jpba images/DSC09824.JPG" alt="Court and Equipment" className="w-full h-[350px] object-cover" />
                 </div>
               </div>
             </div>
@@ -50,7 +50,7 @@ export default function CourtEquipmentPage() {
                   </div>
                   <h3 className="text-xl font-bold text-[#0A2F1D] mb-2 group-hover:text-[#C9A84C] transition-colors">{s.title}</h3>
                   <p className="text-gray-600 text-sm">{s.desc}</p>
-                  <span className="inline-block mt-4 text-sm font-bold text-[#C9A84C]">Explore →</span>
+                  <span className="inline-block mt-4 text-sm font-bold text-[#C9A84C]">Explore â†’</span>
                 </Link>
               ))}
             </div>

@@ -13,7 +13,7 @@ export default function ActionPathwayPage() {
       <main className="flex-1">
 
         {/* Hero Section */}
-        <section className="relative pt-[180px] pb-16 min-h-[280px] border-b border-[#C9A84C]/20" style={{ background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)" }}>
+        <section className="relative pt-[230px] pb-16 min-h-[280px] border-b border-[#C9A84C]/20" style={{ background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)" }}>
           <img src="/boccia1.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.96) 0%, rgba(253,248,239,0.92) 38%, rgba(253,248,239,0.55) 62%, rgba(253,248,239,0.18) 82%, rgba(253,248,239,0.05) 100%)"}} />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 30%)"}} />
@@ -27,7 +27,7 @@ export default function ActionPathwayPage() {
               </div>
               <div className="hidden lg:block">
                 <div className="rounded-2xl overflow-hidden shadow-xl border border-[#C9A84C]/20">
-                  <img src="https://images.pexels.com/photos/38149196/pexels-photo-38149196.jpeg?w=800&q=80" alt="JPBA Action Pathway" className="w-full h-[350px] object-cover" />
+                  <img src="/jpba images/795A1529.JPG" alt="JPBA Action Pathway" className="w-full h-[350px] object-cover" />
                 </div>
               </div>
             </div>
@@ -38,11 +38,11 @@ export default function ActionPathwayPage() {
           <div className="mx-auto max-w-[1000px] px-6 lg:px-10">
             <h2 className="text-[28px] font-bold text-[#0A2F1D] mb-8">The JPBA Action Pathway</h2>
             <div className="space-y-6">
-              {[{ stage: "DISCOVER", desc: "District demonstrations through schools, hospitals, rehabilitation centres and disability networks.", icon: "🔍" },
-                { stage: "EQUIP", desc: "Providing balls, training targets, ramps and accessible venue partnerships.", icon: "📦" },
-                { stage: "DEVELOP", desc: "Athlete-centred coaching, referee education and classification literacy programs.", icon: "📈" },
-                { stage: "COMPETE", desc: "State calendar, data management, safeguarding and transparent selection.", icon: "🏆" },
-                { stage: "CONNECT", desc: "Building partnerships with BSFI, government, CSR, health, education and media.", icon: "🤝" }].map((s, i) => (
+              {[{ stage: "DISCOVER", desc: "District demonstrations through schools, hospitals, rehabilitation centres and disability networks.", icon: "ðŸ”" },
+                { stage: "EQUIP", desc: "Providing balls, training targets, ramps and accessible venue partnerships.", icon: "ðŸ“¦" },
+                { stage: "DEVELOP", desc: "Athlete-centred coaching, referee education and classification literacy programs.", icon: "ðŸ“ˆ" },
+                { stage: "COMPETE", desc: "State calendar, data management, safeguarding and transparent selection.", icon: "ðŸ†" },
+                { stage: "CONNECT", desc: "Building partnerships with BSFI, government, CSR, health, education and media.", icon: "ðŸ¤" }].map((s, i) => (
                 <div key={s.stage} className="flex items-start gap-5 rounded-xl bg-[#FDF8EF] border border-[#C9A84C]/20 p-6 hover:shadow-md transition-all">
                   <div className="text-3xl">{s.icon}</div>
                   <div className="flex-1">

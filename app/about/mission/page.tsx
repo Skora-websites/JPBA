@@ -11,7 +11,7 @@ export default function MissionPage() {
     <div className="flex flex-col min-h-screen bg-[#FDF8EF]">
       <Navbar onRegisterClick={() => setShowReg(true)} />
       <main className="flex-1">
-        <section className="relative pt-[180px] pb-16 min-h-[320px] border-b border-[#C9A84C]/20" style={{background: "linear-gradient(135deg, #0A2F1D 0%, #133824 40%, #1B4E33 100%)"}}>
+        <section className="relative pt-[230px] pb-16 min-h-[320px] border-b border-[#C9A84C]/20" style={{background: "linear-gradient(135deg, #0A2F1D 0%, #133824 40%, #1B4E33 100%)"}}>
           <img src="/boccia.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.96) 0%, rgba(253,248,239,0.92) 38%, rgba(253,248,239,0.55) 62%, rgba(253,248,239,0.18) 82%, rgba(253,248,239,0.05) 100%)"}} />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 30%)"}} />
@@ -21,11 +21,11 @@ export default function MissionPage() {
                 <div className="w-16 h-1 bg-[#C9A84C] rounded-full mb-6" />
                 <p className="text-[#B8923A] text-[11px] font-bold tracking-[0.3em] uppercase mb-3">ABOUT JPBA</p>
                 <h1 className="text-[36px] sm:text-[44px] font-bold text-[#0A2F1D] leading-tight mb-4">Mission &amp; Purpose</h1>
-                <p className="text-[15px] text-gray-600 max-w-[600px] leading-relaxed">From first contact through sustainable competition — our mission drives everything we do.</p>
+                <p className="text-[15px] text-gray-600 max-w-[600px] leading-relaxed">From first contact through sustainable competition â€” our mission drives everything we do.</p>
               </div>
               <div className="hidden lg:block">
                 <div className="rounded-2xl overflow-hidden shadow-xl border border-[#C9A84C]/20">
-                  <img src="https://images.pexels.com/photos/6763758/pexels-photo-6763758.jpeg?w=800&q=80" alt="Mission" className="w-full h-[350px] object-cover" />
+                  <img src="/jpba images/795A1527.JPG" alt="Mission" className="w-full h-[350px] object-cover" />
                 </div>
               </div>
             </div>
@@ -37,10 +37,10 @@ export default function MissionPage() {
             <div className="bg-white rounded-2xl p-10 shadow-lg border border-[#C9A84C]/10 mb-12">
               <h2 className="text-2xl font-bold text-[#0A2F1D] mb-6">Our Mission</h2>
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                The Jharkhand Para Boccia Association exists to build a complete Boccia ecosystem in Jharkhand — one that identifies athletes with physical disabilities, introduces them to the sport, provides world-class training and classification, and creates competitive pathways from community level all the way to the Paralympic Games.
+                The Jharkhand Para Boccia Association exists to build a complete Boccia ecosystem in Jharkhand â€” one that identifies athletes with physical disabilities, introduces them to the sport, provides world-class training and classification, and creates competitive pathways from community level all the way to the Paralympic Games.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                We believe every person with a physical disability deserves access to competitive sport. Boccia is uniquely positioned to serve this purpose — it is one of the few Paralympic sports designed specifically for athletes with severe physical impairments, and it requires minimal equipment while offering extraordinary depth of competition.
+                We believe every person with a physical disability deserves access to competitive sport. Boccia is uniquely positioned to serve this purpose â€” it is one of the few Paralympic sports designed specifically for athletes with severe physical impairments, and it requires minimal equipment while offering extraordinary depth of competition.
               </p>
             </div>
 
@@ -56,7 +56,7 @@ export default function MissionPage() {
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-[#C9A84C]/10">
                 <h3 className="text-xl font-bold text-[#0A2F1D] mb-4">Our Commitment</h3>
                 <ul className="space-y-3">
-                  {["Athlete-centred development at every stage","Transparent selection and competition processes","Safe, accessible environments for all participants","Evidence-based coaching and classification","Strong governance and accountability","Inclusion — Boccia is for everyone, recreational and competitive"].map((item,i)=>(
+                  {["Athlete-centred development at every stage","Transparent selection and competition processes","Safe, accessible environments for all participants","Evidence-based coaching and classification","Strong governance and accountability","Inclusion â€” Boccia is for everyone, recreational and competitive"].map((item,i)=>(
                     <li key={i} className="flex items-start gap-3 text-gray-700"><span className="w-2 h-2 rounded-full bg-[#C9A84C] mt-2 flex-shrink-0"></span><span>{item}</span></li>
                   ))}
                 </ul>
@@ -65,7 +65,7 @@ export default function MissionPage() {
 
             <div className="bg-[#0A2F1D] rounded-2xl p-10 text-white text-center">
               <h2 className="text-2xl font-bold mb-4">From Awareness to Paralympics</h2>
-              <p className="text-white/80 max-w-3xl mx-auto text-lg">Every champion starts with awareness. JPBA ensures that every person in Jharkhand with a physical disability has the opportunity to discover Boccia — and that every athlete who pursues the sport has a clear, supported pathway to excellence.</p>
+              <p className="text-white/80 max-w-3xl mx-auto text-lg">Every champion starts with awareness. JPBA ensures that every person in Jharkhand with a physical disability has the opportunity to discover Boccia â€” and that every athlete who pursues the sport has a clear, supported pathway to excellence.</p>
             </div>
           </div>
         </section>
