@@ -4,6 +4,7 @@ import PageHeader from "@/app/components/PageHeader";
 import ScrollReveal from "@/app/components/ScrollReveal";
 import RetroMarquee from "@/app/components/RetroMarquee";
 import YouTubeFacade from "@/app/components/YouTubeFacade";
+import VideoBrowser from "@/app/components/VideoBrowser";
 import { queries } from "@/lib/db";
 import { IMG } from "@/lib/images";
 
@@ -12,7 +13,6 @@ export const dynamic = "force-dynamic";
 export default function VideosPage() {
   const videos = queries.videos.listPublished();
   const featured = videos.find((v) => v.featured) ?? videos[0];
-  const rest = featured ? videos.filter((v) => v.id !== featured.id) : [];
 
   return (
     <div className="flex flex-col min-h-screen bg-[#FDF8EF]">
@@ -57,12 +57,20 @@ export default function VideosPage() {
               {featured && (
                 <ScrollReveal variant="fade-up">
                   <section className="mb-14">
-                    <span className="text-[#C9A84C] font-bold tracking-[0.25em] text-[12px] uppercase">
-                      Featured
-                    </span>
-                    <h2 className="text-[30px] sm:text-[36px] font-bold text-[#0A2F1D] mt-2 mb-6">
-                      {featured.title}
-                    </h2>
+                    <div className="flex items-end justify-between gap-4 mb-2">
+                      <div>
+                        <span className="text-[#C9A84C] font-bold tracking-[0.25em] text-[12px] uppercase">
+                          Featured
+                        </span>
+                        <h2 className="text-[30px] sm:text-[36px] font-bold text-[#0A2F1D] mt-2">
+                          {featured.title}
+                        </h2>
+                      </div>
+                      <span className="hidden sm:inline-flex items-center gap-1.5 text-[12px] font-semibold text-gray-400 shrink-0 pb-1">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                        {featured.views} views
+                      </span>
+                    </div>
                     <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-black">
                       <YouTubeFacade
                         youtubeId={featured.youtube_id ?? ""}
@@ -78,34 +86,8 @@ export default function VideosPage() {
                 </ScrollReveal>
               )}
 
-              {/* Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {rest.map((v, i) => (
-                  <ScrollReveal key={v.id} variant="fade-up" delay={(i % 3) * 80}>
-                    <div className="group rounded-2xl overflow-hidden bg-white border border-[#C9A84C]/15 hover:border-[#C9A84C]/40 shadow-lg hover:shadow-2xl transition-all duration-300">
-                      <YouTubeFacade youtubeId={v.youtube_id ?? ""} title={v.title} />
-                      <div className="p-5">
-                        <div className="flex items-center gap-2 mb-2">
-                          <span className="px-2 py-0.5 rounded-full bg-[#C9A84C]/10 text-[#C9A84C] text-[10px] font-bold uppercase tracking-wider">
-                            {v.category}
-                          </span>
-                          {v.featured === 1 && (
-                            <span className="px-2 py-0.5 rounded-full bg-[#C9A84C] text-[#0A2F1D] text-[10px] font-bold">
-                              ★ Featured
-                            </span>
-                          )}
-                        </div>
-                        <h3 className="text-[16px] font-bold text-[#0A2F1D] leading-snug group-hover:text-[#C9A84C] transition-colors">
-                          {v.title}
-                        </h3>
-                        {v.description && (
-                          <p className="text-[13px] text-[#5C5C5C] mt-2 line-clamp-2">{v.description}</p>
-                        )}
-                      </div>
-                    </div>
-                  </ScrollReveal>
-                ))}
-              </div>
+              {/* Filterable grid with view counts */}
+              <VideoBrowser videos={videos} />
             </>
           )}
         </div>
