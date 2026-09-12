@@ -15,6 +15,10 @@ const WRITABLE_DIR = process.env.TMPDIR || process.env.TEMP || "/tmp";
 const RUNTIME_DB = process.env.VERCEL
   ? path.join(WRITABLE_DIR, "jpba.db")
   : path.join(DATA_DIR, "jpba.db");
+// Marker holding the deployment that seeded the runtime copy — /tmp can
+// survive across deployments on warm instances, so re-seed when it differs.
+const DEPLOY_MARKER = path.join(WRITABLE_DIR, "jpba.deploy.id");
+const DEPLOY_ID = process.env.VERCEL_DEPLOYMENT_ID ?? "local";
 
 declare global {
   // eslint-disable-next-line no-var
@@ -22,9 +26,15 @@ declare global {
 }
 
 function createDb(): Database.Database {
-  if (process.env.VERCEL && !fs.existsSync(RUNTIME_DB) && fs.existsSync(BUNDLED_DB)) {
-    // Read-only FS: seed the runtime copy from the bundled DB once per instance
-    fs.copyFileSync(BUNDLED_DB, RUNTIME_DB);
+  if (process.env.VERCEL && fs.existsSync(BUNDLED_DB)) {
+    const seeded = fs.existsSync(DEPLOY_MARKER)
+      ? fs.readFileSync(DEPLOY_MARKER, "utf8")
+      : "";
+    if (!fs.existsSync(RUNTIME_DB) || seeded !== DEPLOY_ID) {
+      // First boot on this instance, or a new deployment: refresh from bundle
+      fs.copyFileSync(BUNDLED_DB, RUNTIME_DB);
+      fs.writeFileSync(DEPLOY_MARKER, DEPLOY_ID);
+    }
   }
   if (!process.env.VERCEL) fs.mkdirSync(DATA_DIR, { recursive: true });
   const db = new Database(RUNTIME_DB);

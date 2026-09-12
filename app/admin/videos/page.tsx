@@ -16,7 +16,7 @@ interface Video {
   created_at: string;
 }
 
-const CATEGORIES = ["Matches", "Highlights", "Training", "Ceremony", "Interview"];
+const CATEGORIES = ["Matches", "Highlights", "Training", "Learn", "Community", "Ceremony", "Interview"];
 
 function extractId(input: string): string | null {
   const m =
