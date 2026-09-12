@@ -1,26 +1,21 @@
 # Boccia Photos Directory
 
-Place your boccia competition photos here. These will be served at `/images/filename.ext`.
+All site photos now live in `/public/jpba images/` (66 real JPBA photographs)
+and are referenced via the central registry at `lib/images.ts`.
 
-## Recommended Usage
+Do **not** add stock/placeholder images — the site uses only real JPBA photos.
 
-Replace the placeholder images in the codebase with your own photos:
-- Hero slider slides (app/page.tsx)
-- "What is Boccia" section images
-- "How It Works" page hero
-- Photo Gallery section
-- Athlete cards
+## Usage
 
-## Naming Convention
+Import from the registry:
 
-- `hero-1.jpg` - Hero slider image 1
-- `hero-2.jpg` - Hero slider image 2
-- `hero-3.jpg` - Hero slider image 3
-- `boccia-court.jpg` - Court/equipment photo
-- `athlete-name.jpg` - Individual athlete photos
-- `competition-event.jpg` - Event/competition photos
+```ts
+import { IMG, GALLERY } from "@/lib/images";
+```
 
-## Current Photos
+- `IMG.hero1..hero6` — large showcase / hero candidates
+- `IMG.event*`, `IMG.award*`, `IMG.athlete*`, `IMG.training*`, `IMG.community*` — categorized photos
+- `GALLERY` — full typed photo list used by `/gallery` (66 photos, 4 categories)
 
-- `/boccia.png` (root) - Boccia game photo (1895x872)
-- `/boccia1.png` (root) - Boccia game photo (1917x870)
+The old stock images (`boccia.png`, `boccia1.png`, `footer-ref.webp`) have been
+removed from the project.

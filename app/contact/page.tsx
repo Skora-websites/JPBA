@@ -28,7 +28,7 @@ export default function ContactPage() {
         <section className="relative pt-[230px] pb-16 min-h-[300px] overflow-hidden bg-[#FDF8EF]">
           {/* Full background image */}
           <img
-            src="/boccia1.png"
+            src="/jpba images/DSC09824.JPG"
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -66,7 +66,7 @@ export default function ContactPage() {
               <div className="hidden lg:block">
                 <div className="boccia-img-container rounded-2xl overflow-hidden shadow-2xl border border-[#C9A84C]/20 relative">
                   <img
-                    src="/boccia1.png"
+                    src="/jpba images/DSC09824.JPG"
                     alt="Contact JPBA"
                     className="w-full h-[350px] object-cover boccia-drift"
                   />

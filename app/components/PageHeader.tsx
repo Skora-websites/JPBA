@@ -1,6 +1,12 @@
 "use client";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { IMG } from "@/lib/images";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface PageHeaderProps {
   title: string;
@@ -8,16 +14,53 @@ interface PageHeaderProps {
   image?: string;
 }
 
-export default function PageHeader({ title, breadcrumb, image = "/boccia.png" }: PageHeaderProps) {
+export default function PageHeader({ title, breadcrumb, image = IMG.hero3 }: PageHeaderProps) {
+  const imgWrapRef = useRef<HTMLDivElement>(null);
+
+  // GSAP parallax + ken-burns on the header image
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const wrap = imgWrapRef.current;
+      if (!wrap) return;
+      const img = wrap.querySelector("img");
+      if (img) {
+        gsap.fromTo(
+          img,
+          { scale: 1.15, yPercent: -4 },
+          {
+            scale: 1,
+            yPercent: 4,
+            ease: "none",
+            scrollTrigger: {
+              trigger: wrap,
+              start: "top top",
+              end: "bottom top",
+              scrub: 1,
+            },
+          }
+        );
+      }
+      gsap.from(wrap, {
+        opacity: 0,
+        duration: 1.2,
+        ease: "power2.out",
+      });
+    });
+    return () => ctx.revert();
+  }, []);
+
   return (
     <div className="relative pt-[230px] pb-16 min-h-[300px] overflow-hidden flex items-center bg-[#FDF8EF]">
-      {/* Full background image */}
-      <img
-        src={image}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-      {/* Cream fade: strong on left (text side) â†’ clear image on right */}
+      {/* Full background image (real JPBA photo) */}
+      <div ref={imgWrapRef} className="absolute inset-0">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={image}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
+      {/* Cream fade: strong on left (text side) → clear image on right */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -62,14 +105,11 @@ export default function PageHeader({ title, breadcrumb, image = "/boccia.png" }:
             ))}
           </nav>
 
-          {/* Title */}
+          {/* Title with retro underline swipe */}
           <h1 className="text-[40px] md:text-[56px] font-bold text-[#0A2F1D] leading-tight">
             {title}
           </h1>
-          <div className="relative w-24 h-1.5 mt-6 overflow-hidden">
-            <div className="absolute inset-0 bg-[#C9A84C]" />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-shimmer" />
-          </div>
+          <div className="retro-link relative w-24 h-1.5 mt-6" />
         </motion.div>
       </div>
     </div>

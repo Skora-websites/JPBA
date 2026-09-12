@@ -14,7 +14,7 @@ export default function RegisterPage() {
       <main className="flex-1">
         {/* â•â•â• Hero Section â•â•â• */}
         <section className="relative pt-[230px] pb-20 min-h-[400px] overflow-hidden" style={{background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)"}}>
-          <img src="/boccia1.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <img src="/jpba images/DSC06432.JPG" alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.96) 0%, rgba(253,248,239,0.92) 38%, rgba(253,248,239,0.55) 62%, rgba(253,248,239,0.18) 82%, rgba(253,248,239,0.05) 100%)"}} />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 30%)"}} />
 <div className="mx-auto max-w-[1400px] px-6 lg:px-10 relative z-10">

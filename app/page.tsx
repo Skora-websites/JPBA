@@ -6,6 +6,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import ScrollReveal from "@/app/components/ScrollReveal";
+import TiltCard from "@/app/components/TiltCard";
+import RetroMarquee from "@/app/components/RetroMarquee";
+import ScrollProgress from "@/app/components/ScrollProgress";
+import { IMG } from "@/lib/images";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,11 +18,7 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState("overview");
   const [showStickyCTA, setShowStickyCTA] = useState(false);
 
-  const slides = [
-    "/jpba images/4012fbe0-310d-470e-86e9-3ffb95a29420.jpeg",
-    "/jpba images/795A1291.JPG",
-    "/jpba images/795A1309.JPG",
-  ]
+  const slides = [IMG.hero1, IMG.hero2, IMG.hero3, IMG.hero4, IMG.hero5];
 
   const words =
     "\u201c I didn\u2019t know there was a sport for me until I found Boccia \u201d".split(
@@ -187,7 +187,25 @@ export default function Home() {
   return (
     <>
       <div className="opacity-100">
+        <ScrollProgress />
         <Navbar />
+
+        {/* Retro marquee ticker under the navbar */}
+        <div className="bg-[#0A2F1D] border-y border-[#C9A84C]/30 py-2.5 text-[#C9A84C] text-[12px] font-bold uppercase tracking-[0.2em] relative z-40">
+          <RetroMarquee
+            items={[
+              "Precision",
+              "Strategy",
+              "Inclusion",
+              "BC1 · BC2 · BC3 · BC4",
+              "Paralympic Sport",
+              "Jharkhand",
+              "India",
+              "Register Now",
+            ]}
+            duration={32}
+          />
+        </div>
 
         {/* ═══════════════════════════════════════════
              HERO SLIDESHOW — Enhanced with gradient mesh & orbs
@@ -206,11 +224,13 @@ export default function Home() {
               <div className="absolute inset-0 bg-black/60 z-10" />
               <img
                 src={src}
-                alt="Boccia"
+                alt="Boccia athletes competing at a JPBA championship"
                 className={`w-full h-full object-cover transition-transform duration-[8000ms] ease-in-out ${
-                  currentSlide === index ? "scale-105" : "scale-100"
+                  currentSlide === index ? "scale-110" : "scale-100"
                 }`}
               />
+              {/* Retro scanline film grain over each slide */}
+              <div className="absolute inset-0 z-10 retro-scanlines opacity-40" />
             </div>
           ))}
 
@@ -389,8 +409,8 @@ export default function Home() {
                           Over time, it evolved to include athletes with a wider
                           range of severe physical disabilities.
                         </p>
-                        <div className="boccia-parallax boccia-img-container  overflow-hidden border border-[#C9A84C]/20 shadow-lg">
-                          <img src="/boccia.png" alt="Boccia balls on court" className="w-full h-[180px] object-cover boccia-drift" />
+                        <div className="boccia-parallax boccia-img-container shine-sweep overflow-hidden border border-[#C9A84C]/20 shadow-lg">
+                          <img src={IMG.event13} alt="Referees and officials at a Boccia championship" className="w-full h-[180px] object-cover boccia-drift" />
                         </div>
                         <p className="text-gray-700 text-[16px] leading-relaxed">
                           The sport made its Paralympic debut at the 1984
@@ -435,8 +455,8 @@ export default function Home() {
                           Dubai. Since then, Indian athletes have steadily risen
                           on the world stage.
                         </p>
-                        <div className="boccia-parallax boccia-img-container  overflow-hidden border border-[#C9A84C]/20 shadow-lg">
-                          <img src="/boccia1.png" alt="Boccia game in action" className="w-full h-[180px] object-cover boccia-drift-reverse" />
+                        <div className="boccia-parallax boccia-img-container shine-sweep overflow-hidden border border-[#C9A84C]/20 shadow-lg">
+                          <img src={IMG.event15} alt="Closing ceremony of a JPBA Boccia championship" className="w-full h-[180px] object-cover boccia-drift-reverse" />
                         </div>
                       </div>
                     )}
@@ -455,16 +475,16 @@ export default function Home() {
 
               {/* Video Player */}
               <ScrollReveal variant="slide-right">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black aspect-video group cursor-pointer border-4 border-white">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black aspect-video group cursor-pointer border-4 border-white retro-scanlines">
                   <img
-                    src="https://img.youtube.com/vi/itPWqcx7xBg/hqdefault.jpg"
-                    alt="Video thumbnail"
-                    className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-500"
+                    src={IMG.hero4}
+                    alt="Athlete competing in a BC3 ramp match"
+                    className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                   />
                   {/* Gradient overlay on video */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <div className="w-16 h-16 bg-[#C9A84C] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-[#C9A84C]/30">
+                    <div className="w-16 h-16 bg-[#C9A84C] rounded-full flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform shadow-lg shadow-[#C9A84C]/30">
                       <svg
                         className="w-8 h-8 text-[#0A2F1D] ml-1"
                         fill="currentColor"
@@ -473,7 +493,7 @@ export default function Home() {
                         <path d="M8 5v14l11-7z" />
                       </svg>
                     </div>
-                    <span className="mt-4 bg-black/60 text-white px-4 py-1.5 rounded-full text-[12px] font-semibold tracking-wide backdrop-blur-sm">
+                    <span className="mt-4 bg-black/60 text-white px-4 py-1.5 rounded-full text-[12px] font-semibold tracking-wide backdrop-blur-sm animate-arcade-blink">
                       🎥 Official Introduction to Para Boccia
                     </span>
                   </div>
@@ -741,9 +761,9 @@ export default function Home() {
                 </div>
               </ScrollReveal>
               <ScrollReveal variant="slide-right">
-                <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white retro-frame animate-float-3d">
                   <img
-                    src="/jpba images/795A1515.JPG"
+                    src={IMG.event11}
                     alt="JPBA athletes and officials at a Jharkhand Boccia event"
                     className="w-full h-[350px] object-cover"
                   />
@@ -909,49 +929,52 @@ export default function Home() {
                   name: "Arjun Kumar",
                   cls: "BC2",
                   desc: "State champion with exceptional precision and tactical awareness.",
-                  img: "/jpba images/795A1426.JPG",
+                  img: IMG.event3,
                 },
                 {
                   name: "Priya Devi",
                   cls: "BC1",
                   desc: "Pioneer athlete who inspired inclusion across three districts.",
-                  img: "/jpba images/795A1430.JPG",
+                  img: IMG.event4,
                 },
                 {
                   name: "Ravi Singh",
                   cls: "BC3",
                   desc: "Ramp specialist with outstanding competitive record.",
-                  img: "/jpba images/795A1436.JPG",
+                  img: IMG.event5,
                 },
                 {
                   name: "Meera Lakra",
                   cls: "BC4",
                   desc: "Rising star in BC4 category with national ranking.",
-                  img: "/jpba images/795A1450.JPG",
+                  img: IMG.event6,
                 },
               ].map((athlete, i) => (
                 <ScrollReveal key={i} variant="fade-up" delay={i * 100}>
-                  <div className="group bg-white rounded-2xl overflow-hidden shadow-lg border border-[#C9A84C]/15 hover:shadow-2xl hover:border-[#C9A84C]/40 transition-all duration-300">
+                  <TiltCard className="group relative bg-white rounded-2xl overflow-hidden shadow-lg border border-[#C9A84C]/15 hover:border-[#C9A84C]/40 h-full" glare={0.18} max={9}>
                     <div className="relative h-56 overflow-hidden">
                       <img
                         src={athlete.img}
                         alt={athlete.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0A2F1D]/80 via-transparent to-transparent" />
-                      <span className="absolute top-4 right-4 px-3 py-1 bg-[#C9A84C] text-[#0A2F1D] text-[11px] font-bold rounded-full shadow-lg">
+                      <span className="absolute top-4 right-4 px-3 py-1 bg-[#C9A84C] text-[#0A2F1D] text-[11px] font-bold rounded-full shadow-lg animate-vhs">
+                        {athlete.cls}
+                      </span>
+                      <span className="absolute bottom-4 left-4 retro-outline-text text-[28px] font-black uppercase tracking-wider opacity-80">
                         {athlete.cls}
                       </span>
                     </div>
                     <div className="p-6">
-                      <h4 className="text-[18px] font-bold text-[#0A2F1D] mb-2">
+                      <h4 className="text-[18px] font-bold text-[#0A2F1D] mb-2 group-hover:text-[#C9A84C] transition-colors">
                         {athlete.name}
                       </h4>
                       <p className="text-[13px] text-[#5C5C5C] leading-relaxed">
                         {athlete.desc}
                       </p>
                     </div>
-                  </div>
+                  </TiltCard>
                 </ScrollReveal>
               ))}
             </div>

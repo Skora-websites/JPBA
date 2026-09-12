@@ -410,7 +410,11 @@ option {
     transform: none !important;
     transition: none !important;
   }
-
+  .retro-marquee-group { animation: none !important; }
+  .tilt-3d { transform: none !important; }
+  .animate-float-3d { animation: none !important; }
+  .flip-3d-inner { transform: none !important; }
+}
 
 /* ═══════════════════════════════════════════
    BOCCIA IMAGE EFFECTS — Hover Zoom & Parallax
@@ -455,7 +459,257 @@ option {
   transition: transform 0.1s linear;
 }
 
-/* Slow ken-burns drift on idle */
+/* ═══════════════════════════════════════════
+   RETRO ANIMATIONS — 80s arcade / CRT vibes
+═══════════════════════════════════════════ */
+
+/* Marquee — infinite scrolling strip (retro ticker) */
+.retro-marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 0;
+}
+.retro-marquee-group {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding-right: 3rem;
+  animation: retro-marquee-scroll 40s linear infinite;
+}
+.retro-marquee:hover .retro-marquee-group {
+  animation-play-state: paused;
+}
+@keyframes retro-marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+/* Arcade blink — chunky two-step blink, no fade */
+@keyframes arcade-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0.15; }
+}
+.animate-arcade-blink {
+  animation: arcade-blink 1.2s steps(1) infinite;
+}
+
+/* Retro scanlines overlay (CRT monitor) */
+.retro-scanlines::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.12) 0px,
+    rgba(0, 0, 0, 0.12) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  mix-blend-mode: multiply;
+}
+
+/* Pixel-corners retro frame (like old arcade UI panels) */
+.retro-frame {
+  position: relative;
+  border: 3px solid var(--forest-green);
+  box-shadow:
+    6px 6px 0 0 var(--gold),
+    6px 6px 0 3px var(--forest-green);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+}
+.retro-frame:hover {
+  transform: translate(-3px, -3px);
+  box-shadow:
+    9px 9px 0 0 var(--gold),
+    9px 9px 0 3px var(--forest-green);
+}
+
+/* LED dot indicators — retro scoreboard style */
+.retro-led {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--gold);
+  box-shadow: 0 0 6px rgba(201, 168, 76, 0.9), 0 0 14px rgba(201, 168, 76, 0.4);
+}
+
+/* Retro outline text — arcade title style */
+.retro-outline-text {
+  -webkit-text-stroke: 1.5px rgba(201, 168, 76, 0.55);
+  color: transparent;
+  letter-spacing: 0.08em;
+}
+
+/* Press-start style underline swipe for links */
+.retro-link {
+  position: relative;
+}
+.retro-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(to right, var(--gold) 50%, var(--forest-green) 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  transition: background-position 0.35s steps(6);
+  pointer-events: none;
+}
+.retro-link:hover::after {
+  background-position: 0 0;
+}
+
+/* VHS tracking glitch for badges (subtle) */
+@keyframes vhs-glitch {
+  0%, 92%, 100% { transform: translate(0, 0) skewX(0); }
+  93% { transform: translate(-2px, 1px) skewX(-2deg); }
+  95% { transform: translate(2px, -1px) skewX(2deg); }
+  97% { transform: translate(-1px, 0) skewX(0); }
+}
+.animate-vhs {
+  animation: vhs-glitch 5s linear infinite;
+}
+
+/* ═══════════════════════════════════════════
+   3D EFFECTS — tilt cards, flip, depth
+═══════════════════════════════════════════ */
+.tilt-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+}
+.tilt-inner {
+  transform-style: preserve-3d;
+  transform: translateZ(30px);
+}
+.tilt-inner-deep {
+  transform-style: preserve-3d;
+  transform: translateZ(60px);
+}
+
+/* 3D floating card — gentle idle hover in 3D space */
+@keyframes float-3d {
+  0%, 100% { transform: perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0); }
+  25% { transform: perspective(900px) rotateX(2deg) rotateY(3deg) translateY(-6px); }
+  50% { transform: perspective(900px) rotateX(-1.5deg) rotateY(-2deg) translateY(-10px); }
+  75% { transform: perspective(900px) rotateX(1deg) rotateY(2deg) translateY(-4px); }
+}
+.animate-float-3d {
+  animation: float-3d 9s ease-in-out infinite;
+}
+
+/* 3D card flip */
+.flip-3d {
+  perspective: 1000px;
+}
+.flip-3d-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+.flip-3d:hover .flip-3d-inner,
+.flip-3d:focus-within .flip-3d-inner {
+  transform: rotateY(180deg);
+}
+.flip-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+}
+
+/* Layered depth shadow on hover */
+.depth-hover {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+}
+.depth-hover:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 22px 45px -12px rgba(10, 47, 29, 0.28),
+    0 8px 16px -8px rgba(201, 168, 76, 0.3);
+}
+
+/* Shine sweep across cards/images on hover */
+.shine-sweep {
+  position: relative;
+  overflow: hidden;
+}
+.shine-sweep::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+.shine-sweep:hover::before {
+  left: 125%;
+}
+
+/* Gold foil gradient border on hover */
+.gold-foil {
+  position: relative;
+}
+.gold-foil::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light), var(--bronze), var(--gold));
+  background-size: 300% 300%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease, background-position 1.2s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+.gold-foil:hover::before {
+  opacity: 1;
+  background-position: 100% 100%;
+}
+
+/* Image grayscale-to-color retro reveal */
+.retro-img {
+  filter: saturate(0.85) contrast(1.05);
+  transition: filter 0.5s ease, transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.retro-img:hover {
+  filter: saturate(1.15) contrast(1.08);
+  transform: scale(1.06);
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: linear-gradient(to right, var(--forest-green), var(--gold), var(--forest-green));
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* Reduced motion */
 @keyframes boccia-drift {
   0% { transform: scale(1.05) translate(0, 0); }
   50% { transform: scale(1.08) translate(-1%, -0.5%); }
@@ -468,6 +722,4 @@ option {
 
 .boccia-drift-reverse {
   animation: boccia-drift 14s ease-in-out infinite reverse;
-}
-
 }
