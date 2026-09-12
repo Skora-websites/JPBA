@@ -4,8 +4,8 @@ import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import ScrollReveal from "@/app/components/ScrollReveal";
 
-const GOOGLE_FORM_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLSejXpcQc40K9GqggtadDUyUaAKNWZNaFColxKDsT1yGPQeIqw/viewform";
+const PLAYER_FORM_URL = "https://forms.gle/y6QSBFfTQqK6fd7z8";
+const OFFICIAL_FORM_URL = "https://forms.gle/oX75B4VBtTSS4fxc9";
 
 export default function RegisterPage() {
   return (
@@ -14,7 +14,7 @@ export default function RegisterPage() {
       <main className="flex-1">
         {/* â•â•â• Hero Section â•â•â• */}
         <section className="relative pt-[230px] pb-20 min-h-[400px] overflow-hidden" style={{background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)"}}>
-          <img src="/jpba images/DSC06432.JPG" alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <img src="/images/dsc06432.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.96) 0%, rgba(253,248,239,0.92) 38%, rgba(253,248,239,0.55) 62%, rgba(253,248,239,0.18) 82%, rgba(253,248,239,0.05) 100%)"}} />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 30%)"}} />
 <div className="mx-auto max-w-[1400px] px-6 lg:px-10 relative z-10">
@@ -25,40 +25,43 @@ export default function RegisterPage() {
                   REGISTRATION
                 </p>
                 <h1 className="text-[36px] sm:text-[44px] md:text-[52px] font-bold text-[#0A2F1D] leading-tight mb-4">
-                  Register as an{" "}
-                  <span className="gradient-text-gold">Athlete</span>
+                  Register as a{" "}
+                  <span className="gradient-text-gold">Player or Official</span>
                 </h1>
                 <p className="text-[15px] text-gray-600 max-w-[600px] leading-relaxed mb-8">
-                  Complete the official registration form to join the Jharkhand
-                  Para Boccia Association. Open to all eligible athletes
-                  seeking to compete in Para Boccia across India.
+                  Join the Jharkhand Para Boccia Association — as a competing
+                  athlete (BC1–BC4) or as an official supporting the sport.
+                  Both registrations open in the official Google Forms.
                 </p>
-                <a
-                  href={GOOGLE_FORM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-10 py-4 bg-[#C9A84C] text-[#0A2F1D] rounded font-bold uppercase tracking-wider hover:bg-white transition-all duration-300 text-[15px] shadow-xl shadow-[#C9A84C]/30 hover:shadow-white/20 active:scale-[0.97]"
-                >
-                  Register on Google Form
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                <div className="flex flex-wrap gap-4 mb-8">
+                  <a
+                    href={PLAYER_FORM_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 px-8 py-4 bg-[#C9A84C] text-[#0A2F1D] rounded font-bold uppercase tracking-wider hover:bg-white transition-all duration-300 text-[14px] shadow-xl shadow-[#C9A84C]/30 active:scale-[0.97]"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2.5}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                </a>
+                    Player Registration
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                  <a
+                    href={OFFICIAL_FORM_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 px-8 py-4 border-2 border-[#0A2F1D] text-[#0A2F1D] rounded font-bold uppercase tracking-wider hover:bg-[#0A2F1D] hover:text-white transition-all duration-300 text-[14px] active:scale-[0.97]"
+                  >
+                    Official Registration
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
               </div>
               <div className="hidden lg:block">
                 <div className="rounded-2xl overflow-hidden shadow-2xl border border-[#C9A84C]/20 relative">
                   <img
-                    src="/jpba images/DSC06432.JPG"
+                    src="/images/dsc06432.webp"
                     alt="Register"
                     className="w-full h-[350px] object-cover"
                   />
@@ -234,27 +237,26 @@ export default function RegisterPage() {
                       Click the button below to open the official Google Form
                       registration page.
                     </p>
-                    <a
-                      href={GOOGLE_FORM_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-3 px-10 py-4 bg-[#C9A84C] text-[#0A2F1D] rounded font-bold uppercase tracking-wider hover:bg-white transition-all duration-300 text-[15px] shadow-xl shadow-[#C9A84C]/30 w-full justify-center"
-                    >
-                      Open Registration Form
-                      <svg
-                        className="w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
+                    <div className="space-y-3">
+                      <a
+                        href={PLAYER_FORM_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between gap-3 px-6 py-4 bg-[#C9A84C] text-[#0A2F1D] rounded font-bold uppercase tracking-wider hover:bg-white transition-all duration-300 text-[14px] shadow-lg"
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2.5}
-                          d="M14 5l7 7m0 0l-7 7m7-7H3"
-                        />
-                      </svg>
-                    </a>
+                        <span>Player Registration Form</span>
+                        <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                      </a>
+                      <a
+                        href={OFFICIAL_FORM_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between gap-3 px-6 py-4 border-2 border-[#C9A84C] text-[#C9A84C] rounded font-bold uppercase tracking-wider hover:bg-[#C9A84C] hover:text-[#0A2F1D] transition-all duration-300 text-[14px]"
+                      >
+                        <span>Official Registration Form</span>
+                        <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                      </a>
+                    </div>
                     <p className="text-gray-400 text-[12px] mt-4 text-center">
                       Opens in a new tab &bull; Google Forms
                     </p>

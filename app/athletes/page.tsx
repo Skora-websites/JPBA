@@ -1,139 +1,128 @@
 "use client";
-import { useState } from "react";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import ScrollReveal from "@/app/components/ScrollReveal";
 
+// ─── Verified JPBA athletes (photos + details provided by the association) ──
 const athletes = [
-  { name: "Pooja Gupta", cls: "BC4", town: "Ranchi", highlight: "First Indian to win individual international Boccia medal", status: "National Team", medals: {g:0,s:1,b:2}, img: "/jpba images/795A1797.JPG" },
-  { name: "Sachin Chamaria", cls: "BC3", town: "Hazaribagh", highlight: "Gold medalist at World Boccia Challenger", status: "National Team", medals: {g:1,s:0,b:1}, img: "/jpba images/795A1838.JPG" },
-  { name: "Jatin Kumar Kushwaha", cls: "BC4", town: "Dhanbad", highlight: "Silver in BC4 Pairs + Bronze Individual", status: "National Team", medals: {g:0,s:1,b:1}, img: "/jpba images/795A1962.JPG" },
-  { name: "Ajeya Raj", cls: "BC3", town: "Bokaro", highlight: "Bronze medal at World Boccia Challenger", status: "National Team", medals: {g:0,s:0,b:1}, img: "/jpba images/795A2314.JPG" },
-  { name: "Anjali Thakur", cls: "BC2", town: "Jamshedpur", highlight: "Multiple national championship participant", status: "State Team", medals: {g:0,s:0,b:0}, img: "/jpba images/795A2335.JPG" },
-  { name: "Vijay Kumar", cls: "BC1", town: "Dumka", highlight: "Rising star in para boccia", status: "State Team", medals: {g:0,s:0,b:0}, img: "/jpba images/795A2337.JPG" },
+  {
+    name: "Suman Kumar Prajapati",
+    cls: "BC4",
+    level: "International Player",
+    town: "Jharkhand, India",
+    bio: "Represents Jharkhand on the international stage in the BC4 class — the division for athletes with the most severe impairments, competing with a ramp and assistant. A flagbearer of Jharkhand's rise in world para boccia.",
+    img: "/images/people/suman-kumar-prajapati.webp",
+  },
+  {
+    name: "Anam Hyder",
+    cls: "BC2",
+    level: "National Player",
+    town: "Jharkhand, India",
+    bio: "A BC2 national-level player for Jharkhand. Competes in one of the sport's most competitive classes, known for precision throwing and steady match temperament at national championships.",
+    img: "/images/people/anam-hyder.webp",
+  },
 ];
 
 export default function AthletesPage() {
-  const [sel, setSel] = useState<number | null>(null);
-
   return (
     <div className="flex flex-col min-h-screen bg-[#FDF8EF]">
       <Navbar />
       <main className="flex-1">
         {/* Hero */}
         <section className="relative pt-[230px] pb-16 min-h-[320px] overflow-hidden" style={{background: "linear-gradient(135deg, #FDF8EF 0%, #FFFFFF 50%, #F4F1E9 100%)"}}>
-          <img src="/jpba images/795A1515.JPG" alt="" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.96) 0%, rgba(253,248,239,0.92) 38%, rgba(253,248,239,0.55) 62%, rgba(253,248,239,0.18) 82%, rgba(253,248,239,0.05) 100%)"}} />
-          <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 30%)"}} />
-<div className="mx-auto max-w-[1400px] px-6 lg:px-10 relative z-10">
+          <img src="/images/national-game.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.95) 0%, rgba(253,248,239,0.88) 30%, rgba(253,248,239,0.35) 55%, rgba(253,248,239,0.02) 75%, rgba(253,248,239,0) 100%)"}} />
+          <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 18%)"}} />
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <div className="w-16 h-1 bg-[#C9A84C] rounded-full mb-6" />
                 <p className="text-[#B8923A] text-[11px] font-bold tracking-[0.3em] uppercase mb-3">
-                  OUR STARS
+                  OUR PLAYERS
                 </p>
                 <h1 className="text-[36px] sm:text-[44px] font-bold text-[#0A2F1D] leading-tight mb-4">
                   Meet the Athletes
                 </h1>
                 <p className="text-[15px] text-gray-600 max-w-[600px] leading-relaxed">
-                  Representing Jharkhand and India with Precision, Passion, and
-                  Pride.
+                  The verified players representing Jharkhand in national and
+                  international Para Boccia.
                 </p>
               </div>
               <div className="hidden lg:block">
                 <div className="rounded-2xl overflow-hidden shadow-2xl border border-[#C9A84C]/20 relative">
                   <img
-                    src="/jpba images/795A0833.JPG"
-                    alt="Athletes"
+                    src="/images/people/suman-kumar-prajapati.webp"
+                    alt="Suman Kumar Prajapati with the Jharkhand banner at the National Boccia Championship"
                     className="w-full h-[350px] object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A2F1D]/40 via-transparent to-transparent" />
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Athletes Grid */}
+        {/* Players */}
         <ScrollReveal variant="fade-in">
           <section className="py-16 relative overflow-hidden">
             <div className="absolute inset-0 bg-texture-diagonal pointer-events-none opacity-30" />
             <div className="gradient-orb gradient-orb-gold w-[400px] h-[400px] -top-40 -right-40 pointer-events-none opacity-20" />
 
-            <div className="mx-auto max-w-[1200px] px-6 lg:px-10 relative z-10">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="mx-auto max-w-[1100px] px-6 lg:px-10 relative z-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {athletes.map((a, i) => (
-                  <ScrollReveal key={a.name} variant="fade-up" delay={i * 80}>
-                    <div
-                      onClick={() => setSel(sel === i ? null : i)}
-                      className={
-                        "rounded-2xl bg-white border overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-transparent " +
-                        (sel === i
-                          ? "border-[#C9A84C] shadow-lg"
-                          : "border-[#C9A84C]/10")
-                      }
-                    >
-                      <div className="h-48 overflow-hidden relative">
+                  <ScrollReveal key={a.name} variant="fade-up" delay={i * 120}>
+                    <div className="group rounded-2xl bg-white border border-[#C9A84C]/15 overflow-hidden shadow-sm hover:shadow-2xl hover:border-[#C9A84C]/50 transition-all duration-300 h-full">
+                      <div className="h-[420px] overflow-hidden relative">
                         <img
                           src={a.img}
                           alt={a.name}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0A2F1D]/50 via-transparent to-transparent" />
-                        <span className="absolute top-4 right-4 px-3 py-1 bg-[#C9A84C] text-[#0A2F1D] text-[11px] font-bold rounded-full shadow-lg">
+                        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/55 to-transparent" />
+                        <span className="absolute top-4 right-4 px-3 py-1 bg-[#C9A84C] text-[#0A2F1D] text-[12px] font-bold rounded-full shadow-lg">
                           {a.cls}
                         </span>
+                        <span className="absolute bottom-4 left-4 px-3 py-1 bg-[#0A2F1D]/85 text-white text-[11px] font-bold uppercase tracking-wider rounded-full">
+                          {a.level}
+                        </span>
                       </div>
-                      <div className="p-6">
-                        <div className="flex items-start justify-between mb-3">
-                          <div>
-                            <h3 className="text-[16px] font-bold text-[#0A2F1D]">
-                              {a.name}
-                            </h3>
-                            <p className="text-[12px] text-gray-400">
-                              {a.town}
-                            </p>
-                          </div>
-                        </div>
-                        <p className="text-[13px] text-gray-500 mb-3">
-                          {a.highlight}
+                      <div className="p-7">
+                        <h3 className="text-[20px] font-bold text-[#0A2F1D] mb-1">
+                          {a.name}
+                        </h3>
+                        <p className="text-[12px] text-gray-400 uppercase tracking-wider mb-4">
+                          {a.town}
                         </p>
-                        {sel === i && (
-                          <div className="pt-3 border-t border-[#F3F4F6]">
-                            <span
-                              className={
-                                "inline-block rounded-lg px-2.5 py-0.5 text-[10px] font-bold " +
-                                (a.status === "National Team"
-                                  ? "bg-[#0A2F1D]/10 text-[#0A2F1D]"
-                                  : "bg-[#C9A84C]/15 text-[#8B6914]")
-                              }
-                            >
-                              {a.status}
-                            </span>
-                            <div className="flex gap-4 mt-2">
-                              {a.medals.g > 0 && (
-                                <span className="text-[11px] text-[#C9A84C] font-semibold">
-                                  Gold: {a.medals.g}
-                                </span>
-                              )}
-                              {a.medals.s > 0 && (
-                                <span className="text-[11px] text-gray-400 font-semibold">
-                                  Silver: {a.medals.s}
-                                </span>
-                              )}
-                              {a.medals.b > 0 && (
-                                <span className="text-[11px] text-[#8B6914] font-semibold">
-                                  Bronze: {a.medals.b}
-                                </span>
-                              )}
-                            </div>
-                          </div>
-                        )}
+                        <p className="text-[14px] text-gray-600 leading-relaxed">
+                          {a.bio}
+                        </p>
                       </div>
                     </div>
                   </ScrollReveal>
                 ))}
               </div>
+
+              <ScrollReveal variant="fade-up" delay={200}>
+                <div className="mt-14 rounded-2xl border-2 border-dashed border-[#C9A84C]/40 bg-white/60 p-10 text-center">
+                  <h3 className="text-[20px] font-bold text-[#0A2F1D] mb-2">
+                    This could be you
+                  </h3>
+                  <p className="text-[14px] text-gray-600 max-w-xl mx-auto mb-6">
+                    JPBA is scouting and training the next generation of para
+                    athletes across all districts of Jharkhand. Register and
+                    start your journey.
+                  </p>
+                  <a
+                    href="https://forms.gle/y6QSBFfTQqK6fd7z8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#C9A84C] text-[#0A2F1D] rounded font-bold uppercase tracking-wider hover:bg-[#0A2F1D] hover:text-white transition-all text-[13px] shadow-lg"
+                  >
+                    Player Registration
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                  </a>
+                </div>
+              </ScrollReveal>
             </div>
           </section>
         </ScrollReveal>

@@ -52,3 +52,7 @@ repomix-output.xml
 # sqlite database
 /data/*.db-wal
 /data/*.db-shm
+
+# original heavy photos kept local-only (site uses optimized /images)
+/public/jpba images/
+JPBA

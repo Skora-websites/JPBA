@@ -14,7 +14,7 @@ export default function RulesPage() {
 
         {/* Hero Section */}
         <section className="relative pt-[230px] pb-16 min-h-[280px] border-b border-[#C9A84C]/20" style={{ background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)" }}>
-          <img src="/jpba images/DSC06706.JPG" alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <img src="/images/dsc06706.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.96) 0%, rgba(253,248,239,0.92) 38%, rgba(253,248,239,0.55) 62%, rgba(253,248,239,0.18) 82%, rgba(253,248,239,0.05) 100%)"}} />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 30%)"}} />
 <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
@@ -27,7 +27,7 @@ export default function RulesPage() {
               </div>
               <div className="hidden lg:block">
                 <div className="rounded-2xl overflow-hidden shadow-xl border border-[#C9A84C]/20">
-                  <img src="/jpba images/FullSizeRender 17.jpeg" alt="Rules & Penalties" className="w-full h-[350px] object-cover" />
+                  <img src="/images/fullsizerender-17.webp" alt="Rules & Penalties" className="w-full h-[350px] object-cover" />
                 </div>
               </div>
             </div>

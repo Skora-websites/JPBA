@@ -1,8 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-
-const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSejXpcQc40K9GqggtadDUyUaAKNWZNaFColxKDsT1yGPQeIqw/viewform';
+import Link from 'next/link';
 
 export default function StickyRegister() {
   const [isVisible, setIsVisible] = useState(false);
@@ -19,10 +18,8 @@ export default function StickyRegister() {
   const visibilityClasses = isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none";
 
   return (
-    <a
-      href={GOOGLE_FORM_URL}
-      target="_blank"
-      rel="noopener noreferrer"
+    <Link
+      href="/register"
       className={`${baseClasses} ${visibilityClasses}`}
       style={{ fontSize: "15px", letterSpacing: "0.5px" }}
     >
@@ -30,6 +27,6 @@ export default function StickyRegister() {
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
       </svg>
       Register Now
-    </a>
+    </Link>
   );
 }

@@ -89,8 +89,9 @@ export default function Footer() {
           <p className="text-xs text-white/50 text-center sm:text-left">
             &copy; 2026 Jharkhand Para Boccia Association. All Rights Reserved.
           </p>
-          <div className="flex gap-4 text-xs text-white/50">
+            <div className="flex gap-4 text-xs text-white/50">
             <Link href="/register" className="hover:text-[#C9A84C] transition-colors">Register</Link>
+            <Link href="/donate" className="hover:text-[#C9A84C] transition-colors">Donate</Link>
             <Link href="/contact" className="hover:text-[#C9A84C] transition-colors">Contact</Link>
             <Link href="/events" className="hover:text-[#C9A84C] transition-colors">Events</Link>
           </div>

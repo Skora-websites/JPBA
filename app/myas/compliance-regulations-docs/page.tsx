@@ -9,7 +9,7 @@ export default function ComplianceRegulationsPage() {
     <div className="flex flex-col min-h-screen bg-[#FDF8EF]">
       <Navbar />
       
-      <PageHeader title="Compliance & Regulations" image="/jpba images/795A0345.JPG" breadcrumb={[{"label":"MYAS Disclosures"},{"label":"Compliance"}]} 
+      <PageHeader title="Compliance & Regulations" image="/images/vip-guests.webp" breadcrumb={[{"label":"MYAS Disclosures"},{"label":"Compliance"}]} 
       />
 
       <main className="flex-1 py-16">

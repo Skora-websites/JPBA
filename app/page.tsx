@@ -10,7 +10,7 @@ import TiltCard from "@/app/components/TiltCard";
 import RetroMarquee from "@/app/components/RetroMarquee";
 import ScrollProgress from "@/app/components/ScrollProgress";
 import YouTubeFacade from "@/app/components/YouTubeFacade";
-import { IMG } from "@/lib/images";
+import { IMG, PEOPLE } from "@/lib/images";
 
 interface DbVideo { id: number; title: string; description: string; youtube_id: string | null; category: string; featured: number; }
 interface DbNews { id: number; title: string; excerpt: string; featured: number; views: number; published_at: string; }
@@ -236,7 +236,8 @@ export default function Home() {
                   : "opacity-0 z-[1]"
               }`}
             >
-              <div className="absolute inset-0 bg-black/60 z-10" />
+              <div className="absolute inset-0 bg-black/20 z-10" />
+              <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#0A2F1D]/85 via-[#0A2F1D]/20 to-transparent z-10" />
               <img
                 src={src}
                 alt="Boccia athletes competing at a JPBA championship"
@@ -245,12 +246,12 @@ export default function Home() {
                 }`}
               />
               {/* Retro scanline film grain over each slide */}
-              <div className="absolute inset-0 z-10 retro-scanlines opacity-40" />
+              <div className="absolute inset-0 z-10 retro-scanlines opacity-[0.12]" />
             </div>
           ))}
 
           {/* Gradient Mesh Overlay */}
-          <div className="absolute inset-0 z-15 bg-mesh-gradient-dark opacity-40 pointer-events-none animate-gradient-shift" />
+          <div className="absolute inset-0 z-15 bg-mesh-gradient-dark opacity-[0.18] pointer-events-none animate-gradient-shift" />
 
           {/* Floating Gradient Orbs — with GSAP parallax */}
           <div ref={heroOrbsRef} className="pointer-events-none z-15">
@@ -348,6 +349,24 @@ export default function Home() {
             ))}
           </div>
         </section>
+
+        {/* PHOTO SHOWCASE BAND — infinite scrolling real-photo strip */}
+        <div className="photo-marquee relative bg-[#0A2F1D] py-5 border-y-4 border-[#C9A84C] overflow-hidden">
+          <div className="photo-marquee-group">
+            {([...slides, IMG.event5, IMG.event6, IMG.event7, IMG.event8] as string[]).map((src, i) => (
+              <div key={`a${i}`} className="w-[260px] h-[170px] shrink-0 rounded-lg overflow-hidden border-2 border-[#C9A84C]/40 shadow-lg hover:scale-105 hover:border-[#C9A84C] transition-all duration-300">
+                <img src={src} alt="JPBA Boccia moment" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            ))}
+          </div>
+          <div className="photo-marquee-group" aria-hidden="true">
+            {([...slides, IMG.event5, IMG.event6, IMG.event7, IMG.event8] as string[]).map((src, i) => (
+              <div key={`b${i}`} className="w-[260px] h-[170px] shrink-0 rounded-lg overflow-hidden border-2 border-[#C9A84C]/40 shadow-lg hover:scale-105 hover:border-[#C9A84C] transition-all duration-300">
+                <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* ═══════════════════════════════════════════
              SECTION 2: What is Boccia? — Enhanced with gradient orbs & texture
@@ -540,14 +559,18 @@ export default function Home() {
                 To participate in competitive boccia at an international level,
                 an athlete must meet three exact requirements governed by the{" "}
                 <a
-                  href="#"
+                  href="https://www.paralympic.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-[#C9A84C] hover:underline"
                 >
                   International Paralympic Committee (IPC)
                 </a>{" "}
                 and{" "}
                 <a
-                  href="#"
+                  href="https://www.worldboccia.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-[#C9A84C] hover:underline"
                 >
                   World Boccia
@@ -705,7 +728,9 @@ export default function Home() {
         </section>
 
         {/* SECTION 4: National Footprint */}
-        <section className="py-24 bg-[#FDF8EF] relative overflow-hidden">
+        <section className="py-24 bg-mesh-gradient-light relative overflow-hidden">
+          <div className="absolute inset-0 bg-texture-wavy pointer-events-none" />
+          <div className="gradient-orb gradient-orb-gold w-[500px] h-[500px] -top-40 -left-40 pointer-events-none opacity-50 gsap-parallax-orb" />
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10 relative z-10">
             <div className="text-center mb-14">
               <span className="text-[#C9A84C] font-bold tracking-[0.25em] text-[12px] uppercase">National Footprint</span>
@@ -780,7 +805,7 @@ export default function Home() {
                   <img
                     src={IMG.event11}
                     alt="JPBA athletes and officials at a Jharkhand Boccia event"
-                    className="w-full h-[350px] object-cover"
+                    className="w-full h-[440px] object-cover"
                   />
                 </div>
               </ScrollReveal>
@@ -925,15 +950,15 @@ export default function Home() {
                 <div className="flex items-center justify-center gap-3 mb-4">
                   <span className="text-[#C9A84C] text-xl">&#10022;</span>
                   <span className="text-[#C9A84C] font-bold tracking-[0.25em] text-[12px] uppercase">
-                    OUR STARS
+                    OUR PEOPLE
                   </span>
                   <span className="text-[#C9A84C] text-xl">&#10022;</span>
                 </div>
                 <h2 className="text-[36px] sm:text-[44px] font-bold text-[#0A2F1D] mb-3">
-                  Meet the Athletes
+                  Players &amp; Leadership
                 </h2>
                 <p className="text-[#5C5C5C] text-[16px]">
-                  Representing Jharkhand with Precision, Passion, and Pride.
+                  The verified athletes and office bearers of Jharkhand Para Boccia.
                 </p>
               </div>
             </ScrollReveal>
@@ -941,48 +966,45 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 {
-                  name: "Arjun Kumar",
-                  cls: "BC2",
-                  desc: "State champion with exceptional precision and tactical awareness.",
-                  img: IMG.event3,
+                  name: "Suman Kumar Prajapati",
+                  cls: "BC4 · International",
+                  desc: "Flagbearer of Jharkhand boccia on the international stage.",
+                  img: PEOPLE.sumanPrajapati,
                 },
                 {
-                  name: "Priya Devi",
-                  cls: "BC1",
-                  desc: "Pioneer athlete who inspired inclusion across three districts.",
-                  img: IMG.event4,
+                  name: "Anam Hyder",
+                  cls: "BC2 · National",
+                  desc: "Precision thrower competing at national championships.",
+                  img: PEOPLE.anamHyder,
                 },
                 {
-                  name: "Ravi Singh",
-                  cls: "BC3",
-                  desc: "Ramp specialist with outstanding competitive record.",
-                  img: IMG.event5,
+                  name: "Raj Kumar Singh",
+                  cls: "National Coach",
+                  desc: "Blind Football coach & disability-sports activist leading training.",
+                  img: PEOPLE.coach,
                 },
                 {
-                  name: "Meera Lakra",
-                  cls: "BC4",
-                  desc: "Rising star in BC4 category with national ranking.",
-                  img: IMG.event6,
+                  name: "Capt Jitendra Kumar Sharma",
+                  cls: "President",
+                  desc: "Leading JPBA's mission of inclusion across Jharkhand.",
+                  img: PEOPLE.president,
                 },
               ].map((athlete, i) => (
-                <ScrollReveal key={i} variant="fade-up" delay={i * 100}>
+                <ScrollReveal key={athlete.name} variant="fade-up" delay={i * 100}>
                   <TiltCard className="group relative bg-white rounded-2xl overflow-hidden shadow-lg border border-[#C9A84C]/15 hover:border-[#C9A84C]/40 h-full" glare={0.18} max={9}>
-                    <div className="relative h-56 overflow-hidden">
+                    <div className="relative h-72 overflow-hidden">
                       <img
                         src={athlete.img}
                         alt={athlete.name}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0A2F1D]/80 via-transparent to-transparent" />
-                      <span className="absolute top-4 right-4 px-3 py-1 bg-[#C9A84C] text-[#0A2F1D] text-[11px] font-bold rounded-full shadow-lg animate-vhs">
-                        {athlete.cls}
-                      </span>
-                      <span className="absolute bottom-4 left-4 retro-outline-text text-[28px] font-black uppercase tracking-wider opacity-80">
+                      <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/45 to-transparent" />
+                      <span className="absolute top-4 right-4 px-3 py-1 bg-[#C9A84C] text-[#0A2F1D] text-[11px] font-bold rounded-full shadow-lg">
                         {athlete.cls}
                       </span>
                     </div>
                     <div className="p-6">
-                      <h4 className="text-[18px] font-bold text-[#0A2F1D] mb-2 group-hover:text-[#C9A84C] transition-colors">
+                      <h4 className="text-[17px] font-bold text-[#0A2F1D] mb-2 group-hover:text-[#C9A84C] transition-colors leading-snug">
                         {athlete.name}
                       </h4>
                       <p className="text-[13px] text-[#5C5C5C] leading-relaxed">
@@ -1152,7 +1174,7 @@ export default function Home() {
                   location: "Jharkhand",
                   date: "Aug 2026",
                   count: 12,
-                  img: "/jpba images/795A1490.JPG",
+                  img: "/images/795a1490.webp",
                   featured: true,
                 },
                 {
@@ -1160,21 +1182,21 @@ export default function Home() {
                   location: "Ranchi",
                   date: "Jul 2026",
                   count: 8,
-                  img: "/jpba images/795A1495.JPG",
+                  img: "/images/795a1495.webp",
                 },
                 {
                   title: "Training Camp Solan",
                   location: "IAMD, Solan",
                   date: "Aug 2026",
                   count: 4,
-                  img: "/jpba images/795A1509.JPG",
+                  img: "/images/795a1509.webp",
                 },
                 {
                   title: "Award Ceremony 2026",
                   location: "Ranchi",
                   date: "Jun 2026",
                   count: 6,
-                  img: "/jpba images/795A1513.JPG",
+                  img: "/images/795a1513.webp",
                 },
               ].map((album, i) => (
                 <ScrollReveal key={i} variant="fade-up" delay={i * 80}>

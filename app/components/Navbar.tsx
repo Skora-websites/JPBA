@@ -39,7 +39,7 @@ const navigation: NavItem[] = [
     { label: "Results", href: "/competitions/results" }
   ]},
   { label: "News & Media", children: [
-    { label: "News", href: "/#official-federation-updates" },
+    { label: "News", href: "/news" },
     { label: "Circulars & Notices", href: "/news/circulars" },
     { label: "Gallery", href: "/gallery" },
     { label: "Videos", href: "/videos" },
@@ -256,7 +256,11 @@ export default function Navbar({ onRegisterClick }: { onRegisterClick?: () => vo
             </div>
 
             {/* Login / Register Pill */}
-            <div className="hidden lg:flex items-center">
+            <div className="hidden lg:flex items-center gap-2">
+              <Link href="/donate" className="flex items-center gap-2 px-5 py-2 rounded-full border border-[#C9A84C] text-[#C9A84C] text-[12px] font-bold tracking-wider hover:bg-[#C9A84C] hover:text-[#0A2F1D] transition-all">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                DONATE
+              </Link>
               <Link href="/register" className="flex items-center gap-2 px-5 py-2 rounded-full bg-[#C9A84C] text-[#0A2F1D] text-[12px] font-bold tracking-wider hover:bg-white transition-all shadow-md">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
                 REGISTER

@@ -15,7 +15,7 @@ export default function DevelopmentPage() {
 
         {/* Hero Section */}
         <section className="relative pt-[230px] pb-16 min-h-[280px] border-b border-[#C9A84C]/20" style={{ background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)" }}>
-          <img src="/jpba images/IMG_7067.jpeg" alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <img src="/images/img-7067.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.96) 0%, rgba(253,248,239,0.92) 38%, rgba(253,248,239,0.55) 62%, rgba(253,248,239,0.18) 82%, rgba(253,248,239,0.05) 100%)"}} />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 30%)"}} />
 <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
@@ -28,7 +28,7 @@ export default function DevelopmentPage() {
               </div>
               <div className="hidden lg:block">
                 <div className="rounded-2xl overflow-hidden shadow-xl border border-[#C9A84C]/20">
-                  <img src="/jpba images/FullSizeRender 21.jpeg" alt="Development Pathway" className="w-full h-[350px] object-cover" />
+                  <img src="/images/fullsizerender-21.webp" alt="Development Pathway" className="w-full h-[350px] object-cover" />
                 </div>
               </div>
             </div>

@@ -20,7 +20,7 @@ export default function CourtEquipmentPage() {
       <Navbar onRegisterClick={() => setShowReg(true)} />
       <main className="flex-1">
         <section className="relative pt-[230px] pb-16 min-h-[320px] border-b border-[#C9A84C]/20" style={{background: "linear-gradient(135deg, #0A2F1D 0%, #133824 40%, #1B4E33 100%)"}}>
-          <img src="/jpba images/DSC09824.JPG" alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <img src="/images/dsc09824.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.96) 0%, rgba(253,248,239,0.92) 38%, rgba(253,248,239,0.55) 62%, rgba(253,248,239,0.18) 82%, rgba(253,248,239,0.05) 100%)"}} />
           <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 30%)"}} />
 <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
@@ -33,7 +33,7 @@ export default function CourtEquipmentPage() {
               </div>
               <div className="hidden lg:block">
                 <div className="rounded-2xl overflow-hidden shadow-xl border border-[#C9A84C]/20">
-                  <img src="/jpba images/DSC09824.JPG" alt="Court and Equipment" className="w-full h-[350px] object-cover" />
+                  <img src="/images/dsc09824.webp" alt="Court and Equipment" className="w-full h-[350px] object-cover" />
                 </div>
               </div>
             </div>

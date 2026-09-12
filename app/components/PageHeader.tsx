@@ -65,7 +65,7 @@ export default function PageHeader({ title, breadcrumb, image = IMG.hero3 }: Pag
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(to right, rgba(253,248,239,0.96) 0%, rgba(253,248,239,0.92) 38%, rgba(253,248,239,0.55) 62%, rgba(253,248,239,0.18) 82%, rgba(253,248,239,0.05) 100%)",
+            "linear-gradient(to right, rgba(253,248,239,0.95) 0%, rgba(253,248,239,0.88) 30%, rgba(253,248,239,0.35) 55%, rgba(253,248,239,0.02) 75%, rgba(253,248,239,0) 100%)",
         }}
       />
       {/* Bottom fade into page background */}
@@ -73,7 +73,7 @@ export default function PageHeader({ title, breadcrumb, image = IMG.hero3 }: Pag
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 30%)",
+            "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 18%)",
         }}
       />
 

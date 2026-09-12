@@ -206,19 +206,27 @@ option {
 
 
 
-/* Background Texture Utilities - using faded boccia/para sport images */
+/* Background Texture Utilities - PREMIUM LAYERED MIXES
+   Each combines noise + geometric pattern + a faint real photo for depth */
 .bg-texture-dots {
-  background-image: url("/jpba images/IMG_6975.jpeg");
-  background-size: cover;
-  background-position: center;
-  opacity: 0.03;
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E"),
+    radial-gradient(rgba(10, 47, 29, 0.16) 1.2px, transparent 1.2px),
+    url("/images/img-6975.webp");
+  background-size: 200px 200px, 22px 22px, cover;
+  background-position: 0 0, 0 0, center;
+  opacity: 0.05;
 }
 
 .bg-texture-diagonal {
-  background-image: url("/jpba images/795A0345.JPG");
-  background-size: 400px;
-  background-repeat: repeat;
-  opacity: 0.025;
+  background-image:
+    repeating-linear-gradient(135deg, rgba(201, 168, 76, 0.5) 0 1px, transparent 1px 14px),
+    repeating-linear-gradient(45deg, rgba(10, 47, 29, 0.35) 0 1px, transparent 1px 34px),
+    url("/images/vip-guests.webp");
+  background-size: auto, auto, 420px;
+  background-repeat: repeat, repeat, no-repeat;
+  background-position: 0 0, 0 0, center;
+  opacity: 0.045;
 }
 
 .bg-dark-texture {
@@ -227,20 +235,29 @@ option {
   background-size: 24px 24px;
 }
 
-/* Wavy line texture - faded boccia */
+/* Wavy line texture - premium layered mix */
 .bg-texture-wavy {
-  background-image: url("/jpba images/IMG_7046.jpeg");
-  background-size: 500px;
-  background-repeat: repeat;
-  opacity: 0.02;
+  background-image:
+    radial-gradient(rgba(201, 168, 76, 0.22) 1px, transparent 1px),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.3'/%3E%3C/svg%3E"),
+    url("/images/img-7046.webp");
+  background-size: 26px 26px, 180px 180px, 520px;
+  background-repeat: repeat, repeat, no-repeat;
+  background-position: 0 0, 0 0, right center;
+  opacity: 0.05;
 }
 
-/* Cross-hatch - faded adaptive sport */
+/* Cross-hatch - premium layered mix */
 .bg-texture-crosshatch {
-  background-image: url("/jpba images/795A0362(1).JPG");
-  background-size: 400px;
-  background-repeat: repeat;
-  opacity: 0.02;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(10, 47, 29, 0.4) 0 1px, transparent 1px 26px),
+    repeating-linear-gradient(90deg, rgba(10, 47, 29, 0.4) 0 1px, transparent 1px 26px),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.3'/%3E%3C/svg%3E"),
+    url("/images/members-meet.webp");
+  background-size: auto, auto, 200px 200px, 440px;
+  background-repeat: repeat, repeat, repeat, no-repeat;
+  background-position: 0 0, 0 0, 0 0, left center;
+  opacity: 0.05;
 }
 
 .text-stroke-gold {
@@ -303,10 +320,13 @@ option {
 
 /* Faded boccia image on dark backgrounds */
 .bg-texture-dots-dark {
-  background-image: url("/jpba images/IMG_7064.jpeg");
-  background-size: cover;
-  background-position: center;
-  opacity: 0.04;
+  background-image:
+    radial-gradient(rgba(201, 168, 76, 0.25) 1.2px, transparent 1.2px),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E"),
+    url("/images/img-7064.webp");
+  background-size: 24px 24px, 200px 200px, cover;
+  background-position: 0 0, 0 0, center;
+  opacity: 0.07;
 }
 
 /* Gold gradient text */
@@ -411,6 +431,7 @@ option {
     transition: none !important;
   }
   .retro-marquee-group { animation: none !important; }
+  .photo-marquee-group { animation: none !important; }
   .tilt-3d { transform: none !important; }
   .animate-float-3d { animation: none !important; }
   .flip-3d-inner { transform: none !important; }
@@ -484,6 +505,19 @@ option {
 @keyframes retro-marquee-scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-100%); }
+}
+
+/* Photo marquee — infinite scrolling image strip (slower, larger) */
+.photo-marquee-group {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding-right: 1.25rem;
+  animation: retro-marquee-scroll 70s linear infinite;
+}
+.photo-marquee:hover .photo-marquee-group {
+  animation-play-state: paused;
 }
 
 /* Arcade blink — chunky two-step blink, no fade */
