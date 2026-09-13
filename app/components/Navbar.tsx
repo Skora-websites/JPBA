@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 
 interface NavItem {
   label: string;
@@ -49,7 +49,10 @@ const navigation: NavItem[] = [
   { label: "Contact Us", href: "/contact" },
 ];
 
-export default function Navbar({ onRegisterClick }: { onRegisterClick?: () => void } = {}) {
+// Callers may still pass onRegisterClick (legacy modal pages); it is
+// intentionally not bound — REGISTER always navigates to /register, the
+// Player/Official Google Forms choice page.
+export default function Navbar({}: { onRegisterClick?: () => void } = {}) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDD, setActiveDD] = useState<string | null>(null);
   const [activeSubDD, setActiveSubDD] = useState<string | null>(null);
@@ -69,17 +72,17 @@ export default function Navbar({ onRegisterClick }: { onRegisterClick?: () => vo
   }, []);
 
   // Framer motion variants
-  const dropdownVariants: any = {
+  const dropdownVariants: Variants = {
     hidden: { opacity: 0, y: 15, scale: 0.95, pointerEvents: "none" },
     visible: { opacity: 1, y: 0, scale: 1, pointerEvents: "auto", transition: { type: "spring", stiffness: 300, damping: 24 } },
   };
 
-  const subDropdownVariants: any = {
+  const subDropdownVariants: Variants = {
     hidden: { opacity: 0, x: -15, scale: 0.95, pointerEvents: "none" },
     visible: { opacity: 1, x: 0, scale: 1, pointerEvents: "auto", transition: { type: "spring", stiffness: 300, damping: 24 } },
   };
 
-  const mobileMenuVariants: any = {
+  const mobileMenuVariants: Variants = {
     hidden: { opacity: 0, height: 0 },
     visible: { opacity: 1, height: "auto", transition: { duration: 0.3, ease: "easeInOut" } },
   };
@@ -99,19 +102,19 @@ export default function Navbar({ onRegisterClick }: { onRegisterClick?: () => vo
           }}
         >
           <div className="relative max-w-[1400px] mx-auto px-3 sm:px-4 lg:px-8 py-1.5 sm:py-2 flex items-center">
-            {/* Logo — pinned left */}
+              {/* Logo — pinned left (smaller on phones so the centered name never collides) */}
             <Link href="/" className="flex items-center gap-3 sm:gap-5 group shrink-0 relative z-10">
-              <div className="relative h-24 w-24 shrink-0 sm:h-36 sm:w-36 lg:h-40 lg:w-40 rounded-full p-1">
+              <div className="relative h-16 w-16 shrink-0 sm:h-28 sm:w-28 lg:h-40 lg:w-40 rounded-full p-1">
                 <Image src="/jharkhand.PNG" alt="JPBA Logo" fill className="object-contain" priority />
               </div>
               <div className="hidden md:block w-[1px] h-12 bg-[#0A2F1D]/25 mx-1" />
             </Link>
             {/* Text — truly centered in the band regardless of logo width */}
-            <Link href="/" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center text-center w-max max-w-[60vw] sm:max-w-none">
-              <h1 className="text-[15px] sm:text-[22px] lg:text-[25px] font-bold text-[#0A2F1D] leading-tight sm:tracking-wide font-sans">
+            <Link href="/" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center text-center w-max max-w-[50vw] sm:max-w-[70vw] lg:max-w-none">
+              <h1 className="text-[13px] sm:text-[22px] lg:text-[25px] font-bold text-[#0A2F1D] leading-tight sm:tracking-wide font-sans">
                 JHARKHAND PARA BOCCIA ASSOCIATION
               </h1>
-              <h2 className="text-[12px] sm:text-[15px] lg:text-[17px] font-semibold text-[#1B4E33] mt-0.5 sm:mt-1">
+              <h2 className="text-[11px] sm:text-[15px] lg:text-[17px] font-semibold text-[#1B4E33] mt-0.5 sm:mt-1">
                 झारखंड पैरा बोच्चिया एसोसिएशन
               </h2>
             </Link>
@@ -129,6 +132,14 @@ export default function Navbar({ onRegisterClick }: { onRegisterClick?: () => vo
             {/* Rounded dark-green nav container */}
             <nav className="flex-1 flex items-center justify-between h-14 lg:h-16 bg-[#0A2F1D] rounded-full border border-[#C9A84C]/30 pl-3 pr-2 lg:pl-8 lg:pr-4 overflow-visible shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_10px_28px_rgba(10,47,29,0.28)]">
 
+              {/* Compact brand — keeps the pill balanced on mobile/tablet */}
+              <Link href="/" className="xl:hidden flex items-center gap-2.5 pl-1 min-w-0">
+                <div className="relative h-9 w-9 shrink-0">
+                  <Image src="/jharkhand.PNG" alt="JPBA Logo" fill className="object-contain" />
+                </div>
+                <span className="font-black tracking-wider text-white text-sm">JPBA</span>
+              </Link>
+
               {/* Desktop Navigation — links distributed with equal gaps between them */}
               <div className="hidden xl:flex items-center justify-between flex-1 h-full pl-2 mr-4">
                 {navigation.map((item) => (
@@ -144,7 +155,10 @@ export default function Navbar({ onRegisterClick }: { onRegisterClick?: () => vo
                         <span className="absolute bottom-0 left-0 w-full h-[3px] bg-[#C9A84C] scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
                       </Link>
                     ) : (
-                      <button className="px-3 xl:px-3 2xl:px-4 text-[12px] font-bold tracking-wider text-white hover:text-[#C9A84C] focus-visible:text-[#C9A84C] focus-visible:outline-none transition-colors uppercase h-full flex items-center gap-1.5 relative group">
+                      <button
+                        aria-haspopup="true"
+                        aria-expanded={activeDD === item.label}
+                        className="px-3 xl:px-3 2xl:px-4 text-[12px] font-bold tracking-wider text-white hover:text-[#C9A84C] focus-visible:text-[#C9A84C] focus-visible:outline-none transition-colors uppercase h-full flex items-center gap-1.5 relative group">
                         {item.label}
                         <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDD === item.label ? 'rotate-180 text-[#C9A84C]' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" /></svg>
                         {activeDD === item.label && <span className="absolute bottom-0 left-0 w-full h-[3px] bg-[#C9A84C]" />}
@@ -291,6 +305,7 @@ export default function Navbar({ onRegisterClick }: { onRegisterClick?: () => vo
                     ) : (
                       <>
                         <button
+                          aria-expanded={mobileExpanded === item.label}
                           className="w-full flex items-center justify-between py-3.5 px-2 text-[13px] font-bold text-white tracking-widest hover:text-[#C9A84C]"
                           onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}
                         >
@@ -365,13 +380,21 @@ export default function Navbar({ onRegisterClick }: { onRegisterClick?: () => vo
                     )}
                   </div>
                 ))}
-                <div className="mt-4 pt-4 border-t border-white/10 px-2">
+                <div className="mt-4 pt-4 border-t border-white/10 px-2 flex gap-3">
                   <Link
-                    href="/register"
-                    className="flex justify-center items-center gap-2 w-full py-3 rounded-full bg-[#C9A84C] text-[#0A2F1D] text-[13px] font-bold tracking-wider"
+                    href="/donate"
+                    className="flex flex-1 justify-center items-center gap-2 py-3 rounded-full border border-[#C9A84C]/80 text-[#C9A84C] text-[12px] font-bold tracking-wider hover:bg-[#C9A84C] hover:text-[#0A2F1D] transition-colors"
                     onClick={() => setMobileOpen(false)}
                   >
-                    PLAYER REGISTRATION
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    DONATE
+                  </Link>
+                  <Link
+                    href="/register"
+                    className="flex flex-1 justify-center items-center gap-2 py-3 rounded-full bg-[#C9A84C] text-[#0A2F1D] text-[12px] font-bold tracking-wider hover:bg-[#E8D5A3] transition-colors"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    REGISTER
                   </Link>
                 </div>
               </div>
