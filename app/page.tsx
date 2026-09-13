@@ -14,7 +14,7 @@ import { IMG, PEOPLE } from "@/lib/images";
 
 interface DbVideo { id: number; title: string; description: string; youtube_id: string | null; category: string; featured: number; }
 interface DbNews { id: number; title: string; excerpt: string; featured: number; views: number; published_at: string; }
-interface DbEvent { id: number; title: string; type: string; event_date: string | null; location: string; }
+interface DbEvent { id: number; title: string; type: string; event_date: string | null; date_label?: string | null; location: string; }
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -207,7 +207,7 @@ export default function Home() {
         <Navbar />
 
         {/* Retro marquee ticker under the navbar */}
-        <div className="mt-[216px] bg-[#0A2F1D] border-y border-[#C9A84C]/30 py-2.5 text-[#C9A84C] text-[12px] font-bold uppercase tracking-[0.2em] relative z-40">
+        <div className="bg-[#C9A84C] py-2.5 text-[#0A2F1D] text-[12px] font-bold uppercase tracking-[0.2em] relative z-40">
           <RetroMarquee
             items={[
               "Precision",
@@ -1084,9 +1084,11 @@ export default function Home() {
                     num: "",
                     title: e.title,
                     type: e.type,
-                    date: e.event_date
-                      ? new Date(e.event_date).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })
-                      : "Date TBC",
+                    date: e.date_label?.trim()
+                      ? e.date_label
+                      : e.event_date
+                        ? new Date(e.event_date).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })
+                        : "Date TBC",
                     location: e.location || "TBC",
                   }))
                 : [
@@ -1099,28 +1101,28 @@ export default function Home() {
                     },
                     {
                       num: "02",
-                      title: "Seoul 2026 World Boccia Championship",
+                      title: "Seoul 2026 World Boccia Championship - South Korea",
                       type: "International",
-                      date: "24 Aug - 4 Sep, 2026",
+                      date: "24 August–4 September, 2026",
                       location: "Seoul, South Korea",
                     },
                     {
                       num: "03",
-                      title: "Pilsen 2026 World Boccia Challenger",
+                      title: "Pilsen 2026 World Boccia Challenger - Czech Republic",
                       type: "International",
-                      date: "7-15 Sep, 2026",
+                      date: "7–15 September, 2026",
                       location: "Pilsen, Czech Republic",
                     },
                     {
                       num: "04",
-                      title: "2nd Boccia Federation Cup 2026",
+                      title: "2nd Boccia Federation Cup 2026 - TBC",
                       type: "Federation Cup",
                       date: "October 2026",
                       location: "TBC",
                     },
                     {
                       num: "05",
-                      title: "11th National Championship 2025-26",
+                      title: "11th Boccia Sub-Junior, Junior, and Senior National Championship 2025–26",
                       type: "National Championship",
                       date: "January 2027",
                       location: "TBC",

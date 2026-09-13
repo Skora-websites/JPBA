@@ -150,6 +150,12 @@ function migrate(db: Database.Database) {
       updated_at TEXT NOT NULL DEFAULT (datetime('now'))
     );
   `);
+
+  // Lightweight column migrations (idempotent)
+  const eventCols = db.prepare("PRAGMA table_info(events)").all() as { name: string }[];
+  if (!eventCols.some((c) => c.name === "date_label")) {
+    db.exec("ALTER TABLE events ADD COLUMN date_label TEXT DEFAULT ''");
+  }
 }
 
 export interface VideoRow {
@@ -184,6 +190,7 @@ export interface EventRow {
   title: string;
   type: string;
   event_date: string | null;
+  date_label: string;
   location: string;
   description: string;
   display_order: number;

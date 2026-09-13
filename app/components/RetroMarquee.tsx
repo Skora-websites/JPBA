@@ -28,7 +28,7 @@ export default function RetroMarquee({
       {items.map((item, i) => (
         <span key={i} className="flex items-center gap-12 whitespace-nowrap">
           <span>{item}</span>
-          <span className="text-[#C9A84C]">{separator}</span>
+          <span className="text-[#0A2F1D]">{separator}</span>
         </span>
       ))}
     </div>

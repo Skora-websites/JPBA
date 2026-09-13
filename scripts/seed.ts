@@ -52,11 +52,11 @@ const NEWS = [
 ];
 
 const EVENTS = [
-  { title: "Para Boccia Awareness Camp", type: "Awareness Camp", date: "2026-06-07", location: "Kolhapur, Maharashtra", order: 1 },
-  { title: "Seoul 2026 World Boccia Championship", type: "International", date: "2026-08-24", location: "Seoul, South Korea", order: 2 },
-  { title: "Pilsen 2026 World Boccia Challenger", type: "International", date: "2026-09-07", location: "Pilsen, Czech Republic", order: 3 },
-  { title: "2nd Boccia Federation Cup 2026", type: "Federation Cup", date: "2026-10-01", location: "TBC", order: 4 },
-  { title: "11th National Championship 2025-26", type: "National Championship", date: "2027-01-15", location: "TBC", order: 5 },
+  { title: "Para Boccia Awareness Camp", type: "Awareness Camp", date: "2026-06-07", dateLabel: "7th June, 2026", location: "Kolhapur, Maharashtra", order: 1 },
+  { title: "Seoul 2026 World Boccia Championship - South Korea", type: "International", date: "2026-08-24", dateLabel: "24 August–4 September, 2026", location: "Seoul, South Korea", order: 2 },
+  { title: "Pilsen 2026 World Boccia Challenger - Czech Republic", type: "International", date: "2026-09-07", dateLabel: "7–15 September, 2026", location: "Pilsen, Czech Republic", order: 3 },
+  { title: "2nd Boccia Federation Cup 2026 - TBC", type: "Federation Cup", date: "2026-10-01", dateLabel: "October 2026", location: "TBC", order: 4 },
+  { title: "11th Boccia Sub-Junior, Junior, and Senior National Championship 2025–26", type: "National Championship", date: "2027-01-15", dateLabel: "January 2027", location: "TBC", order: 5 },
 ];
 
 function main() {
@@ -79,9 +79,9 @@ function main() {
   const eventCount = (db.prepare("SELECT COUNT(*) AS c FROM events").get() as { c: number }).c;
   if (eventCount === 0) {
     const ins = db.prepare(
-      "INSERT INTO events (title, type, event_date, location, display_order) VALUES (?, ?, ?, ?, ?)"
+      "INSERT INTO events (title, type, event_date, date_label, location, display_order) VALUES (?, ?, ?, ?, ?, ?)"
     );
-    for (const e of EVENTS) ins.run(e.title, e.type, e.date, e.location, e.order);
+    for (const e of EVENTS) ins.run(e.title, e.type, e.date, e.dateLabel, e.location, e.order);
     console.log(`Seeded ${EVENTS.length} events`);
   }
 

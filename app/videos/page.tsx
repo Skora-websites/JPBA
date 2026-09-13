@@ -23,7 +23,7 @@ export default function VideosPage() {
         breadcrumb={[{ label: "News & Media" }, { label: "Videos" }]}
       />
 
-      <div className="bg-[#0A2F1D] border-y border-[#C9A84C]/30 py-2.5 text-[#C9A84C] text-[12px] font-bold uppercase tracking-[0.2em]">
+      <div className="bg-[#C9A84C] py-2.5 text-[#0A2F1D] text-[12px] font-bold uppercase tracking-[0.2em]">
         <RetroMarquee
           items={["Watch Boccia", "Match Footage", "Highlights", "Training", "Boccia Jharkhand on YouTube"]}
           duration={30}

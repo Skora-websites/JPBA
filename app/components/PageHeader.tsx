@@ -50,7 +50,7 @@ export default function PageHeader({ title, breadcrumb, image = IMG.hero3 }: Pag
   }, []);
 
   return (
-    <div className="relative pt-[230px] pb-16 min-h-[300px] overflow-hidden flex items-center bg-[#FDF8EF]">
+    <div className="relative pt-6 pb-16 overflow-hidden flex items-center bg-[#FDF8EF]">
       {/* Full background image (real JPBA photo) */}
       <div ref={imgWrapRef} className="absolute inset-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}

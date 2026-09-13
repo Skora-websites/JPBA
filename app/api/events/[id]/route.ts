@@ -17,7 +17,7 @@ export async function PATCH(request: NextRequest, { params }: Params) {
 
   const fields: string[] = [];
   const values: unknown[] = [];
-  for (const key of ["title", "type", "event_date", "location", "description", "display_order", "published"]) {
+  for (const key of ["title", "type", "event_date", "date_label", "location", "description", "display_order", "published"]) {
     if (key in body) {
       fields.push(`${key} = ?`);
       values.push(body[key]);
