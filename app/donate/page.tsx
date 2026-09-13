@@ -16,8 +16,9 @@ export default function DonatePage() {
         {/* Hero */}
         <section className="relative pt-[230px] pb-20 min-h-[380px] overflow-hidden">
           <img src="/images/prize-distribution.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to right, rgba(253,248,239,0.95) 0%, rgba(253,248,239,0.88) 30%, rgba(253,248,239,0.35) 55%, rgba(253,248,239,0.02) 75%, rgba(253,248,239,0) 100%)" }} />
-          <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 18%)" }} />
+          <div className="absolute inset-0 bg-texture-court pointer-events-none" />
+          <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to right, rgba(253,248,239,0.97) 0%, rgba(253,248,239,0.94) 30%, rgba(253,248,239,0.7) 44%, rgba(253,248,239,0.2) 56%, rgba(253,248,239,0) 70%)" }} />
+          <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 20%)" }} />
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10 relative z-10">
             <div className="max-w-2xl">
               <div className="w-16 h-1 bg-[#C9A84C] rounded-full mb-6" />

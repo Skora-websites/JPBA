@@ -60,12 +60,14 @@ export default function PageHeader({ title, breadcrumb, image = IMG.hero3 }: Pag
           className="absolute inset-0 w-full h-full object-cover"
         />
       </div>
-      {/* Cream fade: strong on left (text side) → clear image on right */}
+      {/* Boccia court-line texture over the cream side for a premium feel */}
+      <div className="absolute inset-0 bg-texture-court pointer-events-none" />
+      {/* Cream fade ONLY on the text side (left) → image fully visible on the right */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(to right, rgba(253,248,239,0.95) 0%, rgba(253,248,239,0.88) 30%, rgba(253,248,239,0.35) 55%, rgba(253,248,239,0.02) 75%, rgba(253,248,239,0) 100%)",
+            "linear-gradient(to right, rgba(253,248,239,0.97) 0%, rgba(253,248,239,0.94) 28%, rgba(253,248,239,0.72) 42%, rgba(253,248,239,0.25) 54%, rgba(253,248,239,0) 68%)",
         }}
       />
       {/* Bottom fade into page background */}

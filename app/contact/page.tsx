@@ -32,12 +32,14 @@ export default function ContactPage() {
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
-          {/* Cream fade: strong on left (text side) â†’ clear image on right */}
+          {/* Boccia court-line texture over the cream side */}
+          <div className="absolute inset-0 bg-texture-court pointer-events-none" />
+          {/* Cream fade ONLY on the text side (left) → image fully visible right */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "linear-gradient(to right, rgba(253,248,239,0.96) 0%, rgba(253,248,239,0.92) 38%, rgba(253,248,239,0.55) 62%, rgba(253,248,239,0.18) 82%, rgba(253,248,239,0.05) 100%)",
+                "linear-gradient(to right, rgba(253,248,239,0.97) 0%, rgba(253,248,239,0.94) 30%, rgba(253,248,239,0.7) 44%, rgba(253,248,239,0.2) 56%, rgba(253,248,239,0) 70%)",
             }}
           />
           {/* Bottom fade into page background */}
@@ -45,34 +47,22 @@ export default function ContactPage() {
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 30%)",
+                "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 22%)",
             }}
           />
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10 relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="w-16 h-1 bg-[#C9A84C] rounded-full mb-6" />
-                <p className="text-[#B8923A] text-[11px] font-bold tracking-[0.3em] uppercase mb-3">
-                  GET IN TOUCH
-                </p>
-                <h1 className="text-[36px] sm:text-[44px] font-bold text-[#0A2F1D] leading-tight mb-4">
-                  Contact JPBA
-                </h1>
-                <p className="text-[15px] text-gray-600 max-w-[600px] leading-relaxed">
-                  Have questions about Boccia, registration, or getting
-                  involved? We would love to hear from you.
-                </p>
-              </div>
-              <div className="hidden lg:block">
-                <div className="boccia-img-container rounded-2xl overflow-hidden shadow-2xl border border-[#C9A84C]/20 relative">
-                  <img
-                    src="/images/dsc09824.webp"
-                    alt="Contact JPBA"
-                    className="w-full h-[350px] object-cover boccia-drift"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A2F1D]/40 via-transparent to-transparent" />
-                </div>
-              </div>
+            <div className="max-w-2xl">
+              <div className="w-16 h-1 bg-[#C9A84C] rounded-full mb-6" />
+              <p className="text-[#B8923A] text-[11px] font-bold tracking-[0.3em] uppercase mb-3">
+                GET IN TOUCH
+              </p>
+              <h1 className="text-[36px] sm:text-[44px] font-bold text-[#0A2F1D] leading-tight mb-4">
+                Contact JPBA
+              </h1>
+              <p className="text-[15px] text-gray-600 max-w-[600px] leading-relaxed">
+                Have questions about Boccia, registration, or getting
+                involved? We would love to hear from you.
+              </p>
             </div>
           </div>
         </section>

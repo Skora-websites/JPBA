@@ -31,32 +31,22 @@ export default function AthletesPage() {
         {/* Hero */}
         <section className="relative pt-[230px] pb-16 min-h-[320px] overflow-hidden" style={{background: "linear-gradient(135deg, #FDF8EF 0%, #FFFFFF 50%, #F4F1E9 100%)"}}>
           <img src="/images/national-game.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.95) 0%, rgba(253,248,239,0.88) 30%, rgba(253,248,239,0.35) 55%, rgba(253,248,239,0.02) 75%, rgba(253,248,239,0) 100%)"}} />
-          <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 18%)"}} />
+          <div className="absolute inset-0 bg-texture-court pointer-events-none" />
+          <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.97) 0%, rgba(253,248,239,0.94) 30%, rgba(253,248,239,0.7) 44%, rgba(253,248,239,0.2) 56%, rgba(253,248,239,0) 70%)"}} />
+          <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 20%)"}} />
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10 relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="w-16 h-1 bg-[#C9A84C] rounded-full mb-6" />
-                <p className="text-[#B8923A] text-[11px] font-bold tracking-[0.3em] uppercase mb-3">
-                  OUR PLAYERS
-                </p>
-                <h1 className="text-[36px] sm:text-[44px] font-bold text-[#0A2F1D] leading-tight mb-4">
-                  Meet the Athletes
-                </h1>
-                <p className="text-[15px] text-gray-600 max-w-[600px] leading-relaxed">
-                  The verified players representing Jharkhand in national and
-                  international Para Boccia.
-                </p>
-              </div>
-              <div className="hidden lg:block">
-                <div className="rounded-2xl overflow-hidden shadow-2xl border border-[#C9A84C]/20 relative">
-                  <img
-                    src="/images/people/suman-kumar-prajapati.webp"
-                    alt="Suman Kumar Prajapati with the Jharkhand banner at the National Boccia Championship"
-                    className="w-full h-[350px] object-cover"
-                  />
-                </div>
-              </div>
+            <div className="max-w-2xl">
+              <div className="w-16 h-1 bg-[#C9A84C] rounded-full mb-6" />
+              <p className="text-[#B8923A] text-[11px] font-bold tracking-[0.3em] uppercase mb-3">
+                OUR PLAYERS
+              </p>
+              <h1 className="text-[36px] sm:text-[44px] font-bold text-[#0A2F1D] leading-tight mb-4">
+                Meet the Athletes
+              </h1>
+              <p className="text-[15px] text-gray-600 max-w-[600px] leading-relaxed">
+                The verified players representing Jharkhand in national and
+                international Para Boccia.
+              </p>
             </div>
           </div>
         </section>
