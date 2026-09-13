@@ -13,10 +13,11 @@ export default function Preloader() {
   const tl = useRef<gsap.core.Timeline | null>(null);
 
   useEffect(() => {
-    // Skip if already shown this session
+    // Skip if already shown this session (deferred so the effect body
+    // never calls setState synchronously)
     if (sessionStorage.getItem(STORAGE_KEY)) {
-      setVisible(false);
-      return;
+      const raf = requestAnimationFrame(() => setVisible(false));
+      return () => cancelAnimationFrame(raf);
     }
 
     // Lock body scroll
@@ -93,9 +94,10 @@ export default function Preloader() {
   return (
     <>
       <div ref={preloaderRef} className="fixed inset-0 z-[99999] bg-[#FDF8EF] flex items-center justify-center transition-opacity duration-500 overflow-hidden">
-        {/* Gradient mesh background */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 30% 40%, rgba(201, 168, 76, 0.06) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, rgba(10, 47, 29, 0.04) 0%, transparent 50%)" }} />
-        <div className="absolute inset-0 bg-texture-dots opacity-30 pointer-events-none" />
+        {/* Rich boccia-themed gradient backdrop (photo-free) */}
+        <div className="absolute inset-0 bg-boccia-mesh-light pointer-events-none" />
+        <div className="absolute inset-0 bg-texture-court pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[560px] h-[560px] rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(201,168,76,0.10) 0%, rgba(232,213,163,0.05) 45%, transparent 70%)" }} />
         <div className="w-full max-w-[450px] relative aspect-video mx-auto">
           <svg ref={svgRef} viewBox="0 0 320 180" className="w-full h-full overflow-visible">
             {/* Background Text */}
@@ -151,8 +153,8 @@ export default function Preloader() {
         />
       </div>
 
-      {/* Dark Green Hold */}
-      <div ref={holdRef} className="fixed inset-0 z-[100000] bg-[#0A2F1D] opacity-0 pointer-events-none transition-opacity duration-500" />
+      {/* Dark Agitos Hold — rich gradient, not flat green */}
+      <div ref={holdRef} className="fixed inset-0 z-[100000] bg-agitos-dark opacity-0 pointer-events-none transition-opacity duration-500" />
     </>
   );
 }

@@ -173,7 +173,7 @@ export default function RegisterPage() {
         </section>
 
         {/* â•â•â• Why Register Benefits â•â•â• */}
-        <section className="py-20 bg-mesh-gradient-dark relative overflow-hidden">
+        <section className="py-20 bg-agitos-dark relative overflow-hidden">
           <div className="absolute inset-0 bg-texture-dots-dark opacity-10 pointer-events-none" />
           <div className="gradient-orb gradient-orb-gold w-[500px] h-[500px] -top-40 -left-40 pointer-events-none opacity-20 animate-float-slow" />
           <div className="gradient-orb gradient-orb-white w-[350px] h-[350px] -bottom-32 -right-32 pointer-events-none opacity-10 animate-float" />

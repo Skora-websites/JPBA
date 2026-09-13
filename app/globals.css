@@ -306,6 +306,58 @@ option {
     var(--ivory);
 }
 
+/* ═══════════════════════════════════════════
+   CREATIVE BOCCIA-THEMED GRADIENTS
+   Inspired by the sport itself: red & blue leather
+   balls, the white jack, the wooden court, and the
+   Paralympic Agitos sweep. All photo-free.
+══════════════════════════════════════════ */
+
+/* Light mesh: ivory base with soft glows in boccia-ball
+   red, ball blue, gold and forest green — like balls
+   scattered on a sunlit court */
+.bg-boccia-mesh-light {
+  background:
+    radial-gradient(ellipse 34% 28% at 12% 18%, rgba(192, 57, 43, 0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 30% 26% at 88% 24%, rgba(31, 97, 141, 0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 36% 30% at 78% 86%, rgba(201, 168, 76, 0.1) 0%, transparent 70%),
+    radial-gradient(ellipse 32% 28% at 16% 82%, rgba(10, 47, 29, 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 24% 20% at 52% 50%, rgba(255, 255, 255, 0.7) 0%, transparent 70%),
+    var(--ivory);
+}
+
+/* Dark sweep: forest base with the three Agitos arcs
+   (gold, red, blue) sweeping from the centre — the
+   Paralympic motion mark, abstracted at low opacity */
+.bg-agitos-dark {
+  background:
+    conic-gradient(from 210deg at 110% 0%,
+      transparent 0deg, rgba(201, 168, 76, 0.09) 24deg, transparent 52deg,
+      transparent 120deg, rgba(192, 57, 43, 0.05) 150deg, transparent 178deg,
+      transparent 240deg, rgba(31, 97, 141, 0.06) 268deg, transparent 296deg),
+    radial-gradient(ellipse 60% 50% at 110% 0%, rgba(201, 168, 76, 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 44% at -10% 110%, rgba(27, 78, 51, 0.5) 0%, transparent 70%),
+    var(--forest-green);
+}
+
+/* Court lines: faint boccia court throwing-box grid —
+   the V-line and cross marks every player eyes */
+.bg-texture-court {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(10, 47, 29, 0.1) 0 1.5px, transparent 1.5px 120px),
+    repeating-linear-gradient(0deg, rgba(201, 168, 76, 0.12) 0 1.5px, transparent 1.5px 120px),
+    linear-gradient(135deg, rgba(192, 57, 43, 0.035) 0%, transparent 40%, rgba(31, 97, 141, 0.035) 100%);
+  opacity: 0.5;
+}
+
+/* Jack spotlight: a warm radial 'jack' glow with a halo —
+   premium accent for dark feature cards */
+.bg-jack-glow {
+  background:
+    radial-gradient(circle 90px at 78% 30%, rgba(255, 255, 255, 0.1) 0%, rgba(232, 213, 163, 0.06) 38%, transparent 70%),
+    radial-gradient(circle 220px at 78% 30%, rgba(201, 168, 76, 0.12) 0%, transparent 70%);
+}
+
 /* Noise overlay texture via SVG */
 .bg-noise::after {
   content: "";

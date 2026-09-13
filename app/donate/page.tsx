@@ -99,7 +99,7 @@ export default function DonatePage() {
             </div>
 
             <ScrollReveal variant="fade-up" delay={200}>
-              <div className="bg-mesh-gradient-dark rounded-2xl p-10 md:p-14 text-center relative overflow-hidden">
+              <div className="bg-agitos-dark rounded-2xl p-10 md:p-14 text-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-texture-dots-dark pointer-events-none" />
                 <div className="relative z-10">
                   <h3 className="text-[24px] sm:text-[30px] font-bold text-white mb-3">

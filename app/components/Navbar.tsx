@@ -7,46 +7,48 @@ import { motion, AnimatePresence, type Variants } from "framer-motion";
 interface NavItem {
   label: string;
   href?: string;
+  img?: string;
+  desc?: string;
   children?: NavItem[];
 }
 
 const navigation: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "About", children: [
-    { label: "About Boccia", href: "/about/about-boccia" },
-    { label: "Board", href: "/about/board" },
-    { label: "Affiliations", href: "/about/affiliations" },
-    { label: "MYAS Disclosures", children: [
+  { label: "About", img: "/images/members-meet.webp", desc: "Who we are and how JPBA grows para boccia", children: [
+    { label: "About Boccia", href: "/about/about-boccia", img: "/images/dsc06432.webp", desc: "The Paralympic precision sport explained" },
+    { label: "Board", href: "/about/board", img: "/images/people/president-portrait.webp", desc: "Office bearers & national coach" },
+    { label: "Affiliations", href: "/about/affiliations", img: "/images/members-meet.webp", desc: "PCI & Boccia India recognition letters" },
+    { label: "MYAS Disclosures", img: "/images/meeting.webp", desc: "Governance & compliance documents", children: [
       { label: "Governance", href: "/myas/governance-docs" },
       { label: "Compliance & Regulations", href: "/myas/compliance-regulations-docs" }
     ]}
   ]},
-  { label: "Our Sport", children: [
-    { label: "Rules", href: "/sport/rules" },
-    { label: "Anti-Doping", href: "/sport/anti-doping" },
-    { label: "Classification", href: "/sport/classification" },
-    { label: "Equipment", href: "/sport/equipment" }
+  { label: "Our Sport", img: "/images/court.webp", desc: "Rules, classes and equipment of boccia", children: [
+    { label: "Rules", href: "/sport/rules", img: "/images/scoring-rules.webp", desc: "Official rules & scoring explained" },
+    { label: "Anti-Doping", href: "/sport/anti-doping", img: "/images/795a8240.webp", desc: "Clean sport policies & education" },
+    { label: "Classification", href: "/sport/classification", img: "/images/bc1.webp", desc: "BC1 to BC4 sport classes" },
+    { label: "Equipment", href: "/sport/equipment", img: "/images/court.webp", desc: "Balls, ramps and the court" }
   ]},
-  { label: "Get Involved", children: [
-    { label: "Membership", href: "/get-involved/membership" },
-    { label: "Player Database 2026", href: "/get-involved/player-database" },
-    { label: "Officials Database 2026", href: "/get-involved/officials" }
+  { label: "Get Involved", img: "/images/img-7173.webp", desc: "Play, officiate or support JPBA", children: [
+    { label: "Membership", href: "/get-involved/membership", img: "/images/img-7173.webp", desc: "Join the association" },
+    { label: "Player Database 2026", href: "/get-involved/player-database", img: "/images/people/suman-kumar-prajapati.webp", desc: "Registered boccia athletes" },
+    { label: "Officials Database 2026", href: "/get-involved/officials", img: "/images/official.webp", desc: "Referees, classifiers & volunteers" }
   ]},
-  { label: "Competitions", children: [
-    { label: "International Events", href: "/competitions/international" },
-    { label: "National Events", href: "/competitions/national" },
-    { label: "State Competitions", href: "/competitions/state" },
-    { label: "Results", href: "/competitions/results" }
+  { label: "Competitions", img: "/images/national-game.webp", desc: "From state courts to world championships", children: [
+    { label: "International Events", href: "/competitions/international", img: "/images/national-game.webp", desc: "World & Paralympic pathway" },
+    { label: "National Events", href: "/competitions/national", img: "/images/national-boccia-championship.webp", desc: "National championship calendar" },
+    { label: "State Competitions", href: "/competitions/state", img: "/images/795a1495.webp", desc: "Jharkhand state tournaments" },
+    { label: "Results", href: "/competitions/results", img: "/images/winner.webp", desc: "Medals, rankings & reports" }
   ]},
-  { label: "News & Media", children: [
-    { label: "News", href: "/news" },
-    { label: "Circulars & Notices", href: "/news/circulars" },
-    { label: "Gallery", href: "/gallery" },
-    { label: "Videos", href: "/videos" },
-    { label: "JPBA Tender", href: "/news/tenders" }
+  { label: "News & Media", img: "/images/795a8453.webp", desc: "Stories, galleries and broadcasts", children: [
+    { label: "News", href: "/news", img: "/images/795a8240.webp", desc: "Latest from JPBA" },
+    { label: "Circulars & Notices", href: "/news/circulars", img: "/images/meeting.webp", desc: "Official announcements" },
+    { label: "Gallery", href: "/gallery", img: "/images/795a1430.webp", desc: "Photo archive" },
+    { label: "Videos", href: "/videos", img: "/images/img-7322.webp", desc: "Matches on our YouTube channel" },
+    { label: "JPBA Tender", href: "/news/tenders", img: "/images/fullsizerender-9.webp", desc: "Open tenders & procurement" }
   ]},
-  { label: "Selection Guidelines", href: "/selection-guidelines" },
-  { label: "Contact Us", href: "/contact" },
+  { label: "Selection Guidelines", href: "/selection-guidelines", img: "/images/prize-distribution.webp", desc: "Trials policy & selection criteria" },
+  { label: "Contact Us", href: "/contact", img: "/images/vip-guests.webp", desc: "Reach the JPBA secretariat" },
 ];
 
 // Callers may still pass onRegisterClick (legacy modal pages); it is
@@ -101,11 +103,12 @@ export default function Navbar({}: { onRegisterClick?: () => void } = {}) {
             ].join(", "),
           }}
         >
-          <div className="relative max-w-[1400px] mx-auto px-3 sm:px-4 lg:px-8 py-1.5 sm:py-2 flex items-center">
+          {/* Bottom padding clears the overlapping nav pill on small screens */}
+          <div className="relative max-w-[1400px] mx-auto px-3 sm:px-4 lg:px-8 pt-1.5 pb-7 sm:pt-2 sm:pb-8 lg:py-2 flex items-center">
               {/* Logo — pinned left (smaller on phones so the centered name never collides) */}
             <Link href="/" className="flex items-center gap-3 sm:gap-5 group shrink-0 relative z-10">
               <div className="relative h-16 w-16 shrink-0 sm:h-28 sm:w-28 lg:h-40 lg:w-40 rounded-full p-1">
-                <Image src="/jharkhand.PNG" alt="JPBA Logo" fill className="object-contain" priority />
+                <Image src="/jharkhand.PNG" alt="JPBA Logo" fill sizes="(max-width: 640px) 64px, (max-width: 1024px) 112px, 160px" className="object-contain" priority />
               </div>
               <div className="hidden md:block w-[1px] h-12 bg-[#0A2F1D]/25 mx-1" />
             </Link>
@@ -125,7 +128,7 @@ export default function Navbar({}: { onRegisterClick?: () => void } = {}) {
       </header>
 
       {/* ═══ NAVBAR — rounded container straddling the header's bottom edge; sticks to the top when scrolled past ═══ */}
-      <div ref={navRef} className="sticky top-0 z-[100] -mt-7 lg:-mt-8">
+      <div ref={navRef} className="sticky top-0 z-[100] -mt-4 lg:-mt-8">
         <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
           <div className="flex items-center gap-3">
 
@@ -135,7 +138,7 @@ export default function Navbar({}: { onRegisterClick?: () => void } = {}) {
               {/* Compact brand — keeps the pill balanced on mobile/tablet */}
               <Link href="/" className="xl:hidden flex items-center gap-2.5 pl-1 min-w-0">
                 <div className="relative h-9 w-9 shrink-0">
-                  <Image src="/jharkhand.PNG" alt="JPBA Logo" fill className="object-contain" />
+                  <Image src="/jharkhand.PNG" alt="JPBA Logo" fill sizes="36px" className="object-contain" />
                 </div>
                 <span className="font-black tracking-wider text-white text-sm">JPBA</span>
               </Link>
@@ -170,14 +173,17 @@ export default function Navbar({}: { onRegisterClick?: () => void } = {}) {
                       <AnimatePresence>
                         {activeDD === item.label && (
                           <motion.div
-                            className="absolute top-[100%] left-0 pt-3 z-50 min-w-[260px]"
+                            className="absolute top-[100%] left-0 pt-3 z-50 w-[380px]"
                             variants={dropdownVariants}
                             initial="hidden"
                             animate="visible"
                             exit="hidden"
                           >
-                            <div className="bg-white rounded-b-xl shadow-xl border-t-4 border-[#C9A84C] p-3">
-                              <div className="flex flex-col gap-1">
+                            <div className="bg-white rounded-2xl shadow-2xl border-t-4 border-[#C9A84C] p-3 overflow-hidden relative">
+                              {/* faint court-line watermark in the panel corner */}
+                              <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full border-[10px] border-[#C9A84C]/10 pointer-events-none" />
+                              <div className="absolute -bottom-14 -right-6 w-28 h-28 rounded-full border-[8px] border-[#0A2F1D]/5 pointer-events-none" />
+                              <div className="relative flex flex-col gap-1">
                                 {item.children.map((child) => (
                                   <div
                                     key={child.label}
@@ -187,7 +193,7 @@ export default function Navbar({}: { onRegisterClick?: () => void } = {}) {
                                     {child.href ? (
                                       <Link
                                         href={child.href}
-                                        className="px-4 py-2.5 text-[13px] font-semibold text-[#133824] hover:bg-[#FDF8EF] hover:text-[#C9A84C] rounded-md transition-colors flex items-center justify-between"
+                                        className="px-3 py-2.5 text-[13px] font-semibold text-[#133824] hover:bg-[#FDF8EF] rounded-xl transition-colors flex items-center gap-3 group/sublink"
                                         onClick={() => {
                                           setActiveDD(null);
                                           setActiveSubDD(null);
@@ -198,15 +204,39 @@ export default function Navbar({}: { onRegisterClick?: () => void } = {}) {
                                           }
                                         }}
                                       >
-                                        {child.label}
-                                        <svg className="w-4 h-4 opacity-0 -translate-x-2 group-hover/sublink:opacity-100 group-hover/sublink:translate-x-0 transition-all text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                                        {child.img && (
+                                          <span className="relative h-11 w-11 rounded-lg overflow-hidden shrink-0 border border-[#C9A84C]/25 shadow-sm">
+                                            <img src={child.img} alt="" loading="lazy" className="h-full w-full object-cover group-hover/sublink:scale-110 transition-transform duration-500" />
+                                          </span>
+                                        )}
+                                        <span className="min-w-0 flex-1">
+                                          <span className="flex items-center justify-between gap-2">
+                                            <span className="group-hover/sublink:text-[#C9A84C] transition-colors">{child.label}</span>
+                                            <svg className="w-4 h-4 opacity-0 -translate-x-2 group-hover/sublink:opacity-100 group-hover/sublink:translate-x-0 transition-all text-[#C9A84C] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                                          </span>
+                                          {child.desc && (
+                                            <span className="block text-[11px] text-[#8A8A8A] font-medium leading-snug mt-0.5">{child.desc}</span>
+                                          )}
+                                        </span>
                                       </Link>
                                     ) : (
                                       <button
-                                        className="w-full px-4 py-2.5 text-[13px] font-semibold text-[#133824] hover:bg-[#FDF8EF] hover:text-[#C9A84C] rounded-md transition-colors flex items-center justify-between"
+                                        className="w-full px-3 py-2.5 text-[13px] font-semibold text-[#133824] hover:bg-[#FDF8EF] rounded-xl transition-colors flex items-center gap-3 text-left"
                                       >
-                                        {child.label}
-                                        <svg className={`w-4 h-4 transition-all text-[#C9A84C] ${activeSubDD === child.label ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                                        {child.img && (
+                                          <span className="relative h-11 w-11 rounded-lg overflow-hidden shrink-0 border border-[#C9A84C]/25 shadow-sm">
+                                            <img src={child.img} alt="" loading="lazy" className="h-full w-full object-cover" />
+                                          </span>
+                                        )}
+                                        <span className="min-w-0 flex-1">
+                                          <span className="flex items-center justify-between gap-2">
+                                            <span>{child.label}</span>
+                                            <svg className={`w-4 h-4 transition-all text-[#C9A84C] shrink-0 ${activeSubDD === child.label ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                                          </span>
+                                          {child.desc && (
+                                            <span className="block text-[11px] text-[#8A8A8A] font-medium leading-snug mt-0.5">{child.desc}</span>
+                                          )}
+                                        </span>
                                       </button>
                                     )}
 
@@ -221,7 +251,7 @@ export default function Navbar({}: { onRegisterClick?: () => void } = {}) {
                                             animate="visible"
                                             exit="hidden"
                                           >
-                                            <div className="bg-white rounded-xl shadow-xl border border-gray-100 p-2">
+                                            <div className="bg-white rounded-xl shadow-xl border border-gray-100 p-2 min-w-[240px]">
                                               {child.children.map((subChild) => (
                                                 <Link
                                                   key={subChild.href}

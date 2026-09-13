@@ -34,7 +34,7 @@ export default function VideosPage() {
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           {/* Channel header — Boccia Jharkhand on YouTube */}
           <ScrollReveal variant="fade-up">
-            <div className="mb-10 rounded-2xl bg-mesh-gradient-dark relative overflow-hidden p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-6">
+            <div className="mb-10 rounded-2xl bg-agitos-dark relative overflow-hidden p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-6">
               <div className="absolute inset-0 bg-texture-dots-dark opacity-10 pointer-events-none" />
               <div className="relative z-10 flex items-center gap-4 flex-1 min-w-0">
                 <span className="h-14 w-14 sm:h-16 sm:w-16 shrink-0 rounded-full bg-[#FF0000] flex items-center justify-center shadow-lg shadow-black/30">

@@ -252,7 +252,7 @@ export default function Home() {
           ))}
 
           {/* Gradient Mesh Overlay */}
-          <div className="absolute inset-0 z-15 bg-mesh-gradient-dark opacity-[0.18] pointer-events-none animate-gradient-shift" />
+          <div className="absolute inset-0 z-15 bg-agitos-dark opacity-[0.18] pointer-events-none animate-gradient-shift" />
 
           {/* Floating Gradient Orbs — with GSAP parallax */}
           <div ref={heroOrbsRef} className="pointer-events-none z-15">
@@ -560,7 +560,7 @@ export default function Home() {
         {/* ═══════════════════════════════════════════
              SECTION 3: Who Can Participate? — Enhanced with textures & glow cards
         ════════════════════════════════════════════ */}
-        <section className="py-24 bg-mesh-gradient-dark text-center relative overflow-hidden">
+        <section className="py-24 bg-agitos-dark text-center relative overflow-hidden">
           {/* Texture & orbs */}
           <div className="absolute inset-0 bg-texture-dots-dark pointer-events-none" />
           <div className="absolute inset-0 bg-noise pointer-events-none" />
@@ -748,7 +748,7 @@ export default function Home() {
         </section>
 
         {/* SECTION 4: National Footprint */}
-        <section className="py-24 bg-mesh-gradient-light relative overflow-hidden">
+        <section className="py-24 bg-boccia-mesh-light relative overflow-hidden">
           <div className="absolute inset-0 bg-texture-wavy pointer-events-none" />
           <div className="gradient-orb gradient-orb-gold w-[500px] h-[500px] -top-40 -left-40 pointer-events-none opacity-50 gsap-parallax-orb" />
           <div className="max-w-[1400px] mx-auto px-6 lg:px-10 relative z-10">
@@ -960,7 +960,7 @@ export default function Home() {
         {/* ═══════════════════════════════════════════
              SECTION 6: Athletes Showcase — Enhanced
         ════════════════════════════════════════════ */}
-        <section className="py-24 bg-mesh-gradient-light relative overflow-hidden">
+        <section className="py-24 bg-boccia-mesh-light relative overflow-hidden">
           <div className="absolute inset-0 bg-texture-crosshatch pointer-events-none" />
           <div className="gradient-orb gradient-orb-gold w-[500px] h-[500px] -top-40 -left-40 pointer-events-none opacity-30 animate-float" />
 
@@ -970,64 +970,52 @@ export default function Home() {
                 <div className="flex items-center justify-center gap-3 mb-4">
                   <span className="text-[#C9A84C] text-xl">&#10022;</span>
                   <span className="text-[#C9A84C] font-bold tracking-[0.25em] text-[12px] uppercase">
-                    OUR PEOPLE
+                    OUR PLAYERS
                   </span>
                   <span className="text-[#C9A84C] text-xl">&#10022;</span>
                 </div>
                 <h2 className="text-[36px] sm:text-[44px] font-bold text-[#0A2F1D] mb-3">
-                  Players &amp; Leadership
+                  Our Players
                 </h2>
                 <p className="text-[#5C5C5C] text-[16px]">
-                  The verified athletes and office bearers of Jharkhand Para Boccia.
+                  The verified boccia athletes representing Jharkhand on the national and international stage.
                 </p>
               </div>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-[900px] mx-auto">
               {[
                 {
                   name: "Suman Kumar Prajapati",
-                  cls: "BC4 · International",
-                  desc: "Flagbearer of Jharkhand boccia on the international stage.",
+                  cls: "BC4 · International Player",
+                  desc: "Flagbearer of Jharkhand boccia — competing against the world's best in the BC4 sport class.",
                   img: PEOPLE.sumanPrajapati,
                 },
                 {
                   name: "Anam Hyder",
-                  cls: "BC2 · National",
-                  desc: "Precision thrower competing at national championships.",
+                  cls: "BC2 · National Player",
+                  desc: "Precision thrower representing Jharkhand at national championships in the BC2 sport class.",
                   img: PEOPLE.anamHyder,
-                },
-                {
-                  name: "Raj Kumar Singh",
-                  cls: "National Coach",
-                  desc: "Blind Football coach & disability-sports activist leading training.",
-                  img: PEOPLE.coach,
-                },
-                {
-                  name: "Capt Jitendra Kumar Sharma",
-                  cls: "President",
-                  desc: "Leading JPBA's mission of inclusion across Jharkhand.",
-                  img: PEOPLE.president,
                 },
               ].map((athlete, i) => (
                 <ScrollReveal key={athlete.name} variant="fade-up" delay={i * 100}>
                   <TiltCard className="group relative bg-white rounded-2xl overflow-hidden shadow-lg border border-[#C9A84C]/15 hover:border-[#C9A84C]/40 h-full" glare={0.18} max={9}>
-                    <div className="relative h-72 overflow-hidden">
+                    <div className="relative h-80 sm:h-96 overflow-hidden">
                       <img
                         src={athlete.img}
                         alt={athlete.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                       />
-                      <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/45 to-transparent" />
-                      <span className="absolute top-4 right-4 px-3 py-1 bg-[#C9A84C] text-[#0A2F1D] text-[11px] font-bold rounded-full shadow-lg">
+                      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/50 to-transparent" />
+                      <span className="absolute top-4 right-4 px-3.5 py-1.5 bg-[#C9A84C] text-[#0A2F1D] text-[12px] font-bold rounded-full shadow-lg">
                         {athlete.cls}
                       </span>
                     </div>
-                    <div className="p-6">
-                      <h4 className="text-[17px] font-bold text-[#0A2F1D] mb-2 group-hover:text-[#C9A84C] transition-colors leading-snug">
+                    <div className="p-7">
+                      <h4 className="text-[20px] font-bold text-[#0A2F1D] mb-2 group-hover:text-[#C9A84C] transition-colors leading-snug">
                         {athlete.name}
                       </h4>
-                      <p className="text-[13px] text-[#5C5C5C] leading-relaxed">
+                      <p className="text-[14px] text-[#5C5C5C] leading-relaxed">
                         {athlete.desc}
                       </p>
                     </div>
@@ -1043,6 +1031,99 @@ export default function Home() {
                   className="text-[14px] font-bold text-[#C9A84C] hover:text-[#0A2F1D] transition-colors border-b-2 border-[#C9A84C] pb-1"
                 >
                   Meet All Athletes &rarr;
+                </Link>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════
+             SECTION 6B: Our Officials — Leadership & Bench
+        ════════════════════════════════════════════ */}
+        <section className="py-24 bg-[#0A2F1D] relative overflow-hidden">
+          <div className="absolute inset-0 bg-texture-dots-dark pointer-events-none" />
+          <div className="gradient-orb gradient-orb-gold w-[520px] h-[520px] -bottom-56 -left-56 pointer-events-none opacity-25 animate-float-slow gsap-parallax-orb" />
+          <div className="gradient-orb gradient-orb-green-light w-[420px] h-[420px] -top-44 -right-44 pointer-events-none opacity-30 animate-float gsap-parallax-orb" />
+
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-10 relative z-10">
+            <ScrollReveal variant="fade-up">
+              <div className="text-center mb-16">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <span className="text-[#C9A84C] text-xl">&#10022;</span>
+                  <span className="text-[#C9A84C] font-bold tracking-[0.25em] text-[12px] uppercase">
+                    LEADERSHIP &amp; BENCH
+                  </span>
+                  <span className="text-[#C9A84C] text-xl">&#10022;</span>
+                </div>
+                <h2 className="text-[36px] sm:text-[44px] font-bold text-white mb-3">
+                  Our Officials
+                </h2>
+                <p className="text-white/60 text-[16px]">
+                  The office bearers and coach driving JPBA&apos;s mission across Jharkhand.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  name: "Capt Jitendra Kumar Sharma",
+                  role: "President",
+                  desc: "Leads JPBA's vision of sporting excellence and inclusion.",
+                  img: PEOPLE.president,
+                },
+                {
+                  name: "Dr Suman Kumar Sharma",
+                  role: "Secretary General",
+                  desc: "Senior physiotherapist combining clinical expertise with athlete development.",
+                  img: PEOPLE.secretaryGeneral,
+                },
+                {
+                  name: "Sonu Kumar Sharma",
+                  role: "Executive Member · Treasurer",
+                  desc: "Ensures transparent, accountable finances as JPBA grows.",
+                  img: PEOPLE.treasurer,
+                },
+                {
+                  name: "Raj Kumar Singh",
+                  role: "National Coach",
+                  desc: "Disability-sports activist preparing Jharkhand's blind football & para athletes.",
+                  img: PEOPLE.coach,
+                },
+              ].map((person, i) => (
+                <ScrollReveal key={person.name} variant="fade-up" delay={i * 110}>
+                  <div className="group relative bg-white/[0.04] rounded-2xl overflow-hidden border border-[#C9A84C]/20 hover:border-[#C9A84C]/60 hover:bg-white/[0.07] transition-all duration-300 h-full">
+                    <div className="relative h-80 overflow-hidden">
+                      <img
+                        src={person.img}
+                        alt={person.name}
+                        className="w-full h-full object-cover object-top group-hover:scale-[1.05] transition-transform duration-700"
+                      />
+                      <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0A2F1D] via-[#0A2F1D]/60 to-transparent" />
+                      <span className="absolute top-4 left-4 px-3 py-1 bg-[#C9A84C] text-[#0A2F1D] text-[11px] font-bold uppercase tracking-wider rounded-full shadow-lg">
+                        {person.role}
+                      </span>
+                    </div>
+                    <div className="p-6">
+                      <h4 className="text-[17px] font-bold text-white mb-2 leading-snug group-hover:text-[#C9A84C] transition-colors">
+                        {person.name}
+                      </h4>
+                      <p className="text-[13px] text-white/60 leading-relaxed">
+                        {person.desc}
+                      </p>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+
+            <ScrollReveal variant="fade-up" delay={400}>
+              <div className="text-center mt-10">
+                <Link
+                  href="/about/board"
+                  className="text-[14px] font-bold text-[#C9A84C] hover:text-white transition-colors border-b-2 border-[#C9A84C] pb-1"
+                >
+                  Meet the Full Board &rarr;
                 </Link>
               </div>
             </ScrollReveal>
@@ -1462,19 +1543,44 @@ export default function Home() {
                   </h2>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                     {[
-                      "Boccia Sports Federation of India",
-                      "Paralympic Committee of India",
-                      "Sports Authority of India",
-                      "Jharkhand State Sports Council",
-                      "District Administration",
-                      "Indian Railways",
+                      { name: "Boccia Sports Federation of India", mono: "B", abbr: "BSFI", tone: "#0A2F1D" },
+                      { name: "Paralympic Committee of India", mono: "P", abbr: "PCI", tone: "#C9A84C" },
+                      { name: "Sports Authority of India", mono: "S", abbr: "SAI", tone: "#0A2F1D" },
+                      { name: "Jharkhand State Sports Council", mono: "J", abbr: "JSSC", tone: "#C9A84C" },
+                      { name: "District Administration", mono: "DA", abbr: "DA", tone: "#0A2F1D" },
+                      { name: "Indian Railways", mono: "IR", abbr: "IR", tone: "#C9A84C" },
                     ].map((partner, i) => (
                       <div
                         key={i}
-                        className="bg-white rounded-xl p-5 flex items-center justify-center border border-[#E2D9C8] hover:border-[#C9A84C]/40 hover:shadow-md transition-all text-center min-h-[80px]"
+                        className="bg-white rounded-xl p-5 flex flex-col items-center justify-center gap-3 border border-[#E2D9C8] hover:border-[#C9A84C]/40 hover:shadow-md hover:-translate-y-0.5 transition-all text-center min-h-[130px]"
                       >
-                        <span className="text-[11px] font-bold text-[#0A2F1D] leading-tight">
-                          {partner}
+                        {/* Monogram crest */}
+                        <span
+                          className="relative h-12 w-12 rounded-full flex items-center justify-center shadow-inner shrink-0"
+                          style={{
+                            background: partner.tone === "#C9A84C"
+                              ? "linear-gradient(135deg, #E8D5A3 0%, #C9A84C 60%, #B8923A 100%)"
+                              : "linear-gradient(135deg, #1B4E33 0%, #0A2F1D 70%)",
+                          }}
+                        >
+                          <span
+                            className="absolute inset-[3px] rounded-full border border-dashed"
+                            style={{ borderColor: partner.tone === "#C9A84C" ? "rgba(10,47,29,0.35)" : "rgba(201,168,76,0.5)" }}
+                          />
+                          <span
+                            className="text-[15px] font-black tracking-tight"
+                            style={{ color: partner.tone === "#C9A84C" ? "#0A2F1D" : "#E8D5A3" }}
+                          >
+                            {partner.mono}
+                          </span>
+                        </span>
+                        <span className="min-w-0">
+                          <span className="block text-[10px] font-black tracking-[0.18em] text-[#C9A84C] uppercase mb-1">
+                            {partner.abbr}
+                          </span>
+                          <span className="block text-[11px] font-bold text-[#0A2F1D] leading-tight">
+                            {partner.name}
+                          </span>
                         </span>
                       </div>
                     ))}
