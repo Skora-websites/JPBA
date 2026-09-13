@@ -46,7 +46,7 @@ export default function Page() {
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10 relative z-10">
           {/* Office Bearers */}
           <ScrollReveal variant="fade-up">
-            <h2 className="text-3xl font-bold text-[#0A2F1D] mb-2">Office Bearers &amp; National Coach</h2>
+            <h2 className="text-3xl font-bold text-[#0A2F1D] mb-2">Office Bearers &amp; Executive Members</h2>
             <div className="w-16 h-1 bg-[#C9A84C] rounded-full mb-10" />
           </ScrollReveal>
 
