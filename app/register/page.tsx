@@ -3,6 +3,8 @@ import Link from "next/link";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import ScrollReveal from "@/app/components/ScrollReveal";
+import PageHero from "@/app/components/PageHero";
+import { PAGE_HERO } from "@/lib/images";
 
 const PLAYER_FORM_URL = "https://forms.gle/y6QSBFfTQqK6fd7z8";
 const OFFICIAL_FORM_URL = "https://forms.gle/oX75B4VBtTSS4fxc9";
@@ -13,53 +15,19 @@ export default function RegisterPage() {
       <Navbar />
       <main className="flex-1">
         {/* â•â•â• Hero Section â•â•â• */}
-        <section className="relative pt-[230px] pb-20 min-h-[400px] overflow-hidden" style={{background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)"}}>
-          <img src="/images/dsc06432.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-texture-court pointer-events-none" />
-          <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.97) 0%, rgba(253,248,239,0.94) 30%, rgba(253,248,239,0.7) 44%, rgba(253,248,239,0.2) 56%, rgba(253,248,239,0) 70%)"}} />
-          <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 22%)"}} />
-<div className="mx-auto max-w-[1400px] px-6 lg:px-10 relative z-10">
-            <div className="max-w-2xl">
-                <div className="w-16 h-1 bg-[#C9A84C] rounded-full mb-6" />
-                <p className="text-[#B8923A] text-[11px] font-bold tracking-[0.3em] uppercase mb-3">
-                  REGISTRATION
-                </p>
-                <h1 className="text-[36px] sm:text-[44px] md:text-[52px] font-bold text-[#0A2F1D] leading-tight mb-4">
-                  Register as a{" "}
-                  <span className="gradient-text-gold">Player or Official</span>
-                </h1>
-                <p className="text-[15px] text-gray-600 max-w-[600px] leading-relaxed mb-8">
-                  Join the Jharkhand Para Boccia Association — as a competing
-                  athlete (BC1–BC4) or as an official supporting the sport.
-                  Both registrations open in the official Google Forms.
-                </p>
-                <div className="flex flex-wrap gap-4 mb-8">
-                  <a
-                    href={PLAYER_FORM_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 px-8 py-4 bg-[#C9A84C] text-[#0A2F1D] rounded font-bold uppercase tracking-wider hover:bg-white transition-all duration-300 text-[14px] shadow-xl shadow-[#C9A84C]/30 active:scale-[0.97]"
-                  >
-                    Player Registration
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
-                  <a
-                    href={OFFICIAL_FORM_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 px-8 py-4 border-2 border-[#0A2F1D] text-[#0A2F1D] rounded font-bold uppercase tracking-wider hover:bg-[#0A2F1D] hover:text-white transition-all duration-300 text-[14px] active:scale-[0.97]"
-                  >
-                    Official Registration
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
-                </div>
-            </div>
-          </div>
-        </section>
+                <PageHero
+          image={PAGE_HERO.register}
+          imageAlt="A BC3 athlete competing with a ramp"
+          eyebrow="REGISTRATION"
+          title={<>Register as a{" "}<span className="gradient-text-gold">Player or Official</span></>}
+          description="Join the Jharkhand Para Boccia Association — as a competing athlete (BC1–BC4) or as an official supporting the sport. Both registrations open in the official Google Forms."
+          ctas={[
+            { label: "Player Registration", href: PLAYER_FORM_URL, external: true },
+            { label: "Official Registration", href: OFFICIAL_FORM_URL, variant: "secondary", external: true },
+          ]}
+          breadcrumb={[{"label": "Register"}]}
+          size={"lg"}
+        />
 
         {/* â•â•â• Registration Pathway Steps â•â•â• */}
         <section className="py-20 bg-white relative overflow-hidden">

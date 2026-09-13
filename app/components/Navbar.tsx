@@ -179,10 +179,13 @@ export default function Navbar({}: { onRegisterClick?: () => void } = {}) {
                             animate="visible"
                             exit="hidden"
                           >
-                            <div className="bg-white rounded-2xl shadow-2xl border-t-4 border-[#C9A84C] p-3 overflow-hidden relative">
-                              {/* faint court-line watermark in the panel corner */}
-                              <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full border-[10px] border-[#C9A84C]/10 pointer-events-none" />
-                              <div className="absolute -bottom-14 -right-6 w-28 h-28 rounded-full border-[8px] border-[#0A2F1D]/5 pointer-events-none" />
+                            <div className="bg-white rounded-2xl shadow-2xl border-t-4 border-[#C9A84C] p-3 relative">
+                              {/* faint court-line watermarks — clipped inside their own layer so the
+                                  sub-dropdown (MYAS Disclosures) can escape the panel */}
+                              <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
+                                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full border-[10px] border-[#C9A84C]/10" />
+                                <div className="absolute -bottom-14 -right-6 w-28 h-28 rounded-full border-[8px] border-[#0A2F1D]/5" />
+                              </div>
                               <div className="relative flex flex-col gap-1">
                                 {item.children.map((child) => (
                                   <div
@@ -221,7 +224,12 @@ export default function Navbar({}: { onRegisterClick?: () => void } = {}) {
                                       </Link>
                                     ) : (
                                       <button
+                                        aria-haspopup="true"
+                                        aria-expanded={activeSubDD === child.label}
                                         className="w-full px-3 py-2.5 text-[13px] font-semibold text-[#133824] hover:bg-[#FDF8EF] rounded-xl transition-colors flex items-center gap-3 text-left"
+                                        onClick={() =>
+                                          setActiveSubDD(activeSubDD === child.label ? null : child.label)
+                                        }
                                       >
                                         {child.img && (
                                           <span className="relative h-11 w-11 rounded-lg overflow-hidden shrink-0 border border-[#C9A84C]/25 shadow-sm">

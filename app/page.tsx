@@ -9,6 +9,7 @@ import ScrollReveal from "@/app/components/ScrollReveal";
 import TiltCard from "@/app/components/TiltCard";
 import RetroMarquee from "@/app/components/RetroMarquee";
 import ScrollProgress from "@/app/components/ScrollProgress";
+import CourtDivider from "@/app/components/CourtDivider";
 import YouTubeFacade from "@/app/components/YouTubeFacade";
 import { IMG, PEOPLE } from "@/lib/images";
 
@@ -242,8 +243,10 @@ export default function Home() {
               <img
                 src={src}
                 alt="Boccia athletes competing at a JPBA championship"
-                className={`w-full h-full object-cover transition-transform duration-[8000ms] ease-in-out ${
-                  currentSlide === index ? "scale-110" : "scale-100"
+                className={`w-full h-full object-cover will-change-transform ${
+                  currentSlide === index
+                    ? "slide-ken-burns"
+                    : "scale-100"
                 }`}
               />
               {/* Retro scanline film grain over each slide */}
@@ -368,6 +371,8 @@ export default function Home() {
             ))}
           </div>
         </div>
+
+        <CourtDivider />
 
         {/* ═══════════════════════════════════════════
              SECTION 2: What is Boccia? — Enhanced with gradient orbs & texture
@@ -556,6 +561,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <CourtDivider />
 
         {/* ═══════════════════════════════════════════
              SECTION 3: Who Can Participate? — Enhanced with textures & glow cards
@@ -747,6 +754,8 @@ export default function Home() {
           </div>
         </section>
 
+        <CourtDivider />
+
         {/* SECTION 4: National Footprint */}
         <section className="py-24 bg-boccia-mesh-light relative overflow-hidden">
           <div className="absolute inset-0 bg-texture-wavy pointer-events-none" />
@@ -774,6 +783,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <CourtDivider />
 
         {/* SECTION 4.5: History in Jharkhand */}
         <section className="py-24 bg-[#FDF8EF] relative overflow-hidden">
@@ -872,6 +883,8 @@ export default function Home() {
           </div>
         </section>
 
+        <CourtDivider />
+
         {/* SECTION 5: Registration Pathway */}
         <section className="py-24 bg-[#0A2F1D] relative overflow-hidden">
           <div className="absolute inset-0 bg-texture-dots-dark opacity-10 pointer-events-none" />
@@ -957,6 +970,8 @@ export default function Home() {
           </div>
         </section>
 
+        <CourtDivider />
+
         {/* ═══════════════════════════════════════════
              SECTION 6: Athletes Showcase — Enhanced
         ════════════════════════════════════════════ */}
@@ -1036,6 +1051,8 @@ export default function Home() {
             </ScrollReveal>
           </div>
         </section>
+
+        <CourtDivider />
 
         {/* ═══════════════════════════════════════════
              SECTION 6B: Our Officials — Leadership & Bench
@@ -1129,6 +1146,8 @@ export default function Home() {
             </ScrollReveal>
           </div>
         </section>
+
+        <CourtDivider />
 
         {/* ═══════════════════════════════════════════
              SECTION 7: Events Schedule — Enhanced
@@ -1238,6 +1257,8 @@ export default function Home() {
           </div>
         </section>
 
+        <CourtDivider />
+
         {/* ═══════════════════════════════════════════
              SECTION 8: Photo Gallery — Enhanced
         ════════════════════════════════════════════ */}
@@ -1345,6 +1366,8 @@ export default function Home() {
             </ScrollReveal>
           </div>
         </section>
+
+        <CourtDivider />
 
         {/* ═══════════════════════════════════════════
              SECTION 9: News — Enhanced
@@ -1522,6 +1545,8 @@ export default function Home() {
             </div>
           </section>
         )}
+
+        <CourtDivider />
 
         {/* ═══════════════════════════════════════════
              SECTION 10: Partners — Enhanced with gradient orbs

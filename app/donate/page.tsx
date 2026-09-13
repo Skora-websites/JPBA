@@ -1,6 +1,8 @@
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import ScrollReveal from "@/app/components/ScrollReveal";
+import PageHero from "@/app/components/PageHero";
+import { PAGE_HERO } from "@/lib/images";
 
 export const metadata = {
   title: "Donate & Partner — JPBA",
@@ -14,35 +16,16 @@ export default function DonatePage() {
       <Navbar />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative pt-[230px] pb-20 min-h-[380px] overflow-hidden">
-          <img src="/images/prize-distribution.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-texture-court pointer-events-none" />
-          <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to right, rgba(253,248,239,0.97) 0%, rgba(253,248,239,0.94) 30%, rgba(253,248,239,0.7) 44%, rgba(253,248,239,0.2) 56%, rgba(253,248,239,0) 70%)" }} />
-          <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 20%)" }} />
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10 relative z-10">
-            <div className="max-w-2xl">
-              <div className="w-16 h-1 bg-[#C9A84C] rounded-full mb-6" />
-              <p className="text-[#B8923A] text-[11px] font-bold tracking-[0.3em] uppercase mb-3">
-                SUPPORT THE MOVEMENT
-              </p>
-              <h1 className="text-[36px] sm:text-[44px] md:text-[52px] font-bold text-[#0A2F1D] leading-tight mb-4">
-                Donate &amp; <span className="gradient-text-gold">Partner With Us</span>
-              </h1>
-              <p className="text-[15px] text-gray-600 leading-relaxed mb-8">
-                NGOs, corporates, trusts and individual donors — your support
-                funds equipment, training camps, classification camps and
-                competitions for para athletes across Jharkhand. Reach out and
-                our team will get in touch.
-              </p>
-              <div className="flex flex-wrap gap-3 text-[12px] font-bold uppercase tracking-wider">
-                <span className="px-4 py-2 rounded-full bg-[#0A2F1D] text-[#C9A84C]">Equipment</span>
-                <span className="px-4 py-2 rounded-full bg-[#0A2F1D] text-[#C9A84C]">Training Camps</span>
-                <span className="px-4 py-2 rounded-full bg-[#0A2F1D] text-[#C9A84C]">Athlete Sponsorship</span>
-                <span className="px-4 py-2 rounded-full bg-[#0A2F1D] text-[#C9A84C]">Event Hosting</span>
-              </div>
-            </div>
-          </div>
-        </section>
+                <PageHero
+          image={PAGE_HERO.donate}
+          imageAlt="Champions receiving their prizes at the award ceremony"
+          eyebrow="SUPPORT THE MOVEMENT"
+          title={<>Donate &amp; <span className="gradient-text-gold">Partner With Us</span></>}
+          description="NGOs, corporates, trusts and individual donors — your support funds equipment, training camps, classification camps and competitions for para athletes across Jharkhand. Reach out and our team will get in touch."
+          badges={["Equipment", "Training Camps", "Athlete Sponsorship", "Event Hosting"]}
+          breadcrumb={[{"label": "Donate"}]}
+          size={"lg"}
+        />
 
         {/* Contact cards */}
         <section className="py-20 relative overflow-hidden">

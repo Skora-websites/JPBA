@@ -3,6 +3,8 @@ import { useState } from "react";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import ScrollReveal from "@/app/components/ScrollReveal";
+import PageHero from "@/app/components/PageHero";
+import { PAGE_HERO } from "@/lib/images";
 
 export default function ContactPage() {
   const [name, setName] = useState("");
@@ -25,47 +27,15 @@ export default function ContactPage() {
       <Navbar />
       <main className="flex-1">
         {/* Hero â€” full background image, cream fade on text side */}
-        <section className="relative pt-[230px] pb-16 min-h-[300px] overflow-hidden bg-[#FDF8EF]">
-          {/* Full background image */}
-          <img
-            src="/images/dsc09824.webp"
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          {/* Boccia court-line texture over the cream side */}
-          <div className="absolute inset-0 bg-texture-court pointer-events-none" />
-          {/* Cream fade ONLY on the text side (left) → image fully visible right */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background:
-                "linear-gradient(to right, rgba(253,248,239,0.97) 0%, rgba(253,248,239,0.94) 30%, rgba(253,248,239,0.7) 44%, rgba(253,248,239,0.2) 56%, rgba(253,248,239,0) 70%)",
-            }}
-          />
-          {/* Bottom fade into page background */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background:
-                "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 22%)",
-            }}
-          />
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10 relative z-10">
-            <div className="max-w-2xl">
-              <div className="w-16 h-1 bg-[#C9A84C] rounded-full mb-6" />
-              <p className="text-[#B8923A] text-[11px] font-bold tracking-[0.3em] uppercase mb-3">
-                GET IN TOUCH
-              </p>
-              <h1 className="text-[36px] sm:text-[44px] font-bold text-[#0A2F1D] leading-tight mb-4">
-                Contact JPBA
-              </h1>
-              <p className="text-[15px] text-gray-600 max-w-[600px] leading-relaxed">
-                Have questions about Boccia, registration, or getting
-                involved? We would love to hear from you.
-              </p>
-            </div>
-          </div>
-        </section>
+                <PageHero
+          image={PAGE_HERO.contact}
+          imageAlt="Guests and officials at a JPBA ceremony"
+          eyebrow="GET IN TOUCH"
+          title={"Contact JPBA"}
+          description="Have questions about Boccia, registration, or getting involved? We would love to hear from you."
+          breadcrumb={[{"label": "Contact"}]}
+          size={"sm"}
+        />
 
         {/* Contact Content */}
         <ScrollReveal variant="fade-in">

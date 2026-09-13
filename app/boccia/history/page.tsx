@@ -3,6 +3,8 @@ import React from "react";
 import Link from "next/link";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
+import PageHero from "@/app/components/PageHero";
+import { PAGE_HERO } from "@/lib/images";
 
 export default function HistoryPage() {
   const onRegisterClick = () => { window.location.href = "/register"; };
@@ -18,19 +20,15 @@ export default function HistoryPage() {
   return (
     <div className="min-h-screen bg-[#FDF8EF]">
       <Navbar onRegisterClick={onRegisterClick} />
-      <section className="relative pt-[230px] pb-20 overflow-hidden" style={{background: "linear-gradient(135deg, #FDF8EF 0%, #FFFFFF 50%, #E8F5E9 100%)"}}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex items-center gap-2 text-sm mb-6">
-            <Link href="/" className="text-[#8B6914] hover:text-[#6B4F12] font-medium transition-colors">Home</Link>
-            <span className="text-[#8B6914]/40 mx-1">/</span>
-            <Link href="/boccia" className="text-[#8B6914] hover:text-[#6B4F12] font-medium transition-colors">Boccia</Link>
-            <span className="text-[#8B6914]/40 mx-1">/</span>
-            <span className="text-gray-500">History</span>
-          </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#0A2F1D] mb-4">History &amp; Paralympic Context</h1>
-          <p className="text-xl text-gray-600 max-w-3xl">From rehabilitation activity to Paralympic competition — the evolution of Boccia over four decades.</p>
-        </div>
-      </section>
+              <PageHero
+          image={PAGE_HERO.bocciaHistory}
+          imageAlt="A championship opening ceremony"
+          eyebrow="THE SPORT"
+          title={"History & Paralympic Context"}
+          description="From rehabilitation activity to Paralympic competition — the evolution of Boccia over four decades."
+          breadcrumb={[{"label": "Boccia", "href": "/boccia"}, {"label": "History"}]}
+          size={"sm"}
+        />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <section className="mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-[#0A2F1D] mb-8">Timeline</h2>

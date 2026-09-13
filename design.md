@@ -77,6 +77,11 @@
 - Counter: count-up animation on stats
 - Loader: scale 0.8→1 + opacity 0→1→0
 - Card hover: translate-y(-2px) + shadow
+- Ken Burns: slow cinematic zoom on hero background photos — `.ken-burns-slow` / `.ken-burns-slow-rev` (34–38s pan+zoom, alternating by page) on page heroes, `.slide-ken-burns` (12s per slide) on homepage slideshow; disabled under `prefers-reduced-motion`
+- Footer court motif: gold ball rolls from the throwing box toward the jack every 15s (`.footer-ball`)
+- Page heroes: all subpages use the shared `<PageHero>` component (photo + cream gradient + court texture + Ken Burns built in); topic-correct photos come from `PAGE_HERO` in `lib/images.ts`
+- Gold court divider: `.court-divider` / `<CourtDivider>` band between homepage sections, echoing the footer's court motif (throwing-box grid, V-line sweep, glowing jack)
+- Battery saver: `useAnimationPauseOnHidden` (Footer) toggles `html.paused` on `visibilitychange`; CSS pauses Ken Burns, footer ball and photo marquee while the tab is hidden
 
 ## Responsive Breakpoints
 - Mobile: < 640px

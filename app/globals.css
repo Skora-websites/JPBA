@@ -469,6 +469,115 @@ option {
   animation: connector-pulse 2s ease-in-out infinite;
 }
 
+/* ═══════════════════════════════════════════
+   KEN BURNS — slow cinematic zoom on hero photos
+   Alternates zoom-in / zoom-out-drift so photo
+   carousels and consecutive pages don't pulse
+   in the same direction. Pair with -alt variants
+   for subtle pan while zooming.
+══════════════════════════════════════════ */
+@keyframes ken-burns-in {
+  from { transform: scale(1) translate(0, 0); }
+  to { transform: scale(1.18) translate(-1.2%, -0.8%); }
+}
+@keyframes ken-burns-out {
+  from { transform: scale(1.18) translate(1%, 0.6%); }
+  to { transform: scale(1) translate(0, 0); }
+}
+@keyframes ken-burns-pan {
+  from { transform: scale(1.1) translate(2.2%, 1.4%); }
+  to { transform: scale(1.1) translate(-2.2%, -1.4%); }
+}
+@keyframes ken-burns-pan-rev {
+  from { transform: scale(1.1) translate(-2.2%, -1.4%); }
+  to { transform: scale(1.1) translate(2.2%, 1.4%); }
+}
+
+/* Page heroes: gentle push-in while the page is in view */
+.ken-burns,
+.ken-burns-rev {
+  animation: ken-burns-in 26s var(--kb-ease, ease-out) forwards;
+}
+.ken-burns-rev {
+  animation-name: ken-burns-out;
+  animation-timing-function: ease-in;
+}
+.ken-burns-slow {
+  animation: ken-burns-pan 34s ease-in-out infinite alternate;
+}
+.ken-burns-slow-rev {
+  animation: ken-burns-pan-rev 38s ease-in-out infinite alternate;
+}
+
+/* Slideshows: one full zoom cycle per slide, fills the crossfade gap */
+.slide-ken-burns {
+  animation: ken-burns-in 12s ease-out forwards;
+}
+
+/* Footer court motif — a ball rolls from the throwing box toward the jack,
+   fades out, and resets. Pure decoration. */
+@keyframes footer-ball-roll {
+  0% { transform: translate(0, 0); opacity: 0; }
+  12% { opacity: 0.45; }
+  58% { transform: translate(430px, -10px); opacity: 0.45; }
+  70% { transform: translate(465px, -12px); opacity: 0; }
+  100% { transform: translate(0, 0); opacity: 0; }
+}
+.footer-ball {
+  animation: footer-ball-roll 15s ease-in-out infinite;
+}
+
+/* Battery saver — pause every decorative animation while the tab is hidden.
+   PageHero/Footer toggle the .paused class on <html> from visibilitychange. */
+html.paused .ken-burns,
+html.paused .ken-burns-rev,
+html.paused .ken-burns-slow,
+html.paused .ken-burns-slow-rev,
+html.paused .slide-ken-burns,
+html.paused .footer-ball,
+html.paused .photo-marquee-group {
+  animation-play-state: paused !important;
+}
+
+/* ═══════════════════════════════════════════
+   Gold court divider — thin band between homepage
+   sections echoing the footer's boccia court motif:
+   boundary lines, throwing-box grid and the jack.
+══════════════════════════════════════════ */
+.court-divider {
+  position: relative;
+  height: 56px;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(90deg, rgba(201, 168, 76, 0.14) 0 1.5px, transparent 1.5px 150px),
+    repeating-linear-gradient(0deg, rgba(201, 168, 76, 0.10) 0 1.5px, transparent 1.5px 44px),
+    linear-gradient(to bottom, rgba(201, 168, 76, 0.16), rgba(201, 168, 76, 0.03));
+  border-top: 1px solid rgba(201, 168, 76, 0.28);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.28);
+}
+/* The V-line sweep of the throwing boxes */
+.court-divider::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(from 262deg at 50% -8%, transparent 0deg, rgba(201, 168, 76, 0.16) 14deg, transparent 28deg);
+}
+/* The jack — warm ivory glow dot riding the divider */
+.court-divider::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 7px;
+  width: 7px;
+  border-radius: 9999px;
+  transform: translate(-50%, -50%);
+  background: var(--ivory);
+  box-shadow:
+    0 0 10px 3px rgba(253, 248, 239, 0.45),
+    0 0 22px 8px rgba(201, 168, 76, 0.25);
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -487,6 +596,10 @@ option {
   .tilt-3d { transform: none !important; }
   .animate-float-3d { animation: none !important; }
   .flip-3d-inner { transform: none !important; }
+  .ken-burns, .ken-burns-rev, .ken-burns-slow, .ken-burns-slow-rev, .slide-ken-burns {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
 /* ═══════════════════════════════════════════

@@ -89,6 +89,37 @@ export const IMG = {
   nationalGame: `${P}/national-game.webp`,
 } as const;
 
+// ─── Page hero registry ────────────────────────────────────────────────
+// One curated photo per page hero — chosen so the picture matches the
+// page topic (e.g. "Scoring" shows the closest-ball call, "Court" shows
+// the court). Consumed by the shared PageHero component.
+export const PAGE_HERO = {
+  about: IMG.membersMeet,            // Members' meet — the association itself
+  aboutMission: IMG.award1,          // District awareness camp — mission in action
+  aboutWhatWeDo: IMG.training2,      // Coaching drills — the programmes we run
+  aboutActionPathway: IMG.training5, // Development pathway camp
+  about90DayPlan: IMG.meeting,       // Planning meeting — MAP/MOBILISE/MEASURE
+  athletes: IMG.athlete6,            // Game day — the players
+  boccia: IMG.hero1,                 // National championship court action
+  bocciaHowItWorks: IMG.event4,      // Measure & score — game flow
+  bocciaScoring: IMG.event5,         // Closest ball call — scoring decided here
+  bocciaHistory: IMG.hero2,          // Championship opening — the legacy
+  classification: IMG.athlete4,      // BC2 athlete — sport classes personified
+  competition: IMG.event3,           // State championship — Day 1
+  competitionRules: IMG.event7,      // Pairs championship — rules on court
+  court: IMG.venue1,                 // The official court itself
+  courtEquipment: IMG.venue2,        // Venue & equipment setup
+  courtEquipmentBalls: IMG.training1,// Balls & equipment setup
+  contact: IMG.event1,               // Guest ceremony — meeting people
+  development: IMG.community4,       // Practice session — development
+  donate: IMG.award4,                // Prize distribution — what support enables
+  events: IMG.event8,                // Individual finals — the calendar
+  pathway: IMG.training3,            // Training camp — the journey stages
+  register: IMG.hero4,               // Ramp competition — join the sport
+  resources: IMG.event13,            // Officials on court — official documents
+  myas: IMG.hero5,                   // Championship play — governance backdrop
+} as const;
+
 // ─── Real people (photos provided by JPBA) ──────────────────────────────
 export const PEOPLE = {
   // Players

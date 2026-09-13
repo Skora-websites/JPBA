@@ -1,9 +1,11 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
+
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import RegistrationForm from "@/app/components/RegistrationForm";
+import PageHero from "@/app/components/PageHero";
+import { PAGE_HERO } from "@/lib/images";
 
 export default function ScoringPage() {
   const [showReg, setShowReg] = useState(false);
@@ -13,27 +15,16 @@ export default function ScoringPage() {
       <main className="flex-1">
 
         {/* Hero Section */}
-        <section className="relative pt-[230px] pb-16 min-h-[280px] border-b border-[#C9A84C]/20" style={{ background: "linear-gradient(135deg, #FFF5EB 0%, #FFFFFF 50%, #FDF8EF 100%)" }}>
-          <img src="/images/national-game.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-texture-court pointer-events-none" />
-          <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to right, rgba(253,248,239,0.97) 0%, rgba(253,248,239,0.94) 30%, rgba(253,248,239,0.7) 44%, rgba(253,248,239,0.2) 56%, rgba(253,248,239,0) 70%)"}} />
-          <div className="absolute inset-0 pointer-events-none" style={{background: "linear-gradient(to top, rgba(253,248,239,1) 0%, rgba(253,248,239,0) 30%)"}} />
-<div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="w-16 h-1 bg-[#C9A84C] rounded-full mb-6" />
-                <p className="text-[#B8923A] text-[11px] font-bold tracking-[0.3em] uppercase mb-3">SCORING</p>
-                <h1 className="text-[36px] sm:text-[44px] font-bold text-[#0A2F1D] leading-tight mb-4">Scoring in Boccia</h1>
-                <p className="text-[15px] text-gray-600 max-w-[600px] leading-relaxed">Points per ball closer to the jack.</p>
-              </div>
-              <div className="hidden lg:block">
-                <div className="boccia-parallax boccia-img-container  overflow-hidden shadow-xl border border-[#C9A84C]/20">
-                  <img src="/images/national-game.webp" alt="Boccia balls and scoring" className="w-full h-[350px] object-cover boccia-drift" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+                <PageHero
+          image={PAGE_HERO.bocciaScoring}
+          imageAlt="The referee's closest-ball call that decides a point"
+          eyebrow="SCORING"
+          title={"Scoring in Boccia"}
+          description="Points per ball closer to the jack."
+          breadcrumb={[{"label": "Boccia", "href": "/boccia"}, {"label": "Scoring"}]}
+          size={"sm"}
+          reverse
+        />
 
         <section className="py-16 bg-white">
           <div className="mx-auto max-w-[1000px] px-6 lg:px-10">

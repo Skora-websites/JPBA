@@ -26,9 +26,8 @@ export default function PageHeader({ title, breadcrumb, image = IMG.hero3 }: Pag
       if (img) {
         gsap.fromTo(
           img,
-          { scale: 1.15, yPercent: -4 },
+          { yPercent: -4 },
           {
-            scale: 1,
             yPercent: 4,
             ease: "none",
             scrollTrigger: {
@@ -51,14 +50,16 @@ export default function PageHeader({ title, breadcrumb, image = IMG.hero3 }: Pag
 
   return (
     <div className="relative pt-6 pb-16 overflow-hidden flex items-center bg-[#FDF8EF]">
-      {/* Full background image (real JPBA photo) */}
+      {/* Full background image (real JPBA photo) with slow Ken Burns */}
       <div ref={imgWrapRef} className="absolute inset-0">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={image}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        <div className="absolute inset-0 ken-burns-slow">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={image}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
       </div>
       {/* Boccia court-line texture over the cream side for a premium feel */}
       <div className="absolute inset-0 bg-texture-court pointer-events-none" />
