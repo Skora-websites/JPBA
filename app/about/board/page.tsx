@@ -19,13 +19,13 @@ const officeBearers = [
     desc: "Senior Consultant Physiotherapist and National Coach — combines clinical expertise with hands-on athlete development for JPBA.",
   },
   {
-    role: "Executive Member (Treasurer)",
+    role: "Treasurer",
     name: "Sonu Kumar Sharma",
     img: PEOPLE.treasurer,
     desc: "Manages the association's finances and ensures transparent, accountable operations as JPBA grows across districts.",
   },
   {
-    role: "National Coach",
+    role: "Executive Member",
     name: "Raj Kumar Singh",
     img: PEOPLE.coach,
     desc: "Blind Football Coach and disability-sports activist — prepares the Jharkhand Blind Football Team and drives grassroots para-sports development.",

@@ -1097,13 +1097,13 @@ export default function Home() {
                 },
                 {
                   name: "Sonu Kumar Sharma",
-                  role: "Executive Member · Treasurer",
+                  role: "Treasurer",
                   desc: "Ensures transparent, accountable finances as JPBA grows.",
                   img: PEOPLE.treasurer,
                 },
                 {
                   name: "Raj Kumar Singh",
-                  role: "National Coach",
+                  role: "Executive Member",
                   desc: "Disability-sports activist preparing Jharkhand's blind football & para athletes.",
                   img: PEOPLE.coach,
                 },
