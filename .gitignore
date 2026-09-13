@@ -56,3 +56,4 @@ repomix-output.xml
 # original heavy photos kept local-only (site uses optimized /images)
 /public/jpba images/
 JPBA
+.local-backup/

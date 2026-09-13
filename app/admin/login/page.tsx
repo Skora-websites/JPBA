@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 function LoginForm() {
   const [username, setUsername] = useState("admin");
@@ -105,6 +106,15 @@ function LoginForm() {
               {loading ? "Signing in…" : "Login"}
             </button>
           </form>
+
+          <p className="text-center mt-4">
+            <Link
+              href="/admin/forgot-password"
+              className="text-xs font-semibold text-[#1B4E33] hover:text-[#C9A84C] transition-colors underline underline-offset-4 decoration-[#C9A84C]/40"
+            >
+              Forgot password?
+            </Link>
+          </p>
         </div>
 
         <p className="text-center text-[11px] text-[#8A8A8A] mt-6">

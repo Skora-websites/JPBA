@@ -11,10 +11,15 @@ export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Exact admin-page paths only (never /videos, /api, or other public routes).
-  // /admin/login is excluded; APIs enforce auth themselves.
+  // /admin/login and the password-recovery pages are excluded; APIs enforce
+  // auth themselves.
+  const isPublicAdminPage =
+    pathname === "/admin/login" ||
+    pathname === "/admin/forgot-password" ||
+    pathname === "/admin/reset-password";
   const isAdminPage =
     pathname === "/admin" ||
-    (pathname.startsWith("/admin/") && !pathname.startsWith("/admin/login"));
+    (pathname.startsWith("/admin/") && !isPublicAdminPage);
 
   if (isAdminPage) {
     const hasSession = !!request.cookies.get(SESSION_COOKIE)?.value;

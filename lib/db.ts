@@ -129,6 +129,15 @@ function migrate(db: Database.Database) {
       created_at TEXT NOT NULL DEFAULT (datetime('now'))
     );
 
+    CREATE TABLE IF NOT EXISTS password_resets (
+      token_hash TEXT PRIMARY KEY,
+      admin_id INTEGER NOT NULL REFERENCES admin_users(id) ON DELETE CASCADE,
+      requested_ip TEXT DEFAULT '',
+      created_at TEXT NOT NULL DEFAULT (datetime('now')),
+      expires_at TEXT NOT NULL,
+      used_at TEXT
+    );
+
     CREATE TABLE IF NOT EXISTS registrations (
       id TEXT PRIMARY KEY,
       full_name TEXT NOT NULL,
@@ -155,6 +164,10 @@ function migrate(db: Database.Database) {
   const eventCols = db.prepare("PRAGMA table_info(events)").all() as { name: string }[];
   if (!eventCols.some((c) => c.name === "date_label")) {
     db.exec("ALTER TABLE events ADD COLUMN date_label TEXT DEFAULT ''");
+  }
+  const adminCols = db.prepare("PRAGMA table_info(admin_users)").all() as { name: string }[];
+  if (!adminCols.some((c) => c.name === "recovery_email")) {
+    db.exec("ALTER TABLE admin_users ADD COLUMN recovery_email TEXT DEFAULT ''");
   }
 }
 

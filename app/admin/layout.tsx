@@ -25,14 +25,18 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const [admin, setAdmin] = useState<AdminInfo | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const isLoginPage = pathname.startsWith("/admin/login");
+  // Login + password-recovery pages render standalone (no sidebar, no auth check)
+  const isPublicPage =
+    pathname.startsWith("/admin/login") ||
+    pathname === "/admin/forgot-password" ||
+    pathname.startsWith("/admin/reset-password");
 
   // Only enforce the session check while actually inside /admin/** —
   // public pages must never be bounced by this layout.
   const inAdminArea = pathname.startsWith("/admin");
 
   useEffect(() => {
-    if (!inAdminArea || isLoginPage) return;
+    if (!inAdminArea || isPublicPage) return;
     let cancelled = false;
     fetch("/api/auth/me")
       .then((r) => (r.ok ? r.json() : null))
@@ -47,10 +51,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     return () => {
       cancelled = true;
     };
-  }, [inAdminArea, isLoginPage, router]);
+  }, [inAdminArea, isPublicPage, router]);
 
-  // Login page renders standalone (no sidebar)
-  if (isLoginPage) return <>{children}</>;
+  if (isPublicPage) return <>{children}</>;
 
   const logout = async () => {
     await fetch("/api/auth/logout", { method: "POST" });
